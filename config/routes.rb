@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :operator_profile do
+  resources :operator_profiles do
     resources :proposals
   end
 
