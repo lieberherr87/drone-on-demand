@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_one :operator_profile, dependent: :destroy
 
   has_many :requests, dependent: :destroy
-  has_many :proposals, dependent: :destroy
+  has_many :pending_proposals, through: :requests, source: :proposals #All proposals on user's requests
+
+  has_many :proposals, dependent: :destroy #Created by this user
 end
