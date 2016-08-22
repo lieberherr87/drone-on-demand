@@ -1,6 +1,9 @@
 class Proposal < ApplicationRecord
   belongs_to :user
-  belongs_to :operator_profile
+  belongs_to :request
 
-  has_one :review, dependent: :destroy
+  enum status: [:pending, :rejected, :accepted]
+  #?
+  #!
+  #
 end
