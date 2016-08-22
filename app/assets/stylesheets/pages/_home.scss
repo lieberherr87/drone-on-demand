@@ -1,4 +1,36 @@
+.links{
+    border: 2px white solid;
+    margin-left: 4px;
+    a{
+    color:white !important;
+    }
+  }
 
+  .navbar{
+    z-index: 1;
+    background-color: transparent;
+    .dropdown {
+      border: 2px white solid;
+      a{
+        color: black;
+      }
+      .dropdown-toggle{
+        color:white;
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+/* -------------------------------------
+ * CSS code specific to home page
+ * (margin/padding adjustments)
+ * ------------------------------------- */
 
 /* -------------------------------------
  * CSS code specific to home page
