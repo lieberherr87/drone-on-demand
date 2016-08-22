@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_one :operator_profile, dependent: :destroy
 
 
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
 end
