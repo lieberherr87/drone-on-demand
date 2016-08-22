@@ -1,0 +1,7 @@
+<%= simple_form for @operator_profile do |f| %>
+<%= f.input :company_name %>
+<%= f.input :description %>
+<%= f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :first, :last
+end
+<%= f.input :submit, "Create your Profile" %>
+<% end %>
