@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
 
   has_many :proposals, dependent: :destroy
-  has_many :reviews, through: :bookings
+  has_many :reviews, through: :proposals
   has_one :operator_profile, dependent: :destroy
 end
