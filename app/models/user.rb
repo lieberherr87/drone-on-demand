@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, PhotoUploader
-  has_one :operator_profile
+  has_one :operator_profile, dependent: :destroy
 
 
   has_many :proposals

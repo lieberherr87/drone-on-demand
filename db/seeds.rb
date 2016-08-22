@@ -15,4 +15,11 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
                       avatar: open(File.join(Rails.root, "db/images/#{avatars.sample}.jpg"))
                       )
   puts "Create user #{user.email}"
+
+  if user.pilot?
+    user.create_operator_profile!(company_name: Faker::Company.name,
+                                  description: Faker::Lorem.sentence(3)
+                                )
+    puts "Create operator_profile for #{user.email}"
+  end
 end
