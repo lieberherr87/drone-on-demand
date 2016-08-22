@@ -6,9 +6,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <% if !user_signed_in? %>
+        <%= link_to 'Sign in', new_user_session_path %>
+      <% else %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
