@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822092815) do
+ActiveRecord::Schema.define(version: 20160822101129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20160822092815) do
   create_table "reviews", force: :cascade do |t|
     t.string   "content"
     t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "proposal_id"
+    t.index ["proposal_id"], name: "index_reviews_on_proposal_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,5 +86,6 @@ ActiveRecord::Schema.define(version: 20160822092815) do
   add_foreign_key "operator_profiles", "users"
   add_foreign_key "proposals", "operator_profiles"
   add_foreign_key "proposals", "users"
+  add_foreign_key "reviews", "proposals"
   add_foreign_key "videos", "operator_profiles"
 end
