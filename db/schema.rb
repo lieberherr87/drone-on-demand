@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160822122014) do
+=======
 ActiveRecord::Schema.define(version: 20160822114353) do
+>>>>>>> 7e369da81b7042f2e8bf34ad0e0f54e993a834fc
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160822114353) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "operator_profile_id"
+    t.float    "price_per_day"
     t.index ["operator_profile_id"], name: "index_proposals_on_operator_profile_id", using: :btree
     t.index ["user_id"], name: "index_proposals_on_user_id", using: :btree
   end

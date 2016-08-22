@@ -7,7 +7,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, PhotoUploader
 
 
-  has_many :proposals
-  has_many :reviews, through: :bookings
-  has_one :operator_profile
+  has_many :proposals, dependent: :destroy
+  has_many :reviews, through: :proposals
+  has_one :operator_profile, dependent: :destroy
 end
