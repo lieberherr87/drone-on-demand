@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822114353) do
+ActiveRecord::Schema.define(version: 20160822135551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,8 @@ ActiveRecord::Schema.define(version: 20160822114353) do
     t.string   "content"
     t.string   "status"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "operator_profile_id"
-    t.index ["operator_profile_id"], name: "index_proposals_on_operator_profile_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_proposals_on_user_id", using: :btree
   end
 
@@ -87,7 +85,6 @@ ActiveRecord::Schema.define(version: 20160822114353) do
 
   add_foreign_key "images", "operator_profiles"
   add_foreign_key "operator_profiles", "users"
-  add_foreign_key "proposals", "operator_profiles"
   add_foreign_key "proposals", "users"
   add_foreign_key "reviews", "proposals"
   add_foreign_key "videos", "operator_profiles"

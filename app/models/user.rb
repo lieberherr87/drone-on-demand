@@ -5,9 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, PhotoUploader
+  has_one :operator_profile
 
 
   has_many :proposals
-  has_many :reviews, through: :bookings
-  has_one :operator_profile
 end
