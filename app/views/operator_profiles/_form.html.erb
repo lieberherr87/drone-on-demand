@@ -1,7 +1,6 @@
-<%= simple_form_for @profile do |f| %>
+<%= simple_form_for @operator_profile do |f| %>
 <%= f.input :company_name %>
 <%= f.input :description %>
-
-
+<%= f.collection_check_boxes :skills, [["piloting", 'Piloting'] ,["editing", 'Editing video footage'], ["color correction", "Color correction of footage"]], :first, :last %>
 <%= f.button :submit, "Create your Profile" %>
 <% end %>
