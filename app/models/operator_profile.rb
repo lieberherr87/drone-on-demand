@@ -1,5 +1,5 @@
 class OperatorProfile < ApplicationRecord
   belongs_to :user
-  has_many :videos
-  has_many :images
+  has_many :videos, dependent: :destroy
+  has_many :images, dependent: :destroy
 end
