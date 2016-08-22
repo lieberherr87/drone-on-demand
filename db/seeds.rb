@@ -31,3 +31,12 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
     puts 'Add photos and videos'
   end
 end
+
+User.where(pilot: true).each do |user|
+  user.proposals.create(price: rand(100..200),
+                        content: Faker::Lorem.sentence(3),
+                        request: Request.all.sample
+                        )
+end
+
+puts 'Create proposals'

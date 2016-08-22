@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822144603) do
+ActiveRecord::Schema.define(version: 20160822145106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20160822144603) do
     t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "request_id"
+    t.index ["request_id"], name: "index_proposals_on_request_id", using: :btree
     t.index ["user_id"], name: "index_proposals_on_user_id", using: :btree
   end
 
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160822144603) do
 
   add_foreign_key "images", "operator_profiles"
   add_foreign_key "operator_profiles", "users"
+  add_foreign_key "proposals", "requests"
   add_foreign_key "proposals", "users"
   add_foreign_key "requests", "users"
   add_foreign_key "reviews", "proposals"
