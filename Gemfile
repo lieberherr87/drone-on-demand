@@ -29,7 +29,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#
+
+# Image upload
+gem 'figaro'
+
 # Style
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
