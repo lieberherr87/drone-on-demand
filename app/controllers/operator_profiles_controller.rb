@@ -10,7 +10,7 @@ class OperatorProfilesController < ApplicationController
   end
 
   def create
-    OperatorProfile.create(profile_params)
+    current_user.OperatorProfile.build(profile_params)
   end
 
   def edit
@@ -29,5 +29,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description)
+    params.require(:operator_profile).permit(:company_name, :description, :skills)
+  end
 end
