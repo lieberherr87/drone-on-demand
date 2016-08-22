@@ -6,9 +6,11 @@ class OperatorProfilesController < ApplicationController
   end
 
   def new
+    @profile = OperatorProfile.new
   end
 
   def create
+    OperatorProfile.create(profile_params)
   end
 
   def edit
@@ -19,4 +21,13 @@ class OperatorProfilesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def set_profile
+    @profile = OperatorProfile.find(params[:id])
+  end
+
+  def profile_params
+    params.require(:operator_profile).permit(:company_name, :description)
 end
