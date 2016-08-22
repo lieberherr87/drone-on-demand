@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Image upload
 gem 'figaro'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave'
+
 
 # Style
 gem 'bootstrap-sass'
