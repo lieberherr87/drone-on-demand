@@ -1,49 +1,63 @@
-.container {
-  padding: 15px;
-}
-
-.pages{
-  .date{
-    color:black;
-  }
-  .banner{
-    position:relative;
-    top: -59px;
-    .form{
-      position:relative;
-      bottom:0px;
-    }
-  }
-
-  .lobster{
-    color: white !important;
-  }
-
-  .links{
-    border: 2px white solid;
-    margin-left: 4px;
-    a{
-    color:white !important;
-    }
-  }
-
-  .navbar{
-    z-index: 1;
+// style navbar in the context of the homepage
+.pages.index {
+  .navbar {
     background-color: transparent;
-    .dropdown {
-      border: 2px white solid;
-      a{
-        color: black;
-      }
-      .dropdown-toggle{
-        color:white;
-      }
+  }
+  .navbar-link, .navbar-brand {
+    color: white;
+  }
+  .navbar-link{
+    border: 2px white solid;
+    border-radius: 15%;
+    margin-left: 4px;
+  }
+}
+
+//default navbar styles
+.navbar{
+  z-index: 1;
+  .dropdown {
+    border: 2px white solid;
+    .dropdown-toggle{
+      color:white;
     }
   }
 }
 
+.navbar-link, .navbar-brand {
+  color: black;
+}
 
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.btn {
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.banner{
+  position:relative;
+  top: -59px;
+  .form{
+    position:relative;
+    bottom:0px;
+  }
+}
+
+.orbitron { font-family: 'Orbitron', sans-serif; }
+
+.bg-transparent { background-color: transparent }
+
+.black { color: black; }
+
+.banner-content .btn{
+  color:white;
+  border: 2px white solid;
+  background-color:transparent;
+  height:40px;
+  width:70px;
+  padding:0px;
+}
+
+.row{
+
+}

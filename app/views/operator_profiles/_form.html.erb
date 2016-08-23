@@ -4,3 +4,9 @@
 <%= f.collection_check_boxes :skills, [["piloting", 'Piloting'] ,["editing", 'Editing video footage'], ["color correction", "Color correction of footage"]], :first, :last %>
 <%= f.button :submit, "Create your Profile" %>
 <% end %>
+
+
+<%= simple_form_for @image do |f| %>
+<%= f.input :droneimages %>
+<%= f.button :submit, "Upload images" %>
+<% end %>
