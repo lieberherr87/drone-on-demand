@@ -34,6 +34,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description, :skills)
+    params.require(:operator_profile).permit(:company_name, :description, :skills, {droneimages: []})
   end
 end
