@@ -2,7 +2,13 @@ class ProposalsController < ApplicationController
   before_action :set_proposal
 
   def index
-    @proposals = current_user.proposals
+    if user_signed_in? && current_user.pilot
+      @proposals = Proposal.all
+    elsif user_signed_in? && !current_user.pilot
+      @proposals = current_user.proposals
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
@@ -10,13 +16,13 @@ class ProposalsController < ApplicationController
   end
 
   def new
+    @request = Request.find(params[:request_id])
     @proposal = current_user.proposals.new()
   end
 
   def create
-    #request ID
-    @operator_profile = Operator_profile.find(params[:operator_profile_id])
-    @proposal = @operator_profile.proposals.build(booking_params)
+    @request = Request.find(params[:request_id])
+    @proposal = @request.proposals.build(proposal_params)
     @proposal.user = current_user
     @proposal.save
     redirect_to proposal_path(@proposal)
@@ -26,10 +32,12 @@ class ProposalsController < ApplicationController
   end
 
   def update
+    @proposal.update(proposal_params)
+    redirect_to proposal_path(@proposal)
   end
 
   def destroy
-    @proposals.destroy
+    @proposal.destroy
     redirect_to proposals_path
   end
 
@@ -45,8 +53,8 @@ private
   end
 
   # Only allow a trusted parameter "white list" through.
-  def proposal_param
+  def proposal_params
     params.require(:proposal).permit(:date, :price, :content, :status)
   end
-
 end
+

@@ -23,9 +23,11 @@
           <td><%= request.location %></td>
           <td><%= request.category %></td>
           <td><%= request.due_date %></td>
-          <td><%= link_to 'Show', request_path(request) %> </td>
-          <td><%= link_to 'Edit', edit_request_path(request) %> </td>
-          <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+            <td><%= link_to 'Show', request_path(request) %> </td>
+          <% unless current_user.pilot %>
+            <td><%= link_to 'Edit', edit_request_path(request) %> </td>
+            <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

@@ -1,24 +1,30 @@
 <div class="container">
+
   <h1>Proposal Summary</h1>
   <p>Find the Proposal Details here:</p>
 
-  <p><b>Pilot is: <%= @proposal.operator_profile.user.first_name %></b></p>
-  <%= cl_image_tag @proposal.operator_profile.user.avatar, class:"avatar avatar-large" %>
+  <p><b>Pilot is: <%= @proposal.user.first_name %></b></p>
+  <%= cl_image_tag @proposal.user.avatar, class:"avatar avatar-large" %>
   <p><b>Total Price: </b><%= @proposal.price %> USD</p>
   <p><b>Additional Info: </b><%= @proposal.content %></p>
 
-  <div id="reviews">
-  <% if @proposal.review.blank? %>
-    Be the first to leave a review for <%= @proposal.operator_profile.user.first_name %>
-  <% else %>
-      <%= render 'reviews/show', review: @proposal.review %>
-  <% end %>
-</div>
+  <h2>Request Summary</h2>
+  <p>Find the Request Details here:</p>
 
-  <p><%= link_to 'Back to all Bookings', proposals_path %> </p>
+  <p>Due Date: <b><%= @proposal.request.due_date %></b></p>
+  <p>Location: <%= @proposal.request.location %></p>
+  <p>Details: <%= @proposal.request.details %></p>
+  <p>Category: <%= @proposal.request.category %></p>
+
+  <% unless !current_user.pilot? %>
+     <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+     <p><td><%= link_to 'Edit proposal', edit_proposal_path(@proposal) %> </td></p>
+  <% end %>
   <% unless current_user.pilot? %>
-     <p><td><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %> </td></p>
      <p><td><%= link_to 'Add review', new_proposal_review_path(@proposal) %> </td></p>
   <% end %>
+
+  <p><%= link_to 'Back to all proposals', proposals_path %> </p>
+
 </div>
 

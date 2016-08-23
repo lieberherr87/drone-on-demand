@@ -6,6 +6,7 @@
   <table class= "table table-hover">
     <thead>
       <tr>
+        <th>Location</th>
         <th>Date</th>
         <th>Price</th>
         <th>Status</th>
@@ -16,17 +17,21 @@
     <tbody>
       <% @proposals.each do |proposal| %>
         <tr>
+          <td><%= proposal.request.location %></td>
           <td><%= proposal.date %></td>
           <td><%= proposal.price %></td>
           <td><%= proposal.status %></td>
           <td><%= link_to 'Show', proposal_path(proposal) %> </td>
-        <% unless current_user.pilot? %>
+        <% unless !current_user.pilot? %>
           <td><%= link_to 'Cancel', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-          <td><%= link_to 'Add review', new_proposal_review_path(proposal) %> </td>
+        <% end %>
+        <% unless current_user.pilot? %>
+          <td><%= link_to 'Add review', new_proposal_review_path(request) %> </td>
         <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <td><%= link_to 'Back to requets', requests_path %> </td>
 
 </div>
