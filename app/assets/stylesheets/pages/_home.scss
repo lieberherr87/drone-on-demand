@@ -1,4 +1,25 @@
-.links{
+.container {
+  padding: 15px;
+}
+
+.pages{
+  .date{
+    color:black;
+  }
+  .banner{
+    position:relative;
+    top: -59px;
+    .form{
+      position:relative;
+      bottom:0px;
+    }
+  }
+
+  .lobster{
+    color: white !important;
+  }
+
+  .links{
     border: 2px white solid;
     margin-left: 4px;
     a{
@@ -19,18 +40,8 @@
       }
     }
   }
+}
 
-
-
-
-
-
-
-
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
 
 /* -------------------------------------
  * CSS code specific to home page
