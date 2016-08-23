@@ -12,6 +12,7 @@ class OperatorProfilesController < ApplicationController
 
   def new
     @profile = OperatorProfile.new
+    @profile.operator_skills.build
   end
 
   def create
@@ -39,6 +40,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []})
+    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []}, {:skill_ids => []})
   end
 end

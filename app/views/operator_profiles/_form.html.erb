@@ -1,7 +1,9 @@
 <%= simple_form_for @profile do |f| %>
 <%= f.input :company_name %>
 <%= f.input :description, as: :text, input_html: {rows: 4} %>
-<%= f.collection_check_boxes :skills, [["piloting", 'Piloting'] ,["editing", 'Editing video footage'], ["color correction", "Color correction of footage"]], :first, :last %>
+<label>Skills</label>
+<br>
+<%= f.association :skills, as: :check_boxes, collection: Skill.all %>
 <%= f.file_field :images, multiple: :true %>
-<%= f.button :submit, "Create your Profile" %>
+<%= f.button :submit, "Create your profile" %>
 <% end %>

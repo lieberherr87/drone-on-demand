@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823103535) do
+ActiveRecord::Schema.define(version: 20160823140858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20160823103535) do
     t.string   "skills"
     t.json     "images"
     t.index ["user_id"], name: "index_operator_profiles_on_user_id", using: :btree
+  end
+
+  create_table "operator_skills", force: :cascade do |t|
+    t.integer  "operator_profile_id"
+    t.integer  "skill_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["operator_profile_id"], name: "index_operator_skills_on_operator_profile_id", using: :btree
+    t.index ["skill_id"], name: "index_operator_skills_on_skill_id", using: :btree
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -67,6 +76,12 @@ ActiveRecord::Schema.define(version: 20160823103535) do
     t.index ["proposal_id"], name: "index_reviews_on_proposal_id", using: :btree
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -99,6 +114,8 @@ ActiveRecord::Schema.define(version: 20160823103535) do
 
   add_foreign_key "images", "operator_profiles"
   add_foreign_key "operator_profiles", "users"
+  add_foreign_key "operator_skills", "operator_profiles"
+  add_foreign_key "operator_skills", "skills"
   add_foreign_key "proposals", "requests"
   add_foreign_key "proposals", "users"
   add_foreign_key "requests", "users"
