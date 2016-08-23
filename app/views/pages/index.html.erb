@@ -6,62 +6,97 @@
   </div>
 </div>
 
+
+
+<!-- categories -->
+
+<!-- <div class="text-center padded features">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-3 col1">
+        <h3>Sports events</h3>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3 col2">
+        <h3> Formal </h3>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3 col3">
+        <h3> raw footage </h3>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3 col4">
+        <h3>Nightlife</h3>
+      </div>
+    </div>
+  /div>
+  </div> -->
+
+
 <!-- How does it work? Customer -->
 
-<div class="container">
-<h2 class="text-center">How does it work?</h2>
+<div class="banner2" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
-    <h3>As a customer</h3>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-         <img src="assets/sign_up.png" alt="thumps">
-        <h3>Sign up</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/request.png" alt="request">
-        <h3>Make a request</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/mailbox.png" alt="mailbox">
-        <h3>Get offers</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/offer.png" alt="offer">
-        <h3>Choose best offer</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
+      <div class='col-xs-12'>
+        <h2 class="banner2title orbitron">How it works</h2>
+        <h3 class="banner2title orbitron"> As a cutomer </h3>
+        <div class="container inline">
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/sign.png" alt="thumps">
+            <h4>Sign in</h4>
+            <p> Create your account, make your drone experience better</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/drone.png">
+            <h4>Make a request</h4>
+            <p> State the date and location of the job</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/check.png">
+            <h4>Choose best offer</h4>
+            <p> Chose a pilot's offer, and book!</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+          <%= link_to new_user_registration_path, class: "black" do%>
+          <%= image_tag 'arrow.png' %>
+          <h4> Not a user? Sign up! </h4>
+          <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- How does it work? Drone Pilot -->
-<div class="container">
+<div class="banner3" id='as-a-pilot'>
   <div class="text-center padded features">
     <div class="row">
-     <h3>As a drone pilot</h3>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/sign_up.png" alt="thumps">
-        <h3>Sign up</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/mailbox.png" alt="mailbox">
-        <h3>Get requests</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/offer.png" alt="offer">
-        <h3>Make an offer</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3">
-        <img src="assets/money.png" alt="money">
-        <h3>Get drone jobs</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, velit placeat. Ea cum laudantium nulla, mollitia temporibus repellat deleniti veritatis.</p>
+      <div class='col-xs-12'>
+        <h2 class="banner3title orbitron">How it works</h2>
+        <h3 class="banner3title orbitron"> As a drone pilot </h3>
+        <div class="container inline">
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/sign.png" alt="thumps">
+            <h4 class="white">Sign in</h4>
+            <p class="white"> Create your account, make your drone experience better.</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/drone.png">
+            <h4 class="white">Get a request</h4>
+            <p class="white"> Get a date and a location, accept or deny the job.</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+            <img src="assets/mon.png">
+            <h4 class="white">Make an offer</h4>
+            <p class="white"> Answer a request, offer your price.</p>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-3">
+          <%= link_to new_user_registration_path, class: "black" do%>
+          <%= image_tag 'arrow.png' %>
+          <h4 class="white"> Not a user? Sign up! </h4>
+          <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
