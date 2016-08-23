@@ -8,7 +8,7 @@
   }
   .navbar-link{
     border: 2px white solid;
-    border-radius: 15%;
+    border-radius: 5px;
     margin-left: 4px;
   }
 }
@@ -47,22 +47,14 @@
 
 .bg-transparent { background-color: transparent }
 .bg-white { background-color: white; }
-.black { color: black; }
-.white { color: white; }
+.black { color: black!important; }
+.white { color: white!important; }
 
 .black:hover{
   color: #1c2833;
   text-decoration: none;
 }
 
-.banner-content .btn{
-  color:white;
-  border: 2px white solid;
-  background-color:transparent;
-  height:40px;
-  width:70px;
-  padding:0px;
-}
 
 body{
   background-color:  #d5d8dc ;
@@ -105,3 +97,28 @@ body{
   margin-left: 80px;
 }
 
+.hi{
+  border: 2px white solid;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding:15px;
+}
+
+.banner-content.btn{
+  text-align: center;
+}
+
+.col-xs-12{
+  text-align: center;
+}
+
+.fixed{
+  position: fixed;
+  bottom: 10px;
+  right:10px;
+  z-index: 2;
+  img{
+    height:90px;
+    width:90px;
+  }
+}
