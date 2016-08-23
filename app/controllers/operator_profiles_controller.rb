@@ -1,8 +1,9 @@
 class OperatorProfilesController < ApplicationController
 
-  before_action :set_profile, only: [:show]
+  # before_action :set_profile, only: [:show, :edit]
 
   def index
+    @operator_profiles = OperatorProfile.all
   end
 
   def show
@@ -13,11 +14,14 @@ class OperatorProfilesController < ApplicationController
   end
 
   def create
-    @profile = current_user.operator_profile.build(profile_params)
+    @profile = OperatorProfile.new(profile_params)
+    @profile.user = current_user
     @profile.save
+    raise
   end
 
   def edit
+    @profile =  current_user.operator_profile
   end
 
   def update
@@ -29,7 +33,7 @@ class OperatorProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = OperatorProfile.find(params[:id])
+    @profile = OperatorProfile.find([:id])
   end
 
   def profile_params
