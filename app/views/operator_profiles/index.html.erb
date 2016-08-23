@@ -1,2 +1,21 @@
-<h1>OperatorProfiles#index</h1>
-<p>Find me in app/views/operator_profiles/index.html.erb</p>
+<div class="container">
+  <h1>OperatorProfiles#index</h1>
+  <p>Find me in app/views/operator_profiles/index.html.erb</p>
+
+  <table class="table table-hover">
+    <thead>
+    <th colspan="3"></th>
+    </thead>
+    <tbody>
+        <% @operator_profiles.each do |profile| %>
+      <tr>
+        <td><%= profile.company_name %></td>
+        <td><%= profile.description %></td>
+        <td><%= profile.skills %></td>
+        <td><%= link_to "Show", operator_profile_path(:id) %></td>
+        <td><%= link_to "Edit", edit_operator_profile_path(profile) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -36,6 +36,9 @@ gem 'cloudinary', '1.1.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 
 
+#Authorization
+gem "pundit"
+
 
 # Style
 gem 'bootstrap-sass'

@@ -1,2 +1,11 @@
-<h1>OperatorProfiles#show</h1>
-<p>Find me in app/views/operator_profiles/show.html.erb</p>
+<div class="container">
+  <h1><%= @profile.company_name %>'s Profile</h1>
+  <p>Check out our Profile. We're ready to amaze you!</p>
+
+  <h2><%= @profile.company_name %></h2>
+  <p><%= @profile.description %></p>
+
+  <%= cl_image_tag @profile.images.first, height: 300, width: 400, crop: :fill %>
+
+
+</div>

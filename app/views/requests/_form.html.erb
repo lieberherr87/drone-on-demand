@@ -1,0 +1,18 @@
+<%= simple_form_for @request do |f| %>
+  <div class="form-inputs">
+    <p> Until when do you need your drone images? </p>
+    <%= f.input :due_date, required: true, autofocus: true %>
+    <%= f.input :location, required: true %>
+    <p> Do you have any special requests? </p>
+    <%= f.input :details, as: :text %>
+    <p> What do you need the images for? </p>
+    <%= f.input :category do %>
+      <%= f.select :category, collection: Request::CATEGORIES %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Submit Request" %>
+  </div>
+<% end %>
+
