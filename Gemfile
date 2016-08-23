@@ -35,6 +35,9 @@ gem 'figaro'
 gem 'cloudinary', '1.1.0'
 gem 'carrierwave'
 
+#Authorization
+gem "pundit"
+
 
 # Style
 gem 'bootstrap-sass'

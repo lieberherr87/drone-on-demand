@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Request Summary</h1>
+  <p>Find the Request Details here:</p>
+
+
+  <p>Due Date: <b><%= @request.due_date %></b></p>
+  <p>Location: <%= @request.location %></p>
+  <p>Details: <%= @request.details %></p>
+  <p>Category: <%= @request.category %></p>
+
+  <p><%= link_to 'Edit', edit_request_path %></p>
+  <p><%= link_to 'Back to all Requests', requests_path %></p>
+
+</div>
+
+
+
