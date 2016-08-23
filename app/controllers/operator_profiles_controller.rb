@@ -13,7 +13,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def create
-
     @profile = current_user.operator_profile.build(profile_params)
     @profile.save
   end
@@ -34,6 +33,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description, :skills, {droneimages: []})
+    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []})
   end
 end
