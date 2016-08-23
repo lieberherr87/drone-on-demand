@@ -8,12 +8,15 @@
   <p><b>Additional Info: </b><%= @proposal.content %></p>
 
   <div id="reviews">
-  <% if @proposal.review.blank? %>
+    <% if @proposal.review.blank? %>
     Be the first to leave a review for <%= @proposal.operator_profile.user.first_name %>
-  <% else %>
+    <% else %>
       <%= render 'reviews/show', review: @proposal.review %>
-  <% end %>
-</div>
+    <% end %>
+    <div class="rating">
+      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+    </div>
+  </div>
 
   <p><%= link_to 'Back to all Bookings', proposals_path %> </p>
   <% unless current_user.pilot? %>
