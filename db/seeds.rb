@@ -18,7 +18,7 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
 
   if !user.pilot?
     user.requests.create!(location: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.zip} #{Faker::Address.country}",
-                          due_date: Date.today + rand(1..10).days)
+                          due_date: Date.today + rand(1..10).days, category: 'marketing')
   else
     operator_profile = user.create_operator_profile!(company_name: Faker::Company.name,
                                                      description: Faker::Lorem.sentence(3)
@@ -26,7 +26,7 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
     puts "Create operator_profile for #{user.email}"
     3.times do
       operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=XQu8TTBmGhA')
-      operator_profile.images.create!(url: 'http://lorempixel.com/400/200/city')
+      # operator_profile.images.create!(url: 'http://lorempixel.com/400/200/city')
     end
     puts 'Add photos and videos'
   end
