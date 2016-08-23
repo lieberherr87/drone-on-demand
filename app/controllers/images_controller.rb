@@ -3,5 +3,13 @@ class ImagesController < ApplicationController
   end
 
   def create
+
   end
+
+private
+  def image_params
+    params.require(:image).permit({droneimages: []})
+  end
+
+
 end
