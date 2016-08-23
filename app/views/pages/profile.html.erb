@@ -1,0 +1,51 @@
+<div class='container'>
+
+  <h1>Profile</h1>
+  <hr>
+  <table class='table table-hover'>
+      <tr>
+        <td>
+          <strong>First Name</strong>
+        </td>
+        <td>
+          <%= @user.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Last Name</strong>
+        </td>
+        <td>
+          <%= @user.last_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Email address</strong>
+        </td>
+        <td>
+          <%= @user.email %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Address</strong>
+        </td>
+        <td>
+          <%= @user.address %>
+        </td>
+      </tr>
+  </table>
+
+  <% if @user.pilot %>
+    <h1>Pilot details</h1>
+    <hr>
+    <% if @user.operator_profile %>
+      <!-- display profile info -->
+    <% else %>
+      <%= link_to "Add pilot details", new_operator_profile_path, class: 'btn btn-md btn-primary' %>
+    <% end %>
+  <% end %>
+</div>
+
+

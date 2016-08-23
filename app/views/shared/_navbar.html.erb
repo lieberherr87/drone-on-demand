@@ -53,10 +53,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li> <%= link_to "Profile", edit_user_registration_path %></li>
-              <li> <% if current_user.proposal %> </li>
-                <li> <%= link_to "Edit proposal", edit_proposal_path(current_user.proposal.id) %> </li>
-              <li> <% end %> </li>
-              <li> <%= link_to "My Bookings", bookings_path %> </li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
