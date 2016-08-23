@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :operator_profile do
-    resources :proposals
-  end
+  resources :operator_profiles
 
   resources :proposals do
     resources :reviews
+  end
+
+  resources :requests do
+    resources :proposals
   end
 
   devise_for :users

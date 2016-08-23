@@ -30,7 +30,23 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Image upload
+gem 'figaro'
+gem 'cloudinary', '1.1.0'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
+
+
+# Style
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'simple_form'
+gem 'autoprefixer-rails'
+
 gem 'devise'
+
+#Generate fake info for the seed
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
