@@ -46,8 +46,14 @@
 .orbitron { font-family: 'Orbitron', sans-serif; }
 
 .bg-transparent { background-color: transparent }
-
+.bg-white { background-color: white; }
 .black { color: black; }
+.white { color: white; }
+
+.black:hover{
+  color: #1c2833;
+  text-decoration: none;
+}
 
 .banner-content .btn{
   color:white;
@@ -58,6 +64,44 @@
   padding:0px;
 }
 
-.row{
-
+body{
+  background-color:  #d5d8dc ;
 }
+
+#as-a-customer{
+  background-image: url("drone1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -81px;
+}
+
+#as-a-pilot{
+  background-image: url("pilots.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -81px;
+}
+
+.col-lg-3{
+  padding-top: 150px;
+}
+
+.container{
+  img{
+  height:100px;
+  width: 100px;
+  }
+}
+
+.banner2title{
+  text-align:left;
+  margin-left: 80px;
+}
+
+.banner3title{
+  text-align:left;
+  margin-left: 80px;
+}
+
