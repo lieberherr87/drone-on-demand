@@ -1,9 +1,14 @@
-<%= simple_form_for @profile do |f| %>
+<%= simple_form_for @profile, html: {multipart: true} do |f| %>
 <%= f.input :company_name %>
 <%= f.input :description, as: :text, input_html: {rows: 4} %>
 <label>Skills</label>
 <br>
 <%= f.association :skills, as: :check_boxes, collection: Skill.all %>
-<%= f.file_field :images, multiple: :true %>
+<%= f.simple_fields_for :images do |p| %>
+     <div class="field">
+       <%= p.label :image %><br>
+       <%= p.file_field :image, :multiple => true, name: "images[image][]" %>
+     </div>
+   <% end %>
 <%= f.button :submit, "Create your profile" %>
 <% end %>

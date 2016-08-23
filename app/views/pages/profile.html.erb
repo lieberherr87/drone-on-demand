@@ -41,7 +41,8 @@
     <h1>Pilot details</h1>
     <hr>
     <% if @user.operator_profile %>
-      <!-- display profile info -->
+      <%= cl_image_tag @user.operator_profile.images.first.image %>
+
     <% else %>
       <%= link_to "Create pilot profile", new_operator_profile_path, class: 'btn btn-md btn-primary' %>
     <% end %>

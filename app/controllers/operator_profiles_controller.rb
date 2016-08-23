@@ -13,13 +13,16 @@ class OperatorProfilesController < ApplicationController
   def new
     @profile = OperatorProfile.new
     @profile.operator_skills.build
+    @images = @profile.images.build
   end
 
   def create
     @profile = OperatorProfile.new(profile_params)
     @profile.user = current_user
-    raise
     @profile.save
+    params[:images]['image'].each do |a|
+      @image = @profile.images.create!(:image => a)
+    end
   end
 
   def edit
@@ -41,6 +44,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []}, :images_cache, {:skill_ids => []})
+    params.require(:operator_profile).permit(:company_name, :description, :skills, {:skill_ids => []}, images_attributes: [:id, :image])
   end
 end
