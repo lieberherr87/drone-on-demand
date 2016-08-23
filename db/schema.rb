@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823082942) do
+ActiveRecord::Schema.define(version: 20160823084605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.string   "url"
     t.integer  "operator_profile_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.json     "droneimages"
     t.index ["operator_profile_id"], name: "index_images_on_operator_profile_id", using: :btree
   end
 
