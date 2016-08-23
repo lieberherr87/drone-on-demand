@@ -14,6 +14,7 @@ class ProposalsController < ApplicationController
   end
 
   def create
+    #request ID
     @operator_profile = Operator_profile.find(params[:operator_profile_id])
     @proposal = @operator_profile.proposals.build(booking_params)
     @proposal.user = current_user
