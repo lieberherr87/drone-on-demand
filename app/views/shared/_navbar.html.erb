@@ -45,9 +45,7 @@
           <li><%= link_to "Log in", new_user_session_path, class: 'navbar-link' %></li>
         <% end %>
 
-        <% if user_signed_in? && current_user.facebook_picture_url %>
-          <%= image_tag current_user.facebook_picture_url, height: 55, width: 55 %>
-        <% elsif user_signed_in? && current_user.image %>
+        <% if user_signed_in? && current_user.image %>
           <%= image_tag current_user.image, height: 55, width: 55 %>
         <% end %>
         <% if user_signed_in? %>
