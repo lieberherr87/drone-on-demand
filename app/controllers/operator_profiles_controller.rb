@@ -9,12 +9,12 @@ class OperatorProfilesController < ApplicationController
   end
 
   def new
-    @operator_profile = OperatorProfile.new
+    @profile = OperatorProfile.new
   end
 
   def create
 
-    @operator_profile = current_user.operator_profile.build(profile_params)
+    @profile = current_user.operator_profile.build(profile_params)
     @profile.save
   end
 
