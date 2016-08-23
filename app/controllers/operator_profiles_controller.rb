@@ -18,6 +18,7 @@ class OperatorProfilesController < ApplicationController
   def create
     @profile = OperatorProfile.new(profile_params)
     @profile.user = current_user
+    raise
     @profile.save
   end
 
@@ -40,6 +41,6 @@ class OperatorProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []}, {:skill_ids => []})
+    params.require(:operator_profile).permit(:company_name, :description, :skills, {images: []}, :images_cache, {:skill_ids => []})
   end
 end
