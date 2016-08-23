@@ -4,6 +4,10 @@ class RequestsController < ApplicationController
   def index
     if user_signed_in? && current_user.pilot
       @requests = Request.all
+    elsif user_signed_in? && !current_user.pilot
+      @requests = current_user.requests
+    else
+      redirect_to new_user_session_path
     end
   end
 
@@ -25,17 +29,16 @@ class RequestsController < ApplicationController
   end
 
   def edit
-    @request = current_user.request
   end
 
   def update
-    @request = current_user.request.update(request_params)
+    @request.update(request_params)
     redirect_to requests_path
   end
 
   def destroy
-    @request = current_user.request.destroy
-    redirect_to new_request_path
+    @request.destroy
+    redirect_to requests_path
   end
 
   private
