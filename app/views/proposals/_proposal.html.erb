@@ -1,0 +1,22 @@
+<!-- List of all Proposals-->
+
+
+<div class="container">
+  <h1>List of all Proposals</h1>
+  <% @request.proposals.each do |proposal| %>
+  <div class="col-md-2 col-xs-4">
+    <div class="text-box">
+    <%= link_to proposal do %>
+    <%= cl_image_tag proposal.user.avatar, class:"avatar avatar-square" %>
+      <div class="avatar-name">
+        <p><%= proposal.user.first_name %></p>
+      </div>
+      <div class="avatar-description">
+        <p><b><%= proposal.price %> USD</b></p>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+

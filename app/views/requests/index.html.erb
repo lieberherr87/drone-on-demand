@@ -25,13 +25,19 @@
           <td><%= request.due_date %></td>
             <td><%= link_to 'Show', request_path(request) %> </td>
           <% unless current_user.pilot %>
-            <td><%= link_to 'Edit', edit_request_path(request) %> </td>
-            <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+
+            <% if policy(request).update? %>
+              <td><%= link_to 'Edit', edit_request_path(request) %> </td>
+            <% end %>
+            <% if policy(request).destroy? %>
+              <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+            <% end %>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <%= link_to 'Add Request', new_request_path %>
 
 </div>
 

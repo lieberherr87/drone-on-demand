@@ -8,13 +8,21 @@
   <p>Details: <%= @request.details %></p>
   <p>Category: <%= @request.category %></p>
 
+
+
   <% if current_user.pilot %>
-      <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
+    <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
   <% end %>
 
-    <% unless current_user.pilot %>
+  <% if !current_user.pilot %>
+    <%= render "proposals/proposal" %>
+  <% end %>
+
+    <% if policy(@request).update? %>
       <p><%= link_to 'Edit', edit_request_path %></p>
-      <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+    <% end %>
+    <% if policy(@request).destroy? %>
+      <p><%= link_to 'Cancel', request_path(@request), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
   <p><%= link_to 'Back to all Requests', requests_path %></p>
 
