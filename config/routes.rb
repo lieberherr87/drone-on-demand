@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   get '/profile' => 'pages#profile'
   resources :operator_profiles
 
-  resources :proposals do
-    resources :reviews
+  resources :requests do
+    resources :proposals, only: [:create, :new]
   end
 
-  resources :requests do
-    resources :proposals
+  resources :proposals, except: [:create, :new] do
+      resources :reviews
   end
 
   devise_for :users

@@ -1,6 +1,6 @@
 class Request < ApplicationRecord
   belongs_to :user
-  has_many :proposals
+  has_many :proposals, dependent: :destroy
 
   CATEGORIES = %w(marketing event architectural)
   validates :location, presence: true

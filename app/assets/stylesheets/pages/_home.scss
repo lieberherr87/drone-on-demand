@@ -2,7 +2,18 @@
 .pages.index {
   .navbar {
     background-color: transparent;
+    .dropdown {
+      border: 2px white solid;
+      .dropdown-toggle{
+        color:white;
+      }
+    }
   }
+
+  .otherlinks{
+    color:white;
+  }
+
   .navbar-link, .navbar-brand {
     color: white;
   }
@@ -16,12 +27,6 @@
 //default navbar styles
 .navbar{
   z-index: 1;
-  .dropdown {
-    border: 2px white solid;
-    .dropdown-toggle{
-      color:white;
-    }
-  }
 }
 
 .navbar-link, .navbar-brand {
@@ -104,6 +109,11 @@ body{
   padding:15px;
 }
 
+.hi:hover{
+  text-decoration: none;
+  background-color: gray;
+}
+
 .banner-content.btn{
   text-align: center;
 }
@@ -118,7 +128,11 @@ body{
   right:10px;
   z-index: 2;
   img{
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
   }
+}
+
+.userlink:hover{
+  text-decoration: underline;
 }
