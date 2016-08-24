@@ -16,16 +16,7 @@
   <p>Details: <%= @proposal.request.details %></p>
   <p>Category: <%= @proposal.request.category %></p>
 
-<!--   <div id="reviews">
-    <% if @proposal.review.blank? %>
-    Be the first to leave a review for <%= @proposal.operator_profile.user.first_name %>
-    <% else %>
-      <%= render 'reviews/show', review: @proposal.review %>
-    <% end %>
-    <div class="rating">
-      <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-    </div>
-  </div> -->
+
 
   <% unless !current_user.pilot? %>
      <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
