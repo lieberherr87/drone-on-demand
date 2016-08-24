@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :pending_proposals, through: :requests, source: :proposals #All proposals on user's requests
   has_many :proposals, dependent: :destroy #Created by this user
 
-  def applied_for?(request)
+  def not_applied?(request)
     self.proposals.find_by(request_id: request.id).nil?
   #is there a proposal from the current_user for a specific request
   end
