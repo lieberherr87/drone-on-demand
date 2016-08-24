@@ -17,12 +17,12 @@
       <%= link_to 'Accept!', accept_proposal_path(@proposal), class: 'btn btn-success', method: :post, data: { confirm: 'Are you sure?' } %>
       <%= link_to 'Decline!', decline_proposal_path(@proposal), class: 'btn btn-danger', method: :post, data: { confirm: 'Are you sure?' } %>
     <% end %>
+
     <% if @proposal.accepted? %>
       <p class="green"><b>This proposal has been accepted!</b></p>
     <% elsif @proposal.rejected? %>
       <p class="red"><b>This proposal has been declined!</b></p>
     <% end %>
-
 
     <% if !current_user.pilot? && @proposal.accepted? %>
       <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
