@@ -34,11 +34,13 @@ class RequestsController < ApplicationController
   def update
     @request.update(request_params)
     redirect_to requests_path
+    authorize @request
   end
 
   def destroy
     @request.destroy
     redirect_to requests_path
+    authorize @request
   end
 
   private

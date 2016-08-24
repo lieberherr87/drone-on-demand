@@ -1,7 +1,7 @@
 <!-- Homepage Banner Video -->
-<div class="banner">
+<div class="banner" style="height: 740px">
   <div class="banner-content">
-  <h1>Welcome to drone it!</h1>
+    <h1>Welcome to Droneit!</h1>
     <p>Hire a drone pilot!</p>
     <div class="btn">
       <a data-scroll href="#bazinga" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
@@ -15,52 +15,32 @@
 </div>
 
 
-<!-- categories -->
-
-<!-- <div class="text-center padded features">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-3 col1">
-        <h3>Sports events</h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col2">
-        <h3> Formal </h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col3">
-        <h3> raw footage </h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col4">
-        <h3>Nightlife</h3>
-      </div>
-    </div>
-  /div>
-  </div> -->
-
 
 <!-- How does it work? Customer -->
 <span id="bazinga"></span>
-<div class="banner2" id='as-a-customer'>
+<div class="banner2 container-fluid" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
       <div class='col-xs-12'>
         <h2 class="banner2title orbitron">How it works</h2>
         <h3 class="banner2title orbitron"> As a cutomer </h3>
-        <div class="container inline">
+        <div class="container inline1" style="position: relative; top: 64px;">
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/sign.png" alt="thumps">
-            <h4>Sign in</h4>
-            <p> Create your account, make your drone experience better</p>
+            <%= image_tag 'sign.png' %>
+            <h4 class="black">Sign in</h4>
+            <p class="black"> Use your own account, make your drone experience better</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/drone.png">
-            <h4>Make a request</h4>
-            <p> State the date and location of the job</p>
+            <%= image_tag 'drone.png' %>
+            <h4 class="black">Make a request</h4>
+            <p class="black">State the date and location of the job</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/check.png">
-            <h4>Choose best offer</h4>
-            <p> Chose a pilot's offer, and book!</p>
+            <%= image_tag 'check.png' %>
+            <h4 class="black">Choose best offer</h4>
+            <p class="black"> Choose a pilot's offer, and book!</p>
           </div>
-          <div class="col-xs-12 col-md-4 col-lg-3">
+          <div class="col-xs-12 col-md-4 col-lg-3 userlink">
           <%= link_to new_user_registration_path, class: "black" do%>
           <%= image_tag 'arrow.png' %>
           <h4> Not a user? Sign up! </h4>
@@ -74,29 +54,29 @@
 
 <!-- How does it work? Drone Pilot -->
 <span id="bazinga2"></span>
-<div class="banner3" id='as-a-pilot'>
+<div class="banner3 container-fluid" id='as-a-pilot'>
   <div class="text-center padded features">
     <div class="row">
       <div class='col-xs-12'>
         <h2 class="banner3title orbitron">How it works</h2>
         <h3 class="banner3title orbitron"> As a drone pilot </h3>
-        <div class="container inline">
+        <div class="container inline1" style="position: relative; top: 64px;">
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/sign.png" alt="thumps">
+            <%= image_tag 'sign.png' %>
             <h4 class="white">Sign in</h4>
-            <p class="white"> Create your account, make your drone experience better.</p>
+            <p class="white"> Update your profile, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/drone.png">
+            <%= image_tag 'drone.png' %>
             <h4 class="white">Get a request</h4>
             <p class="white"> Get a date and a location, accept or deny the job.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <img src="assets/mon.png">
+            <%= image_tag 'mon.png' %>
             <h4 class="white">Make an offer</h4>
             <p class="white"> Answer a request, offer your price.</p>
           </div>
-          <div class="col-xs-12 col-md-4 col-lg-3">
+          <div class="col-xs-12 col-md-4 col-lg-3 white userlink">
           <%= link_to new_user_registration_path, class: "black" do%>
           <%= image_tag 'arrow.png' %>
           <h4 class="white"> Not a user? Sign up! </h4>
@@ -107,4 +87,38 @@
     </div>
   </div>
 </div>
+
+
+<div class="container1 bg-white">
+  <div class="col-xs-12 col-md-8 col-lg-8 top-pilots">
+    <div class="text-center" style="padding-top: 40px">
+      <h3 class="orbitron">Top Rated Pilots</h3>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4 col-lg-4">
+    <div class="text-center topdescription">
+    <p> Hire the top rated pilots according to your preferences in editing, color correction, and photography type! </p>
+    <h3 class="orbitron"> Looking for more? </h3>
+    <%= link_to 'View all', operator_profiles_path %>
+  </div>
+  </div>
+
+</div>
+
+
+
+
+
 

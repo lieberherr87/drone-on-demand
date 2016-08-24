@@ -2,7 +2,18 @@
 .pages.index {
   .navbar {
     background-color: transparent;
+    .dropdown {
+      border: 2px white solid;
+      .dropdown-toggle{
+        color:white;
+      }
+    }
   }
+
+  .otherlinks{
+    color:white;
+  }
+
   .navbar-link, .navbar-brand {
     color: white;
   }
@@ -16,12 +27,6 @@
 //default navbar styles
 .navbar{
   z-index: 1;
-  .dropdown {
-    border: 2px white solid;
-    .dropdown-toggle{
-      color:white;
-    }
-  }
 }
 
 .navbar-link, .navbar-brand {
@@ -78,6 +83,7 @@ body{
 
 .col-lg-3{
   padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .container{
@@ -104,6 +110,11 @@ body{
   padding:15px;
 }
 
+.hi:hover{
+  text-decoration: none;
+  background-color: gray;
+}
+
 .banner-content.btn{
   text-align: center;
 }
@@ -118,7 +129,75 @@ body{
   right:10px;
   z-index: 2;
   img{
-    height:90px;
-    width:90px;
+    height:60px;
+    width:60px;
   }
 }
+
+.userlink:hover{
+  text-decoration: underline;
+}
+
+
+
+// Style for the top rated pilots
+
+
+.container1{
+  height: 530px;
+  background-color:white;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 80px;
+}
+
+.top-pilots{
+  background-image: url('toprated.jpg');
+}
+
+.pilot{
+  margin-bottom:73px;
+  margin-top: 54px;
+}
+
+.topdescription{
+  p{
+    font-size: 30px;
+    position:relative;
+    bottom: -81px;
+  }
+
+  h3{
+    position:relative;
+    bottom:-160px;
+  }
+
+  a{
+    position: relative;
+    bottom: -185px;
+    text-decoration:none;
+    color:black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  a:hover{
+      text-decoration: underline;
+    }
+}
+
+// style for the cards with the top users
+
+
+// .card{
+//   background-image: image-url('banner_placeholder.jpg');
+//   height: 300px;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   color: white;
+//   margin-top: -140px;
+//   margin-left: 5px;
+
+
+// }
