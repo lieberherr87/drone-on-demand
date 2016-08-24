@@ -12,10 +12,6 @@
       <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
       <p><td><%= link_to 'Edit proposal', edit_proposal_path(@proposal) %></td></p>
     <% end %>
-    <% if current_user.pilot? %>
-      <p><%= link_to 'Back to all proposals', proposals_path %></p>
-    <% end %>
-
 
     <% if !current_user.pilot? && @proposal.pending? %>
       <%= link_to 'Accept!', accept_proposal_path(@proposal), class: 'btn btn-success', method: :post, data: { confirm: 'Are you sure?' } %>
@@ -29,9 +25,11 @@
 
 
     <% if !current_user.pilot? && @proposal.accepted? %>
-      <p><td><%= link_to 'Add review', new_proposal_review_path(@proposal) %></td></p>
+      <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
     <% elsif !current_user.pilot? %>
-      <p><td><%= link_to 'Back to request', requests_path %> </td></p>
+      <p><%= link_to 'Back to request', requests_path %></p>
+    <% elsif current_user.pilot? %>
+      <p><%= link_to 'Back to all proposals', proposals_path %></p>
     <% end %>
 
   </div>
