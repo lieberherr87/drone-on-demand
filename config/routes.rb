@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/profile' => 'pages#profile'
   resources :operator_profiles
 
   resources :proposals do
