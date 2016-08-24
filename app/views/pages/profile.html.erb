@@ -37,16 +37,8 @@
       </tr>
   </table>
 
-  <% if @user.pilot %>
-    <h1>Pilot details</h1>
-    <hr>
-    <% if @user.operator_profile %>
-      <%= cl_image_tag @user.operator_profile.images.first.image %>
+  <p class="black" style="text-decoration:none"><%= link_to 'Edit Profile', edit_user_registration_path %></p>
+  </div>
 
-    <% else %>
-      <%= link_to "Create pilot profile", new_operator_profile_path, class: 'btn btn-md btn-primary' %>
-    <% end %>
-  <% end %>
-</div>
 
 

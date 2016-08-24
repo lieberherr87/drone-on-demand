@@ -4,20 +4,20 @@
     <h1>Welcome to Droneit!</h1>
     <p>Hire a drone pilot!</p>
     <div class="btn">
-      <a data-scroll href="#bazinga" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
-      <a data-scroll href="#bazinga2" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
+      <a data-scroll href="#customer" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
+      <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
     </div>
   </div>
 </div>
 
 <div class="fixed">
-  <a data-scroll href="#bazinga3" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
+  <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
 </div>
 
 
 
 <!-- How does it work? Customer -->
-<span id="bazinga"></span>
+<span id="customer"></span>
 <div class="banner2 container-fluid" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
@@ -53,7 +53,7 @@
 </div>
 
 <!-- How does it work? Drone Pilot -->
-<span id="bazinga2"></span>
+<span id="pilot"></span>
 <div class="banner3 container-fluid" id='as-a-pilot'>
   <div class="text-center padded features">
     <div class="row">
@@ -97,8 +97,8 @@
     <% @top_pilots.each do |pilot| %>
       <div class="col-xs-12 col-md-9 col-lg-3 pilot">
         <%= image_tag pilot.avatar, class: 'img-circle' %>
-        <p><%= pilot.first_name %></p>
-        <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'btn btn-md btn-primary' %>
+        <p class="pilotname"><%= pilot.first_name %></p>
+        <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'viewall white' %>
       </div>
     <% end %>
   </div>
