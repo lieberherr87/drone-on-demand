@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!
   def index
-    @pilots = OperatorProfile.all
+    @top_pilots = User.where(pilot: true).limit(4)
   end
 
   def profile

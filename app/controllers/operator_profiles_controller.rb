@@ -2,6 +2,7 @@ class OperatorProfilesController < ApplicationController
 
   before_action :set_profile, only: [:show]
 
+
   def index
     @operator_profiles = OperatorProfile.all
   end
