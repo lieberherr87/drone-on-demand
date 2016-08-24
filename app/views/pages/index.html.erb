@@ -119,19 +119,6 @@
 
 
 
-<% @proposals.each do |proposal| %>
-  <div class="col-md-2 col-xs-4">
-    <div class="text-box">
-    <%= link_to proposal do %>
-    <%= cl_image_tag proposal.user.avatar, class:"avatar avatar-square" %>
-      <div class="avatar-name">
-        <p><%= proposal.user.first_name %></p>
-      </div>
-      <div class="avatar-description">
-      <p><b><%= proposal.skills %> USD</b></p>
-      <!-- <p><b><%= proposal.category %></b></p> -->
-      </div>
-    <% end %>
-    </div>
+
 
 
