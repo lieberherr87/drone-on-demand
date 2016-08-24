@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :proposals, except: [:create, :new] do
       resources :reviews
+      member do
+        post 'accept', to: "proposals#accept"
+        post 'decline', to: "proposals#decline"
+      end
   end
 
   devise_for :users
