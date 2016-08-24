@@ -2,20 +2,16 @@
   <h1>Request Summary</h1>
   <p>Find the Request Details here:</p>
 
-
   <p>Due Date: <b><%= @request.due_date %></b></p>
   <p>Location: <%= @request.location %></p>
   <p>Details: <%= @request.details %></p>
   <p>Category: <%= @request.category %></p>
 
-
-
   <% if current_user.pilot && !current_user.applied_for?(@request) %>
     <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
   <% end %>
 
-
-  <% if current_user.applied_for?(@request) %>
+  <% if current_user.pilot && current_user.applied_for?(@request) %>
     <p><%= link_to 'Show my proposals', proposals_path %></p>
   <% end %>
 
