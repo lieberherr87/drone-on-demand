@@ -15,30 +15,10 @@
 </div>
 
 
-<!-- categories -->
-
-<!-- <div class="text-center padded features">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-3 col1">
-        <h3>Sports events</h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col2">
-        <h3> Formal </h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col3">
-        <h3> raw footage </h3>
-      </div>
-      <div class="col-xs-12 col-md-6 col-lg-3 col4">
-        <h3>Nightlife</h3>
-      </div>
-    </div>
-  /div>
-  </div> -->
-
 
 <!-- How does it work? Customer -->
 <span id="bazinga"></span>
-<div class="banner2 container-fluid" id='as-a-customer' style="height: 740px">
+<div class="banner2 container-fluid" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
       <div class='col-xs-12'>
@@ -48,7 +28,7 @@
           <div class="col-xs-12 col-md-4 col-lg-3">
             <%= image_tag 'sign.png' %>
             <h4 class="black">Sign in</h4>
-            <p class="black"> Create your account, make your drone experience better</p>
+            <p class="black"> Use your own account, make your drone experience better</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
             <%= image_tag 'drone.png' %>
@@ -74,7 +54,7 @@
 
 <!-- How does it work? Drone Pilot -->
 <span id="bazinga2"></span>
-<div class="banner3 container-fluid" id='as-a-pilot' style="height: 740px">
+<div class="banner3 container-fluid" id='as-a-pilot'>
   <div class="text-center padded features">
     <div class="row">
       <div class='col-xs-12'>
@@ -84,7 +64,7 @@
           <div class="col-xs-12 col-md-4 col-lg-3">
             <%= image_tag 'sign.png' %>
             <h4 class="white">Sign in</h4>
-            <p class="white"> Create your account, make your drone experience better.</p>
+            <p class="white"> Update your profile, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
             <%= image_tag 'drone.png' %>
@@ -107,4 +87,51 @@
     </div>
   </div>
 </div>
+
+
+<div class="container1 bg-white">
+  <div class="col-xs-12 col-md-8 col-lg-8 top-pilots">
+    <div class="text-center" style="padding-top: 40px">
+      <h3 class="orbitron">Top Rated Pilots</h3>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-3 pilot">
+      <a href="#"></a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-4 col-lg-4">
+    <div class="text-center topdescription">
+    <p> Hire the top rated pilots according to your preferences in editing, color correction, and photography type! </p>
+    <h3 class="orbitron"> Looking for more? </h3>
+    <%= link_to 'View all', operator_profiles_path %>
+  </div>
+  </div>
+
+</div>
+
+
+
+<% @proposals.each do |proposal| %>
+  <div class="col-md-2 col-xs-4">
+    <div class="text-box">
+    <%= link_to proposal do %>
+    <%= cl_image_tag proposal.user.avatar, class:"avatar avatar-square" %>
+      <div class="avatar-name">
+        <p><%= proposal.user.first_name %></p>
+      </div>
+      <div class="avatar-description">
+      <p><b><%= proposal.skills %> USD</b></p>
+      <!-- <p><b><%= proposal.category %></b></p> -->
+      </div>
+    <% end %>
+    </div>
+
 
