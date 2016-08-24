@@ -1,33 +1,53 @@
 <div class="container">
+  <div class='col-xs-12 col-md-6'>
+    <h1>Proposal Summary</h1>
+    <p>Find the Proposal Details here:</p>
 
-  <h1>Proposal Summary</h1>
-  <p>Find the Proposal Details here:</p>
+    <p><b>Pilot is <%= @proposal.user.first_name %> <%= @proposal.user.last_name %></b></p>
+    <%= cl_image_tag @proposal.user.avatar, class:"avatar avatar-large" %>
+    <p><b>Total Price: </b><%= @proposal.price %> USD</p>
+    <p><b>Additional Info: </b><%= @proposal.content %></p>
 
-  <p><b>Pilot is: <%= @proposal.user.first_name %></b></p>
-  <%= cl_image_tag @proposal.user.avatar, class:"avatar avatar-large" %>
-  <p><b>Total Price: </b><%= @proposal.price %> USD</p>
-  <p><b>Additional Info: </b><%= @proposal.content %></p>
-
-  <h2>Request Summary</h2>
-  <p>Find the Request Details here:</p>
-
-  <p>Due Date: <b><%= @proposal.request.due_date %></b></p>
-  <p>Location: <%= @proposal.request.location %></p>
-  <p>Details: <%= @proposal.request.details %></p>
-  <p>Category: <%= @proposal.request.category %></p>
-
-
-
-  <% unless !current_user.pilot? %>
-     <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-     <p><td><%= link_to 'Edit proposal', edit_proposal_path(@proposal) %> </td></p>
-    <p><%= link_to 'Back to all proposals', proposals_path %> </p>
-  <% end %>
-  <% unless current_user.pilot? %>
-     <p><td><%= link_to 'Add review', new_proposal_review_path(@proposal) %> </td></p>
-     <p><td><%= link_to 'Back to request', requests_path %> </td></p>
-  <% end %>
+    <% if current_user.pilot? && @proposal.pending? %>
+      <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <p><td><%= link_to 'Edit proposal', edit_proposal_path(@proposal) %></td></p>
+    <% end %>
+    <% if current_user.pilot? %>
+      <p><%= link_to 'Back to all proposals', proposals_path %></p>
+    <% end %>
 
 
+    <% if !current_user.pilot? && @proposal.pending? %>
+      <%= link_to 'Accept!', accept_proposal_path(@proposal), class: 'btn btn-success', method: :post, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Decline!', decline_proposal_path(@proposal), class: 'btn btn-danger', method: :post, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <% if @proposal.accepted? %>
+      <p class="green"><b>This proposal has been accepted!</b></p>
+    <% elsif @proposal.rejected? %>
+      <p class="red"><b>This proposal has been declined!</b></p>
+    <% end %>
+
+    <% if !current_user.pilot? %>
+      <p><td><%= link_to 'Add review', new_proposal_review_path(@proposal) %></td></p>
+      <p><td><%= link_to 'Back to request', requests_path %> </td></p>
+    <% end %>
+
+  </div>
+
+
+  <div class='col-xs-12 col-md-6'>
+    <div class="request-summary">
+
+      <h2>Request Summary</h2>
+      <p>Find the Request Details here:</p>
+
+      <p>Due Date: <b><%= @proposal.request.due_date %></b></p>
+      <p>Location: <%= @proposal.request.location %></p>
+      <p>Details: <%= @proposal.request.details %></p>
+      <p>Category: <%= @proposal.request.category %></p>
+
+   </div>
+  </div>
 </div>
+
 

@@ -2,6 +2,9 @@
 
 <div class="container">
   <h1>List of all Proposals</h1>
+  <% if @request.proposals.empty? %>
+  <p> You have not proposals yet </p>
+  <% else %>
   <% @request.proposals.each do |proposal| %>
   <div class="col-md-2 col-xs-4">
     <div class="text-box">
@@ -12,11 +15,18 @@
       </div>
       <div class="avatar-description">
         <p><b><%= proposal.price %> USD</b></p>
+        <% if proposal.accepted? %>
+          <p><i class="fa fa-check" aria-hidden="true"></i>Accepted!</p>
+        <% elsif proposal.pending? %>
+          <p><i class="fa fa-question" aria-hidden="true"></i>Pending</p>
+        <% elsif proposal.rejected? %>
+          <p><i class="fa fa-times" aria-hidden="true"></i>Declined!</p>
+        <% end %>
       </div>
     <% end %>
     </div>
   </div>
   <% end %>
-
+<% end %>
 </div>
 
