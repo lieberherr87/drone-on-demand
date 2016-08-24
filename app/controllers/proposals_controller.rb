@@ -3,8 +3,6 @@ class ProposalsController < ApplicationController
 
   def index
     if user_signed_in? && current_user.pilot
-      @proposals = Proposal.all
-    elsif user_signed_in? && !current_user.pilot
       @proposals = current_user.proposals
     else
       redirect_to new_user_session_path
@@ -12,7 +10,7 @@ class ProposalsController < ApplicationController
   end
 
   def show
-
+    @proposal = Proposal.find(params[:id])
   end
 
   def new
