@@ -27,8 +27,10 @@
       <p class="red"><b>This proposal has been declined!</b></p>
     <% end %>
 
-    <% if !current_user.pilot? %>
+
+    <% if !current_user.pilot? && @proposal.accepted? %>
       <p><td><%= link_to 'Add review', new_proposal_review_path(@proposal) %></td></p>
+    <% elsif !current_user.pilot? %>
       <p><td><%= link_to 'Back to request', requests_path %> </td></p>
     <% end %>
 
