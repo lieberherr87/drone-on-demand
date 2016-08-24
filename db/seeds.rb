@@ -1,8 +1,14 @@
 User.destroy_all
+Skill.destroy_all
+
 puts 'Clean users'
 
 avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
+skills = ["video editing","piloting", "color correction"]
 
+skills.each do |skill|
+  Skill.create(name: skill)
+end
 
 5.times do
   user = User.create!(email: Faker::Internet.email,
@@ -27,7 +33,7 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
     3.times do
       operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=XQu8TTBmGhA')
       operator_profile.images.create!(image: 'http://lorempixel.com/400/200/city')
-      operator_profile.skills
+      operator_profile.operator_skills.create(skill: Skill.all.sample)
     end
     puts 'Add photos and videos'
   end

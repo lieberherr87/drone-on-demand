@@ -1,6 +1,7 @@
 class OperatorProfilesController < ApplicationController
 
   before_action :set_profile, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @operator_profiles = OperatorProfile.all
@@ -27,7 +28,6 @@ class OperatorProfilesController < ApplicationController
         @image = @profile.images.create!(:image => a)
       end
     end
-    raise
   end
 
   def edit
@@ -37,8 +37,10 @@ class OperatorProfilesController < ApplicationController
   def update
     @profile = current_user.operator_profile
     @profile.update(profile_params)
-    params[:images]['image'].each do |a|
-      @image = @profile.images.create!(:image => a)
+    if params.has_key? :images
+      params[:images]['image'].each do |a|
+        @image = @profile.images.create!(:image => a)
+      end
     end
   end
 

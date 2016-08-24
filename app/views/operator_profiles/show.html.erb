@@ -12,4 +12,7 @@
     <%= cl_image_tag p.image %>
   <% end %>
 
+  <% @profile.skills.each do |s| %>
+    <%= s.name %>
+  <% end %>
 </div>
