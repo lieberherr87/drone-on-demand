@@ -7,3 +7,4 @@ class Proposal < ApplicationRecord
   #!
   #
 end
+

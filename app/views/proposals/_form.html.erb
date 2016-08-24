@@ -1,12 +1,12 @@
-<%= simple_form_for @proposal do |f| %>
+<%= simple_form_for [@request, @proposal] do |f| %>
   <div class="form-inputs">
     <%= f.input :date, required: true, autofocus: true %>
     <%= f.input :price, required: true %>
-    <%= f.input :content %>
-    <%= f.input :operator_profile_id, as: :hidden, input_html: {value: params[:operator_profile_id]} %>
+    <%= f.input :content, as: :text%>
+    <%= f.input :request_id, as: :hidden, input_html: {value: params[:request_id]} %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Submit Porposal" %>
+    <%= f.button :submit %>
   </div>
 <% end %>
