@@ -27,7 +27,7 @@ class OperatorProfilesController < ApplicationController
         @image = @profile.images.create!(:image => a)
       end
     end
-
+    raise
   end
 
   def edit

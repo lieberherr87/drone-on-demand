@@ -2,6 +2,10 @@
   <h1><%= @profile.company_name %>'s Profile</h1>
   <p>Check out our Profile. We're ready to amaze you!</p>
 
+  <% if @profile.videos.first %>
+    <p><%= embed(@profile.videos.first.url) %></p>
+  <% end %>
+
   <p><%= @profile.description %></p>
 
   <% @profile.images.each do |p| %>
