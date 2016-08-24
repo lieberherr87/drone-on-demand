@@ -10,6 +10,7 @@ class ProposalsController < ApplicationController
   end
 
   def show
+    @proposal = Proposal.find(params[:id])
   end
 
   def new
@@ -36,6 +37,18 @@ class ProposalsController < ApplicationController
   def destroy
     @proposal.destroy
     redirect_to proposals_path
+  end
+
+  def accept
+    @proposal = Proposal.find(params[:id])
+    @proposal.accepted!
+    redirect_to proposal_path(@proposal)
+  end
+
+  def decline
+    @proposal = Proposal.find(params[:id])
+    @proposal.rejected!
+    redirect_to proposal_path(@proposal)
   end
 
 private
