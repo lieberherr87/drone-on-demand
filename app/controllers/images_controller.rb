@@ -1,28 +1,20 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
-  # GET /post_attachments
-  # GET /post_attachments.json
   def index
     @images = Image.all
   end
 
-  # GET /post_attachments/1
-  # GET /post_attachments/1.json
   def show
   end
 
-  # GET /post_attachments/new
   def new
     @image = Image.new
   end
 
-  # GET /post_attachments/1/edit
   def edit
   end
 
-  # POST /post_attachments
-  # POST /post_attachments.json
   def create
     @image = Image.new(image_params)
 
@@ -37,8 +29,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /post_attachments/1
-  # PATCH/PUT /post_attachments/1.json
   def update
     respond_to do |format|
       if @image.update(image_params)
@@ -51,8 +41,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # DELETE /post_attachments/1
-  # DELETE /post_attachments/1.json
   def destroy
     @image.destroy
     respond_to do |format|
