@@ -4,9 +4,8 @@
 
   <p><%= @profile.description %></p>
 
-
-  <%= cl_image_tag @profile.images.first.image %>
-  <%= cl_image_tag @profile.images.last.image %>
-
+  <% @profile.images.each do |p| %>
+    <%= cl_image_tag p.image %>
+  <% end %>
 
 </div>

@@ -31,8 +31,11 @@ class OperatorProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user.operator_profile.update(profile_params)
-
+    @profile = current_user.operator_profile
+    @profile.update(profile_params)
+    params[:images]['image'].each do |a|
+      @image = @profile.images.create!(:image => a)
+    end
   end
 
   def destroy
