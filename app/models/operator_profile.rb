@@ -5,6 +5,6 @@ class OperatorProfile < ApplicationRecord
   has_many :skills, through: :operator_skills
   has_many :images, dependent: :destroy
 
-  accepts_nested_attributes_for :skills, :images
+  accepts_nested_attributes_for :skills, :images, :videos
 
 end
