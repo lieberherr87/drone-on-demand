@@ -2,10 +2,11 @@
   <h1><%= @profile.company_name %>'s Profile</h1>
   <p>Check out our Profile. We're ready to amaze you!</p>
 
-  <h2><%= @profile.company_name %></h2>
   <p><%= @profile.description %></p>
 
-  <%= cl_image_tag @profile.images.first, height: 300, width: 400, crop: :fill %>
+
+  <%= cl_image_tag @profile.images.first.image %>
+  <%= cl_image_tag @profile.images.last.image %>
 
 
 </div>

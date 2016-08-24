@@ -40,3 +40,4 @@ User.where(pilot: true).each do |user|
 end
 
 puts 'Create proposals'
+
