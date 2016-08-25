@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Message#create</h1>
+  <p>Find me in app/views/message/create.html.erb</p>
+
+
+  <%= simple_form_for [@conversation, @message] do |f| %>
+    <%= f.input :body %>
+    <%= f.input :user_id, value: current_user.id, type: "hidden" %>
+    <%= f.button :submit, "Send message" %>
+  <% end %>
+</div>
