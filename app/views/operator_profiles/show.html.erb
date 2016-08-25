@@ -16,8 +16,10 @@
         <% end %>
         <% if current_user.pilot? %>
           <%= link_to 'Edit Profile', edit_operator_profile_path %></p>
+          <p><a href="javascript:history.back()">Go Back</a></p>
         <% else %>
           <a href="#" class="message">Message</a>
+          <p><a href="javascript:history.back()">Go Back</a></p>
         <% end %>
       </figcaption>
       </figure>

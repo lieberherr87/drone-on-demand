@@ -7,7 +7,7 @@
   overflow: hidden;
   margin: 10px 1%;
   min-width: 230px;
-  max-width: 315px;
+  max-width: 440px;
   width: 100%;
   color: $gray;
   text-align: left;
@@ -115,7 +115,7 @@
   margin: 10px 0;
   display: inline-block;
   opacity: 0.65;
-  width: 47%;
+  width: 50%;
   text-align: center;
   text-decoration: none;
   font-weight: 600;
@@ -127,4 +127,13 @@
   font-weight: 300;
   font-size: 15px;
   color: $gray;
+}
+
+.proposal-box .accepted p {
+  color: green;
+}
+
+
+.proposal-box .declined p {
+  color: red;
 }

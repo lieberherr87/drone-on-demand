@@ -1,12 +1,19 @@
-<div class="container">
-  <div class='col-xs-12 col-md-6 col-md-offset-3'>
-    <h1>Proposal Summary</h1>
-    <p>Find the Proposal Details here:</p>
 
-    <p><b>Pilot is <%= @proposal.user.first_name %> <%= @proposal.user.last_name %></b></p>
-    <%= cl_image_tag @proposal.user.avatar, class:"avatar avatar-large" %>
-    <p><b>Total Price: </b><%= @proposal.price %> USD</p>
-    <p><b>Additional Info: </b><%= @proposal.content %></p>
+
+<div class="container">
+  <div class="row">
+      <div class='col-xs-12 col-md-6 col-md-offset-3'>
+      <h1>Proposal Summary</h1>
+        <p>Find the Proposal Details here:</p>
+      <figure class="proposal-box">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+      <figcaption>
+        <%= cl_image_tag @proposal.user.avatar, class:"profile" %>
+          <p><b>Pilot is <%= @proposal.user.first_name %> </b></p>
+         <p><b>Total Price: </b><%= @proposal.price %> USD</p>
+          <p><b>Additional Info: </b><%= @proposal.content %></p>
+
+    <p><%= link_to 'See Profile', operator_profile_path(@proposal.user.operator_profile) %></p>
 
     <% if current_user.pilot? && @proposal.pending? %>
       <p><%= link_to 'Cancel proposal', proposal_path(@proposal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
@@ -19,20 +26,30 @@
     <% end %>
 
     <% if @proposal.accepted? %>
-      <p class="green"><b>This proposal has been accepted!</b></p>
+    <div class="accepted">
+      <p><b>This proposal has been accepted!</b></p>
+    </div>
     <% elsif @proposal.rejected? %>
+    <div class="declined">
       <p class="red"><b>This proposal has been declined!</b></p>
+    </div>
     <% end %>
 
     <% if !current_user.pilot? && @proposal.accepted? %>
-      <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
-    <% elsif !current_user.pilot? %>
-      <p><a href="javascript:history.back()">Go Back to my request</a></p>
-    <% elsif current_user.pilot? %>
+      <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %>
+      <a href="#" class="message">Message</a></p>
+    <% end %>
+    <% if !current_user.pilot? %>
+      <p><a href="javascript:history.back()">Go Back</a></p>
+    <% end %>
+    <% if current_user.pilot? %>
       <p><%= link_to 'Back to all proposals', proposals_path %></p>
     <% end %>
-
+     </figcaption>
+      </figure>
+ </div>
   </div>
+</div>
 
 
   <!-- <div class='col-xs-12 col-md-6'>
@@ -48,7 +65,7 @@
 
    </div>
   </div> -->
-</div>
+
 
 
 
