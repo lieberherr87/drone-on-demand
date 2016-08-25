@@ -8,9 +8,8 @@
 
   <p><%= @profile.description %></p>
 
-  <% @profile.images.each do |p| %>
-    <%= cl_image_tag p.image %>
-  <% end %>
+
+<p class="black" style="text-decoration:none"><%= link_to 'Edit Profile', edit_operator_profile_path %></p>
 
   <% @profile.skills.each do |s| %>
     <%= s.name %>
