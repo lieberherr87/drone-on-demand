@@ -9,7 +9,7 @@
   <div class="col-md-2 col-xs-4">
     <div class="text-box">
     <%= link_to proposal_path(proposal) do %>
-    <%= cl_image_tag proposal.user.avatar, class:"avatar avatar-large" %>
+    <%= cl_image_tag proposal.user.operator_profile.images.first, class:"avatar avatar-large" %>
       <div class="avatar-name">
         <p><%= proposal.user.first_name %></p>
       </div>

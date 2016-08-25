@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  def applied_for?(request)
+  def not_applied?(request)
     self.proposals.find_by(request_id: request.id).nil?
   #is there a proposal from the current_user for a specific request
   end
