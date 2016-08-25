@@ -17,7 +17,9 @@
         <th>Location</th>
         <th>Category</th>
         <th>Due Date</th>
+      <%if current_user.pilot %>
         <th>Proposal sent</th>
+      <% end %>
         <th colspan="6"></th>
       </tr>
     </thead>
@@ -51,6 +53,7 @@
   <%= link_to 'Add Request', new_request_path %>
 
 </div>
+
 
 
 
