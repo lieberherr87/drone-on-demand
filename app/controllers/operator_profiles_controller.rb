@@ -34,6 +34,7 @@ class OperatorProfilesController < ApplicationController
 
   def edit
     @profile =  current_user.operator_profile
+    @profile.operator_skills.build
   end
 
   def update
@@ -44,6 +45,7 @@ class OperatorProfilesController < ApplicationController
         @image = @profile.images.create!(:image => a)
       end
     end
+    redirect_to operator_profile_path(@profile)
   end
 
   def destroy

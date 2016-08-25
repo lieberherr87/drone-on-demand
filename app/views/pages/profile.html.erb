@@ -1,6 +1,7 @@
 <div class='container'>
 
-  <h1>Profile</h1>
+  <h1 class="inline">Profile</h1>
+  <%= link_to "Edit profile", edit_user_registration_path, class: "inline btn btn-sm btn-warning" %>
   <hr>
   <table class='table table-hover'>
       <tr>
@@ -37,8 +38,22 @@
       </tr>
   </table>
 
-  <p class="black" style="text-decoration:none"><%= link_to 'Edit Profile', edit_user_registration_path %></p>
-  </div>
+  <h1 class="inline">Pilot details</h1>
+  <%= link_to 'Edit pilot details', edit_operator_profile_path(current_user.operator_profile), class: "inline btn btn-sm btn-warning" %>
+  <hr>
+  <h2 class="inline">Images</h2>
+  <%= link_to new_operator_profile_image_path(@user.operator_profile), class: "inline" do %>
+    <i class="fa fa-plus-square-o black"></i>
+  <% end %>
+  <hr>
+   <% @user.operator_profile.images.each do |image| %>
+    <%= cl_image_tag image.image %>
+    <%= link_to "Delete", image_path(image), method: :delete, class: "btn btn-sm btn-danger" %>
+  <% end %>
+  <h2 class="inline">Videos</h2>
+  <%= link_to "Add YouTube URL", "#", class: "inline btn btn-md btn-success" %>
+  <hr>
+</div>
 
 
 
