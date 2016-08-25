@@ -1,32 +1,38 @@
 <!-- List of all Proposals-->
 
 <div class="container">
-  <h1>List of all Proposals</h1>
+<div class="proposal-list">
+  <h2>List of all Proposals</h2>
+</div>
   <% if @request.proposals.empty? %>
   <p> You have no proposals yet </p>
   <% else %>
+
   <% @request.proposals.each do |proposal| %>
-  <div class="col-md-2 col-xs-4">
-    <div class="text-box">
-    <%= link_to proposal_path(proposal) do %>
-    <%= cl_image_tag proposal.user.avatar, class:"avatar avatar-large" %>
-      <div class="avatar-name">
-        <p><%= proposal.user.first_name %></p>
-      </div>
-      <div class="avatar-description">
+
+    <div class="col-md-3 col-xs-6">
+      <figure class="proposal-box">
+        <%= link_to proposal_path(proposal) do %>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+      <figcaption>
+        <%= cl_image_tag proposal.user.avatar, class:"profile" %>
+        <h2><%= proposal.user.operator_profile.company_name %></h2>
         <p><b><%= proposal.price %> USD</b></p>
-        <% if proposal.accepted? %>
-          <p><i class="fa fa-check" aria-hidden="true"></i> Accepted!</p>
-        <% elsif proposal.pending? %>
-          <p><i class="fa fa-question" aria-hidden="true"></i> Pending</p>
-        <% elsif proposal.rejected? %>
-          <p><i class="fa fa-times" aria-hidden="true"></i> Declined!</p>
-        <% end %>
-      </div>
-    <% end %>
+        <div class="proposal-box status">
+          <% if proposal.accepted? %>
+            <p><i class="fa fa-check" aria-hidden="true"></i> Accepted!</p>
+          <% elsif proposal.pending? %>
+            <p><i class="fa fa-question" aria-hidden="true"></i> Pending</p>
+          <% elsif proposal.rejected? %>
+           <p><i class="fa fa-times" aria-hidden="true"></i> Declined!</p>
+          <% end %>
+        </div>
+      </figcaption>
+      <% end %>
+      </figure>
     </div>
-  </div>
+
+    <% end %>
   <% end %>
-<% end %>
 </div>
 

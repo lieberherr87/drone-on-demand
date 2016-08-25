@@ -1,33 +1,70 @@
 <div class="container">
-  <h1>Request Summary</h1>
-  <p>Find the Request Details here:</p>
+  <div class="col-md-6 col-xs-6">
+    <div class="request-summary-box">
+      <div class="request-summary">
+        <h1>Request Summary</h1>
+        <p>Find the Request Details here:</p>
 
-  <p>Due Date: <b><%= @request.due_date %></b></p>
-  <p>Location: <%= @request.location %></p>
-  <p>Details: <%= @request.details %></p>
-  <p>Category: <%= @request.category %></p>
+        <p><b>Due Date:</b> <b><%= @request.due_date %></b></p>
+        <p><b>Location:</b> <%= @request.location %></p>
+        <p><b>Details:</b> <%= @request.details %></p>
+        <p><b>Category:</b><%= @request.category %></p>
 
-  <% if current_user.pilot && !current_user.applied_for?(@request) %>
-    <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
-  <% end %>
+        <% if current_user.pilot && current_user.not_applied?(@request) %>
+          <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
+        <% end %>
 
-  <% if current_user.pilot && current_user.applied_for?(@request) %>
-    <p><%= link_to 'Show my proposals', proposals_path %></p>
-  <% end %>
+        <% if current_user.pilot && !current_user.not_applied?(@request) %>
+          <p><%= link_to 'Show my proposals', proposals_path %></p>
+        <% end %>
 
+
+        <% if policy(@request).update? %>
+          <p><%= link_to 'Edit my request', edit_request_path %></p>
+        <% end %>
+        <% if policy(@request).destroy? %>
+          <p><%= link_to 'Cancel my request', request_path(@request), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-6 col-xs-6">
+      <div class="map-box">
+        <div id="map" class="map_structure" style="width: 100%;height: 330px;position: fixed !important;"></div>
+      </div>
+    </div>
+</div>
+
+<div class="container text-center">
   <% if !current_user.pilot %>
     <%= render "proposals/proposal" %>
   <% end %>
-
-  <% if policy(@request).update? %>
-    <p><%= link_to 'Edit', edit_request_path %></p>
-  <% end %>
-  <% if policy(@request).destroy? %>
-    <p><%= link_to 'Cancel', request_path(@request), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <% end %>
-    <p><%= link_to 'Back to all Requests', requests_path %></p>
-
+  <p><%= link_to 'Back to all Requests', requests_path %></p>
 </div>
+
+
+<!-- Javascript for Maps -->
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      var styles = [{"featureType":"administrative.neighborhood","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#5a5656"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f3ead1"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#a1d7cd"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry.fill","stylers":[{"lightness":"2"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#63cfbc"}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"},{"color":"#aaaaaa"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"visibility":"on"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"},{"color":"#1d1b1b"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffbf4e"},{"saturation":"0"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"weight":"2.99"},{"color":"#635f5f"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"visibility":"off"},{"gamma":"6.27"},{"lightness":"40"},{"color":"#ffffff"},{"saturation":"35"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#868181"}]},{"featureType":"road.arterial","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"},{"lightness":"-17"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#efbdbe"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#3e8fc5"}]}];
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {
+    styles: styles}, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+
+    });
+  <% end %>
+<% end %>
 
 
 

@@ -62,7 +62,7 @@
               <li> <%= link_to "Profile", profile_path %></li>
               <% if current_user.pilot? %>
                 <% if current_user.operator_profile(current_user.id) %>
-                  <li> <%= link_to "Operator Profile", operator_profile_path(current_user.id) %> </li>
+                  <li> <%= link_to "Operator Profile", operator_profile_path(current_user.operator_profile) %> </li>
                 <% else %>
                   <li> <%= link_to "Operator Profile", new_operator_profile %> </li>
                 <% end %>

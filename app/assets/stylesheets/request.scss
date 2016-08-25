@@ -3,21 +3,43 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .fa-check {
   font-size: 14px;
-  color: green;
+  color: $green;
   margin: 0px !important;
   padding: 0px !important;
 }
 
 .fa-question {
   font-size: 14px;
-  color: blue;
+  color: $blue;
   margin: 0px !important;
   padding: 0px !important;
 }
 
 .fa-times {
   font-size: 14px;
-  color: red;
+  color: $red;
   margin: 0px !important;
   padding: 0px !important;
+}
+
+.request-summary-box {
+  background-color: $gray-lighter;
+  text-align: center;
+  border-radius: 5px;
+  color: $gray;
+  text-align:left;
+}
+
+.request-summary {
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.request-summary h1 {
+  margin-top: 5px;
+}
+
+
+.map-box {
+  margin-top: 15px;
 }
