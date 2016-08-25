@@ -88,29 +88,29 @@
   </div>
 </div>
 
-
-<div class="container1">
-    <div class="text-center" style="padding-top: 0px">
-      <h3 class="orbitron">Top Rated Pilots</h3>
+<div class="toppilots-list">
+  <div class="container thelisting">
+      <div class="text-center" style="padding-top: 0px">
+        <h3 class="orbitron">Top Rated Pilots</h3>
+      </div>
+      <div class="pilots" style="margin-top: 100px">
+        <% @top_pilots.each do |pilot| %>
+          <div class="col-xs-12 col-md-3 bg-white toppilot">
+            <%= image_tag pilot.avatar, class: 'img-circle' %>
+            <p class="pilotname"><%= pilot.first_name %></p>
+            <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'viewall white' %>
+          </div>
+        <% end %>
+      </div>
+    <!-- <div class="col-xs-12 col-md-4 col-lg-4">
+      <div class="text-center topdescription">
+      <p> Hire the top rated pilots according to your preferences in editing, color correction, and photography type! </p>
+      <h3 class="orbitron"> Looking for more? </h3>
+      <%= link_to 'View all', operator_profiles_path %>
+    </div> -->
     </div>
-    <div class="pilots" style="margin-top: 100px">
-      <% @top_pilots.each do |pilot| %>
-        <div class="col-xs-12 col-md-3 bg-white">
-          <%= image_tag pilot.avatar, class: 'img-circle' %>
-          <p class="pilotname"><%= pilot.first_name %></p>
-          <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'viewall white' %>
-        </div>
-      <% end %>
-    </div>
-  <!-- <div class="col-xs-12 col-md-4 col-lg-4">
-    <div class="text-center topdescription">
-    <p> Hire the top rated pilots according to your preferences in editing, color correction, and photography type! </p>
-    <h3 class="orbitron"> Looking for more? </h3>
-    <%= link_to 'View all', operator_profiles_path %>
-  </div> -->
-  </div>
-
 </div>
+
 
 
 
