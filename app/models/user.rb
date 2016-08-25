@@ -19,4 +19,10 @@ class User < ApplicationRecord
   #is there a proposal from the current_user for a specific request
   end
 
+  after_create :create_op_profile, if: "self.pilot?"
+
+  def create_op_profile
+    self.create_operator_profile
+  end
+
 end
