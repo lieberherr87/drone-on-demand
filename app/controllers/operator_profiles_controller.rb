@@ -30,6 +30,7 @@ class OperatorProfilesController < ApplicationController
         @image = @profile.images.create!(:image => a)
       end
     end
+    redirect_to operator_profile_path(@profile)
   end
 
   def edit
