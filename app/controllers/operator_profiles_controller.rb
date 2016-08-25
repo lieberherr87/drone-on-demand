@@ -20,8 +20,9 @@ class OperatorProfilesController < ApplicationController
   end
 
   def create
-    @profile = OperatorProfile.new(profile_params)
-    @profile.user = current_user
+    # @profile = OperatorProfile.new(profile_params)
+
+    @profile = current_user.create_operator_profile(profile_params)
     @profile.videos.first.operator_profile = @profile
     @profile.save
     if params.has_key? :images
