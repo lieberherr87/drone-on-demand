@@ -5,11 +5,10 @@ class OperatorProfilesController < ApplicationController
 
 
   def index
-    @operator_profiles = OperatorProfile.all
+    redirect_to root_path
   end
 
   def show
-
   end
 
   def new
