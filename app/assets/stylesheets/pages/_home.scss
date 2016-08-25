@@ -61,10 +61,6 @@
 }
 
 
-body{
-  background-color:  #d5d8dc ;
-}
-
 #as-a-customer{
   background-image: url("drone1.jpg");
   background-size: cover;
@@ -115,10 +111,9 @@ body{
   background-color: gray;
 }
 
-.banner-content.btn{
-  text-align: center;
+.banner-content{
+  text-align:center;
 }
-
 
 .fixed{
   position: fixed;
@@ -150,6 +145,8 @@ body{
   padding-bottom: 200px;
 
 }
+
+
 
 
 .pilot{
@@ -188,7 +185,6 @@ body{
 }
 
 .jumbotron{
-  padding-bottom:300px;
   background-image: url('one.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -199,7 +195,6 @@ body{
 }
 
 .jumbotron-description {
-  position: absolute;
   bottom: 10px;
   left: 10px;
   margin-left:-3px;
@@ -207,85 +202,8 @@ body{
 }
 
 .img-circle {
-  position: absolute;
-  // right: 5px;
-  // top: 10px;
   height:80px;
   width:80px;
-  // margin-right:18px;
-  margin-top:30px;
-  margin-left:-37px;
 }
 
 
-// .jumbotron{
-//   padding-bottom:370px;
-//   background-image: url('one.jpg');
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }
-
-// .jumbotron:hover{
-//   opacity: 0.8;
-// }
-
-// .jumbotron-description {
-//   position: absolute;
-//   bottom: 20px;
-//   left: 20px;
-
-// }
-
-// .img-circle {
-//   position: absolute;
-//   right: 5px;
-//   top: 10px;
-//   height:60px;
-//   width:60px;
-//   margin-right:18px;
-// }
-
-
-
-// .card-category {
-//   position: absolute;
-//   top: 10px;
-//   left: 10px;
-//   font-size: 10px;
-//   text-transform: uppercase;
-// }
-//
-// .card-link {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   width: 100%;
-//   z-index:2;
-//   background: black;
-//   opacity: 0;
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .card{
-//   background-image: image-url('banner_placeholder.jpg');
-//   height: 300px;
-//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-//   background-size: cover !important;
-//   color: white;
-//   margin-top: -140px;
-//   margin-left: 5px;
-
-
-// }
