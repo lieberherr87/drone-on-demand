@@ -1,7 +1,6 @@
 <div class="container">
   <div class='col-xs-12 col-md-6'>
-    <h1>Proposal Summary</h1>
-    <p>Find the Proposal Details here:</p>
+    <h1>Proposal summary</h1>
 
     <p><b>Pilot is <%= @proposal.user.first_name %> <%= @proposal.user.last_name %></b></p>
     <%= cl_image_tag @proposal.user.avatar, class:"avatar avatar-large" %>
@@ -34,14 +33,21 @@
 
   </div>
 
+    <div id="reviews">
+  <% if @proposal.review.blank? %>
+    Be the first to leave a review for <%= @proposal.user.first_name %>
+  <% else %>
+      <%= render 'reviews/show', review: @proposal.review %>
+  <% end %>
+</div>
+
 
   <div class='col-xs-12 col-md-6'>
     <div class="request-summary">
 
-      <h2>Request Summary</h2>
-      <p>Find the Request Details here:</p>
+      <h2>Request summary</h2>
 
-      <p>Due Date: <b><%= @proposal.request.due_date %></b></p>
+      <p>Due date: <b><%= @proposal.request.due_date %></b></p>
       <p>Location: <%= @proposal.request.location %></p>
       <p>Details: <%= @proposal.request.details %></p>
       <p>Category: <%= @proposal.request.category %></p>
