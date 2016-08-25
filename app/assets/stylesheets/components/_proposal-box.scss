@@ -12,7 +12,8 @@
   color: $gray;
   text-align: left;
   line-height: 1.4em;
-  background-color: $gray-lighter;
+  background-color: white;
+  border: 1px solid #F2F2F2;
 }
 
 .proposal-box a {
@@ -34,7 +35,7 @@
 
 .proposal-box figcaption {
   width: 100%;
-  background-color: $gray-lighter;
+  background-color: white;
   padding: 25px;
   position: relative;
 }
@@ -46,14 +47,14 @@
   left: 0;
   width: 0;
   height: 0;
-  border-style: solid;
+  border: 1px solid #F2F2F2;
   border-width: 55px 0 0 400px;
   border-color: transparent transparent transparent transparent;
 }
 
 .proposal-box figcaption a {
   padding: 5px;
-  border: 1px solid $gray-lighter;
+  border: 1px solid #F2F2F2;
   color: $gray;
   font-size: 0.7em;
   text-transform: uppercase;
@@ -103,9 +104,27 @@
   color: $gray;
 }
 
-.proposal-box .status p {
+.proposal-box-status p {
   font-size: 12px;
   padding: 0px;
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: #555555;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-
+.description-box p {
+  margin: 0 0 5px;
+  font-weight: 300;
+  font-size: 15px;
+  color: $gray;
+}
