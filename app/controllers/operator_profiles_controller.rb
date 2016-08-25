@@ -5,11 +5,9 @@ class OperatorProfilesController < ApplicationController
 
 
   def index
-    @operator_profiles = OperatorProfile.all
   end
 
   def show
-
   end
 
   def new
