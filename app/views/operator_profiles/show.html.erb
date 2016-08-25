@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class='col-xs-12 col-md-6'>
+    <div class='col-xs-12 col-md-4 '>
       <figure class="oprofile-box">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
       <figcaption>
@@ -26,16 +26,9 @@
         <%= cl_image_tag p.image %>
       <% end %>
     </div>
-  </div>
-
-  <p><%= @profile.description %></p>
-
 
 <p class="black" style="text-decoration:none"><%= link_to 'Edit Profile', edit_operator_profile_path %></p>
-
-  <% @profile.skills.each do |s| %>
-    <%= s.name %>
-  <% end %>
+  </div>
 </div>
 
 

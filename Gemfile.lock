@@ -9,6 +9,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -86,8 +87,10 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    geocoder (1.3.7)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -138,6 +141,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
+    rails-assets-underscore (1.8.3)
     rails-dom-testing (2.0.1)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6.0)
@@ -213,11 +217,13 @@ DEPENDENCIES
   byebug
   carrierwave!
   cloudinary (= 1.1.0)
-  coffee-rails (~> 4.2)
+  coffee-rails
   devise
   faker
   figaro
   font-awesome-sass
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -225,6 +231,7 @@ DEPENDENCIES
   puma (~> 3.0)
   pundit
   rails (~> 5.0.0, >= 5.0.0.1)
+  rails-assets-underscore!
   sass-rails (~> 5.0)
   simple_form
   spring
