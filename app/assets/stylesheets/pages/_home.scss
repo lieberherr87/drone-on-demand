@@ -61,10 +61,6 @@
 }
 
 
-body{
-  background-color:  #d5d8dc ;
-}
-
 #as-a-customer{
   background-image: url("drone1.jpg");
   background-size: cover;
@@ -115,12 +111,8 @@ body{
   background-color: gray;
 }
 
-.banner-content.btn{
-  text-align: center;
-}
-
-.col-xs-12{
-  text-align: center;
+.banner-content{
+  text-align:center;
 }
 
 .fixed{
@@ -149,17 +141,13 @@ body{
   margin-bottom: 25px;
 }
 
-.container1{
-  // height: 530px;
-  margin-left: 50px;
-  margin-right: 50px;
+.thelisting{
   padding-bottom: 200px;
 
 }
 
-.top-pilots{
-  background-image: url('toprated.jpg');
-}
+
+
 
 .pilot{
   margin-bottom: 10px;
@@ -196,27 +184,26 @@ body{
     }
 }
 
+.jumbotron{
+  background-image: url('one.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-.viewall{
-  border: 2px white solid;
-  border-radius: 5px;
-  padding:15px;
-  background-color:#71b6f5;
+.jumbotron:hover{
+  opacity: 0.8;
+}
+
+.jumbotron-description {
+  bottom: 10px;
+  left: 10px;
+  margin-left:-3px;
+  margin-bottom: 80px;
+}
+
+.img-circle {
+  height:80px;
+  width:80px;
 }
 
 
-
-// style for the cards with the top users
-
-
-// .card{
-//   background-image: image-url('banner_placeholder.jpg');
-//   height: 300px;
-//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-//   background-size: cover !important;
-//   color: white;
-//   margin-top: -140px;
-//   margin-left: 5px;
-
-
-// }
