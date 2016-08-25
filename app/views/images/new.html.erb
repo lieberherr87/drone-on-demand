@@ -1,0 +1,6 @@
+<%= simple_form_for [@operator_profile, @image] do |f| %>
+  <%= f.input :image %>
+  <%= f.input :image_cache, as: :hidden %>
+
+  <%= f.button :submit, "Add image" %>
+<% end %>

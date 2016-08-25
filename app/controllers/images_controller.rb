@@ -9,6 +9,7 @@ class ImagesController < ApplicationController
   end
 
   def new
+    @operator_profile = OperatorProfile.find(params[:operator_profile_id])
     @image = Image.new
   end
 
@@ -16,17 +17,12 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    @operator_profile = OperatorProfile.find(params[:operator_profile_id])
 
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to @image, notice: 'Post attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @image }
-      else
-        format.html { render :new }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
-    end
+    @image = @operator_profile.images.build(image_params)
+
+    @image.save
+    redirect_to profile_path
   end
 
   def update
@@ -42,11 +38,9 @@ class ImagesController < ApplicationController
   end
 
   def destroy
+    @image = Image.find(params[:id])
     @image.destroy
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Post attachment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to profile_path
   end
 
   private
@@ -57,6 +51,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:post_attachment).permit(:image_id, :image)
+      params.require(:image).permit(:image, :image_cache)
     end
 end

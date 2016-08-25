@@ -23,7 +23,7 @@ end
   puts "Create user #{user.email}"
 
   if !user.pilot?
-    user.requests.create!(location: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.zip} #{Faker::Address.country}",
+    user.requests.create!(location: "#{Faker::Address.city}",
                           due_date: Date.today + rand(1..10).days, category: 'marketing')
   else
     operator_profile = user.create_operator_profile!(company_name: Faker::Company.name,
