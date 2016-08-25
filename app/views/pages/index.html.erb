@@ -26,23 +26,23 @@
         <h3 class="banner2title orbitron"> As a cutomer </h3>
         <div class="container inline1" style="position: relative; top: 64px;">
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'sign.png' %>
+            <%= image_tag 'sign.png', class:'howtoimg' %>
             <h4 class="black">Sign in</h4>
             <p class="black"> Use your own account, make your drone experience better</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'drone.png' %>
+            <%= image_tag 'drone.png', class:'howtoimg' %>
             <h4 class="black">Make a request</h4>
             <p class="black">State the date and location of the job</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'check.png' %>
+            <%= image_tag 'check.png', class:'howtoimg' %>
             <h4 class="black">Choose best offer</h4>
             <p class="black"> Choose a pilot's offer, and book!</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3 userlink">
           <%= link_to new_user_registration_path, class: "black" do%>
-          <%= image_tag 'arrow.png' %>
+          <%= image_tag 'arrow.png', class:'howtoimg' %>
           <h4> Not a user? Sign up! </h4>
           <% end %>
           </div>
@@ -62,23 +62,23 @@
         <h3 class="banner3title orbitron"> As a drone pilot </h3>
         <div class="container inline1" style="position: relative; top: 64px;">
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'sign.png' %>
+            <%= image_tag 'sign.png', class:'howtoimg' %>
             <h4 class="white">Sign in</h4>
             <p class="white"> Update your profile, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'drone.png' %>
+            <%= image_tag 'drone.png', class:'howtoimg' %>
             <h4 class="white">Get a request</h4>
             <p class="white"> Get a date and a location, accept or deny the job.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3">
-            <%= image_tag 'mon.png' %>
+            <%= image_tag 'mon.png', class:'howtoimg' %>
             <h4 class="white">Make an offer</h4>
             <p class="white"> Answer a request, offer your price.</p>
           </div>
           <div class="col-xs-12 col-md-4 col-lg-3 white userlink">
           <%= link_to new_user_registration_path, class: "black" do%>
-          <%= image_tag 'arrow.png' %>
+          <%= image_tag 'arrow.png', class:'howtoimg' %>
           <h4 class="white"> Not a user? Sign up! </h4>
           <% end %>
           </div>
@@ -89,25 +89,25 @@
 </div>
 
 
-<div class="container1 bg-white">
-  <div class="col-xs-12 col-md-8 col-lg-8 top-pilots">
-    <div class="text-center" style="padding-top: 40px">
+<div class="container1">
+    <div class="text-center" style="padding-top: 0px">
       <h3 class="orbitron">Top Rated Pilots</h3>
     </div>
-    <% @top_pilots.each do |pilot| %>
-      <div class="col-xs-12 col-md-9 col-lg-3 pilot">
-        <%= image_tag pilot.avatar, class: 'img-circle' %>
-        <p class="pilotname"><%= pilot.first_name %></p>
-        <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'viewall white' %>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-xs-12 col-md-4 col-lg-4">
+    <div class="pilots" style="margin-top: 100px">
+      <% @top_pilots.each do |pilot| %>
+        <div class="col-xs-12 col-md-3 bg-white">
+          <%= image_tag pilot.avatar, class: 'img-circle' %>
+          <p class="pilotname"><%= pilot.first_name %></p>
+          <%= link_to 'View profile', operator_profile_path(pilot.operator_profile), class: 'viewall white' %>
+        </div>
+      <% end %>
+    </div>
+  <!-- <div class="col-xs-12 col-md-4 col-lg-4">
     <div class="text-center topdescription">
     <p> Hire the top rated pilots according to your preferences in editing, color correction, and photography type! </p>
     <h3 class="orbitron"> Looking for more? </h3>
     <%= link_to 'View all', operator_profiles_path %>
-  </div>
+  </div> -->
   </div>
 
 </div>

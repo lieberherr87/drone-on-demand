@@ -86,12 +86,12 @@ body{
   padding-bottom: 150px;
 }
 
-.container{
-  img{
+
+.howtoimg{
   height:100px;
   width: 100px;
-  }
 }
+
 
 .banner2title{
   text-align:left;
@@ -150,11 +150,11 @@ body{
 }
 
 .container1{
-  height: 530px;
-  background-color:white;
-  margin-left: 70px;
-  margin-right: 70px;
-  margin-bottom: 80px;
+  // height: 530px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 200px;
+
 }
 
 .top-pilots{
@@ -164,6 +164,8 @@ body{
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
+  background-color: white;
+  margin-left: 15px;
 }
 
 
