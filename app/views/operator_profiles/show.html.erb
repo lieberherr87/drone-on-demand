@@ -1,10 +1,32 @@
 <div class="container">
-  <h1><%= @profile.company_name %>'s Profile</h1>
-  <p>Check out our Profile. We're ready to amaze you!</p>
+  <div class="row">
+    <div class='col-xs-12 col-md-6'>
+      <figure class="oprofile-box">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+      <figcaption>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/profile-sample4.jpg" alt="profile-sample4" class="profile" />
+          <h2><%= @profile.user.first_name %><span><%= @profile.company_name %></span></h2>
+          <p><%= @profile.description %></p>
+          <h3>My Skills</h3>
+        <% @profile.skills.each do |s| %>
+          <ul>
+            <li><p><%= s.name %></p></li>
+          </ul>
+        <% end %>
+        <a href="#" class="message">Message</a>
+      </figcaption>
+      </figure>
+    </div>
 
-  <% if @profile.videos.first %>
-    <p><%= embed(@profile.videos.first.url) %></p>
-  <% end %>
+    <div class='col-xs-12 col-md-6'>
+      <% if @profile.videos.first %>
+        <p><%= embed(@profile.videos.first.url) %></p>
+      <% end %>
+      <% @profile.images.each do |p| %>
+        <%= cl_image_tag p.image %>
+      <% end %>
+    </div>
+  </div>
 
   <p><%= @profile.description %></p>
 
@@ -15,3 +37,6 @@
     <%= s.name %>
   <% end %>
 </div>
+
+
+

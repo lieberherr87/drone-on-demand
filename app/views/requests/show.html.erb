@@ -7,11 +7,11 @@
   <p>Details: <%= @request.details %></p>
   <p>Category: <%= @request.category %></p>
 
-  <% if current_user.pilot && !current_user.not_applied?(@request) %>
+  <% if current_user.pilot && current_user.not_applied?(@request) %>
     <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
   <% end %>
 
-  <% if current_user.pilot && current_user.not_applied?(@request) %>
+  <% if current_user.pilot && !current_user.not_applied?(@request) %>
     <p><%= link_to 'Show my proposals', proposals_path %></p>
   <% end %>
 
