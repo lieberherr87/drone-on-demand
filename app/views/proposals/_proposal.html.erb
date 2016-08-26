@@ -1,7 +1,9 @@
 <!-- List of all Proposals-->
 
 <div class="container">
-  <h1>List of all Proposals</h1>
+<div class="proposal-list">
+  <h2>List of all Proposals</h2>
+</div>
   <% if @request.proposals.empty? %>
   <p> You have no proposals yet </p>
   <% else %>
@@ -16,7 +18,7 @@
         <%= cl_image_tag proposal.user.avatar, class:"profile" %>
         <h2><%= proposal.user.operator_profile.company_name %></h2>
         <p><b><%= proposal.price %> USD</b></p>
-        <div class="proposal-box status">
+        <div class="proposal-box-status">
           <% if proposal.accepted? %>
             <p><i class="fa fa-check" aria-hidden="true"></i> Accepted!</p>
           <% elsif proposal.pending? %>

@@ -13,7 +13,7 @@
         <%= image_tag "logo", width: '60px' %>
       </div>
       <div class="float-left">
-        <%= link_to "Droneit", root_path, class: "navbar-brand orbitron" %>
+        <%= link_to "Droneit", root_path, class: "navbar-brand orbitron logoblue" %>
       </div>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,7 +62,7 @@
               <li> <%= link_to "Profile", profile_path %></li>
               <% if current_user.pilot? %>
                 <% if current_user.operator_profile(current_user.id) %>
-                  <li> <%= link_to "Operator Profile", operator_profile_path(current_user.id) %> </li>
+                  <li> <%= link_to "Operator Profile", operator_profile_path(current_user.operator_profile) %> </li>
                 <% else %>
                   <li> <%= link_to "Operator Profile", new_operator_profile %> </li>
                 <% end %>

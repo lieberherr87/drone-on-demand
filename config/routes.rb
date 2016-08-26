@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   get '/profile' => 'pages#profile'
-  resources :operator_profiles
+  resources :operator_profiles do
+    resources :images, only: [:new, :create]
+  end
+
+  resources :images, only: :destroy
 
   resources :requests do
     resources :proposals, only: [:create, :new]
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
       end
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #
   root "pages#index"
