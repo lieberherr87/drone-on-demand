@@ -4,8 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
+
   version :standard do
-    resize_to_fit 600, 600
+    cloudinary_transformation q_auto: "good"
+    process :scale => [746, 459]
   end
 
   # Include RMagick or MiniMagick support:
