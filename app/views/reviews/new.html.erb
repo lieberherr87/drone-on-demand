@@ -1,2 +1,34 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+
+<h1>Add a Review </h1>
+
+<% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for [@proposal, @review] do |f| %>
+  <div class="field">
+  <%= f.text_field :content %>
+  </div>
+
+   <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, 0..5 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "add a review" %>
+  </div>
+
+<% end %>
+
+
+
+
