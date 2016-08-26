@@ -1,5 +1,21 @@
-.rating > span:hover:before {
-   content: "\2605";
-   position: absolute;
-}
-
+ .rating {
+      overflow: hidden;
+      display: inline-block;
+  }
+  .rating-input {
+      float: right;
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      margin: 0 0 0 -16px;
+      opacity: 0;
+  }
+  .rating-star {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url('star.png') 0 -16px;
+  }
+  .rating-star:hover {
+      background-position: 0 0;
+  }
