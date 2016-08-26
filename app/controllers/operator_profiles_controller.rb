@@ -46,9 +46,11 @@ class OperatorProfilesController < ApplicationController
       end
     end
     redirect_to operator_profile_path(@profile)
+    authorize @operator_profile
   end
 
   def destroy
+    authorize @operator_profile
   end
 
   private
