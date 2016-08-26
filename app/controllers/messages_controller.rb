@@ -1,5 +1,4 @@
-class Messages
-  Controller < ApplicationController
+class MessagesController < ApplicationController
   before_action :set_conversation
 
   def index
