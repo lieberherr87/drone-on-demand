@@ -12,12 +12,10 @@
             <li><p><%= s.name %></p></li>
           </ul>
         <% end %>
-        <% if current_user.pilot? %>
+        <% if policy(@profile).update? %>
           <%= link_to 'Edit Profile', edit_operator_profile_path %></p>
-          <p><a href="javascript:history.back()">Go Back</a></p>
-        <% else %>
-          <p><a href="javascript:history.back()">Go Back</a></p>
         <% end %>
+          <p><a href="javascript:history.back()">Go Back</a></p>
       </figcaption>
       </figure>
       </div>

@@ -6,6 +6,7 @@ class OperatorProfilesController < ApplicationController
 
   def index
     redirect_to root_path
+    @profile = policy_scope(OperatorProfile)
   end
 
   def show
@@ -55,11 +56,11 @@ class OperatorProfilesController < ApplicationController
       end
     end
     redirect_to operator_profile_path(@profile)
-    authorize @operator_profile
+    authorize @profile
   end
 
   def destroy
-    authorize @operator_profile
+    authorize @profile
   end
 
   private
