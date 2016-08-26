@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Messages</h1>
+  <p>Send message to <%= chat_partner(current_user, @conversation) %></p>
+
+  <div class=”ui segment”>
+   <% @messages.each do |message| %>
+    <% if message.body %>
+     <% message.user %>
+     <div class=”item”>
+      <div class=”content”>
+       <div class=”header”><strong><%= message.user.first_name %></strong>     <%= message.message_time %></div>
+        <div class=”list”>
+         <div class=”item”>
+          <i class=”right triangle icon”></i>
+           <%= message.body %>
+        </div>
+      </div>
+     </div>
+   </div>
+   <% end %>
+  <% end %>
+  </div>
+  <br>
+  <%= simple_form_for [@conversation, @message] do |f| %>
+    <%= f.input :body, autofocus: true, label: "Message", input_html: {rows: 3} %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.button :submit, "Send", class:"btn btn-primary"%>
+  <% end %>
+  <%= link_to "Back", conversations_path, class: "btn btn-primary" %>
+</div>

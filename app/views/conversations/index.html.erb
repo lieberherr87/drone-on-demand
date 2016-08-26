@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Mailbox</h1>
+  <p>Manage all your messages</p>
+
+  <list>
+    <ul><% @conversations.each do |conversation| %>
+      <li><%= link_to conversation_messages_path(conversation) do %>
+        <%= chat_partner(current_user, conversation) %> -- <%= truncate(conversation.messages.last.try(:body), :length => 150)%></li>
+      <% end %>
+      <% end %>
+    </ul>
+  </list>
+</div>

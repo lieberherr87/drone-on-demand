@@ -1,27 +1,29 @@
+
 <%= simple_form_for @profile, html: {multipart: true} do |f| %>
   <div class="form-inputs">
-    <%= f.input :company_name %>
-    <%= f.input :description, as: :text, input_html: {rows: 4} %>
-    <%= f.association :skills, as: :check_boxes, collection: Skill.all %>
 
-    <h3>Images</h3>
+    <%= f.input :company_name, input_html: { :class => 'op-input' }, label_html: { :class => 'op-label' }%>
+    <%= f.input :description, as: :text, input_html: { :class => 'op-input', rows: 4}, label_html: { :class => 'op-label' } %>
+    <%= f.association :skills, as: :check_boxes, collection: Skill.all, input_html: { :class => 'op-input' }, label_html: { :class => 'op-label' } %>
+
+
     <div id="images">
       <%= f.simple_fields_for :images do |image| %>
-    <%= render 'image_fields', f: image %>
+        <%= render 'image_fields', f: image %>
       <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add image', f, :images %>
-    </div>
+      <div class="links op-links">
+        <%= link_to_add_association 'add image', f, :images %>
+      </div>
     </div>
 
-    <h3>Videos</h3>
+    <div class="o-label"><h3>Videos</h3></div>
     <div id="videos">
       <%= f.simple_fields_for :videos do |url| %>
-    <%= render 'video_fields', f: url %>
+        <%= render 'video_fields', f: url %>
       <% end %>
-    <div class="links">
-      <%= link_to_add_association 'add url', f, :videos %>
-    </div>
+      <div class="links op-links">
+        <%= link_to_add_association 'add url', f, :videos %>
+      </div>
     </div>
   </div>
 
