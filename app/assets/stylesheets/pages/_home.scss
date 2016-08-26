@@ -3,22 +3,22 @@
   .navbar {
     background-color: transparent;
     .dropdown {
-      border: 2px white solid;
       .dropdown-toggle{
-        color:white;
+        color:#02b2d2;
       }
     }
   }
 
   .otherlinks{
-    color:white;
+    color:#02b2d2;
   }
 
   .navbar-link, .navbar-brand {
-    color: white;
+    color: #02b2d2;
+
   }
   .navbar-link{
-    border: 2px white solid;
+    border: 2px #02b2d2 solid;
     border-radius: 5px;
     margin-left: 4px;
   }
@@ -54,6 +54,7 @@
 .bg-white { background-color: white; }
 .black { color: black!important; }
 .white { color: white!important; }
+
 
 .black:hover{
   color: #1c2833;
