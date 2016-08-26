@@ -6,6 +6,14 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
+
+  process eager: true  # Force version generation at upload time.
+
+  process convert: 'jpg'
+
+  version :standard do
+    resize_to_fit 600, 600
+  end
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # # storage :fog
@@ -47,5 +55,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  #
+
 
 end
