@@ -1,4 +1,6 @@
   <div class="nested-fields">
-    <%= f.input :url %>
-    <%= link_to_remove_association "remove url", f %>
+    <%= f.input :url, input_html: { :class => 'op-input', rows: 4}, label_html: { :class => 'op-label' } %>
+    <div class="links op-links-sm">
+      <%= link_to_remove_association "remove url", f %>
+    </div>
   </div>
