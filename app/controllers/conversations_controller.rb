@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   # before_action :authenticate_user
 
   def index
-    @conversations = Conversation.where("recipient_id=50 OR sender_id=50")
+    @conversations = Conversation.where("recipient_id=#{current_user.id} OR sender_id=#{current_user.id}")
   end
 
   def create
