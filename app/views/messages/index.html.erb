@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Messages</h1>
-  <p>Send message to <%= @conversation.recipient.first_name %></p>
+  <p>Send message to <%= (current_user == @conversation.recipient) ? @conversation.sender.first_name : @conversation.recipient.first_name %></p>
 
   <div class=”ui segment”>
    <% @messages.each do |message| %>
@@ -20,9 +20,9 @@
    <% end %>
   <% end %>
   </div>
-
+  <br>
   <%= simple_form_for [@conversation, @message] do |f| %>
-    <%= f.input :body, autofocus: true, input_html: {rows: 3} %>
+    <%= f.input :body, autofocus: true, label: "Message", input_html: {rows: 3} %>
     <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
     <%= f.button :submit, "Send", class:"btn btn-primary"%>
   <% end %>

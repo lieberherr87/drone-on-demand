@@ -4,8 +4,9 @@
 
   <list>
     <ul><% @conversations.each do |conversation| %>
-      <li><%= @users.find(conversation.sender_id).first_name %> <%= @users.find(conversation.sender_id).last_name%> <%= conversation.messages.last.body %></li>
-      <li></li>
+      <li><%= link_to conversation_messages_path(conversation) do %>
+        <%= @users.find(conversation.sender_id).first_name %> <%= @users.find(conversation.sender_id).last_name%> <%= conversation.messages.last.body %></li>
+      <% end %>
       <% end %>
     </ul>
   </list>
