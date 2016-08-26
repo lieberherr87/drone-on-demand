@@ -97,7 +97,7 @@
   </div>
   <div class="row">
   <% @top_pilots.each do |pilot| %>
-    <%= link_to operator_profile_path(pilot) do %>
+    <%= link_to operator_profile_path(pilot.operator_profile) do %>
       <div class="col-xs-12 col-sm-3 text-center">
         <div class="jumbotron">
         <%= image_tag pilot.avatar, class: 'img-circle' %>
