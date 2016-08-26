@@ -189,6 +189,8 @@
   background-image: url('one.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 400px;
+  max-height: 400px;
 }
 
 .jumbotron:hover{
@@ -196,8 +198,6 @@
 }
 
 .jumbotron-description {
-  bottom: 10px;
-  left: 10px;
   margin-left:-3px;
   margin-bottom: 80px;
 }
