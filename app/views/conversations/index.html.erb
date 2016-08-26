@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Mailbox</h1>
+  <p>Manage all your messages</p>
+
+  <list>
+    <ul><% @conversations.each do |conversation| %>
+      <li><%= conversation.sender %></li>
+      <li><%#= message.content %></li>
+      <% end %>
+    </ul>
+  </list>
+
+  <h3>All Users</h3>
+  <div class="ui list">
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+      <div class="item">
+        <%= user.first_name %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

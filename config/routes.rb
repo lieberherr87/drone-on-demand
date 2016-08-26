@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :conversations do
+    resources :messages
+  end
+
   get '/profile' => 'pages#profile'
   resources :operator_profiles do
     resources :images, only: [:new, :create]
