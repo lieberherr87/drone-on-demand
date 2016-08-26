@@ -4,6 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
+  version :standard do
+    resize_to_fit 600, 600
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
