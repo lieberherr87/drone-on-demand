@@ -102,9 +102,24 @@
         <div class="jumbotron">
         <%= image_tag pilot.avatar, class: 'img-circle' %>
         <div class="jumbotron-description white text-center">
-        <p><strong><%= pilot.first_name %></strong></p>
+          <p><strong><%= pilot.first_name %></strong></p>
 
-        <em><p> I'm good at editing!</p></em>
+          <% if pilot.operator_profile.skills.count != 0  %>
+            <em><p> I'm good at
+            <% pilot.operator_profile.skills.each_with_index do |skill, i| %>
+              <% if pilot.operator_profile.skills.count == 1 %>
+                <%=skill.name%>
+              <% else %>
+                <%=skill.name%>
+                <% if i < pilot.operator_profile.skills.count - 2 %>
+                  ,
+                <% elsif i == pilot.operator_profile.skills.count - 2 %>
+                  and
+                <% end %>
+            <% end %>
+            <% end %>
+            !</p></em>
+          <% end %>
 
         </div>
         </div>
@@ -116,4 +131,9 @@
 
 
 
-<!-- if user has editing skill = show  -->
+<!--if user has 1 skill
+      show Im good at "skill"
+    elsif user good at 2 skills
+      show I'm good at "skill" and "skill"!
+    elsif user good at 3 skills
+      show I'm good at "skill", "skill", and "skill"! -->
