@@ -15,13 +15,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @proposal = Proposal.find(params[:booking_id])
+    @proposal = Proposal.find(params[:proposal_id])
     @review = Review.new(review_params)
     @review.proposal = @proposal
     if @review.save
       redirect_to proposal_path(@proposal)
     else
-      render 'proposals/show'
+      render 'proposals'
     end
   end
 
@@ -32,6 +32,6 @@ class ReviewsController < ApplicationController
   end
 
   def find_proposal
-    @proposal = Proposal.find(params[:booking_id])
+    @proposal = Proposal.find(params[:proposal_id])
   end
 end
