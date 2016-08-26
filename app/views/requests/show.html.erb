@@ -8,7 +8,7 @@
         <p><b>Due Date:</b> <b><%= @request.due_date %></b></p>
         <p><b>Location:</b> <%= @request.location %></p>
         <p><b>Details:</b> <%= @request.details %></p>
-        <p><b>Category:</b><%= @request.category %></p>
+        <p><b>Category:</b> <%= @request.category %></p>
 
         <% if current_user.pilot && current_user.not_applied?(@request) %>
           <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
