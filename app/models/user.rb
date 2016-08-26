@@ -26,7 +26,6 @@ class User < ApplicationRecord
   after_create :create_op_profile, if: "self.pilot?"
 
   def create_op_profile
-
     self.create_operator_profile
   end
 

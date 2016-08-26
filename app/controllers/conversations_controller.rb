@@ -2,8 +2,7 @@ class ConversationsController < ApplicationController
   # before_action :authenticate_user
 
   def index
-    @users = User.all
-    @conversations = Conversation.all
+    @conversations = Conversation.where("recipient_id=50 OR sender_id=50")
   end
 
   def create
