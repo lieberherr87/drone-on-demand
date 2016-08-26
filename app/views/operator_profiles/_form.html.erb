@@ -1,9 +1,32 @@
 <%= simple_form_for @profile, html: {multipart: true} do |f| %>
-<%= f.input :company_name %>
-<%= f.input :description, as: :text, input_html: {rows: 4} %>
-<br>
-<%= f.association :skills, as: :check_boxes, collection: Skill.all %>
+  <div class="form-inputs">
+    <%= f.input :company_name %>
+    <%= f.input :description, as: :text, input_html: {rows: 4} %>
+    <%= f.association :skills, as: :check_boxes, collection: Skill.all %>
 
-<%= f.button :submit, "Create your profile" %>
+    <h3>Images</h3>
+    <div id="images">
+      <%= f.simple_fields_for :images do |image| %>
+    <%= render 'image_fields', f: image %>
+      <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add image', f, :images %>
+    </div>
+    </div>
+
+    <h3>Videos</h3>
+    <div id="videos">
+      <%= f.simple_fields_for :videos do |url| %>
+    <%= render 'video_fields', f: url %>
+      <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add url', f, :videos %>
+    </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
 
