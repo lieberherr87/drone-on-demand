@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
-.oprofile-box {
+.oprofile-box{
   font-family: 'Roboto', Arial, sans-serif;
   position: relative;
   float: left;
@@ -12,7 +12,10 @@
   text-align: left;
   line-height: 1.4em;
   background-color: white;
+  position: fixed;
+  top: 55px;
 }
+
 .oprofile-box * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -77,6 +80,7 @@
 .oprofile-box h2 {
   margin: 0 0 5px;
   font-weight: 300;
+  font-size: 25px;
 }
 
 .oprofile-box p {
