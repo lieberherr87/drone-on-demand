@@ -5,8 +5,6 @@ class OperatorProfile < ApplicationRecord
   has_many :skills, through: :operator_skills
   has_many :images, dependent: :destroy
 
-  validates :description, presence: true
-  validates :company_name, presence: true
   accepts_nested_attributes_for :skills, :images, :videos
 
 end
