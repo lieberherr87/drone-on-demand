@@ -12,11 +12,12 @@
 
         <% if current_user.pilot && current_user.not_applied?(@request) %>
           <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %></p>
-          <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %>
+          <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
         <% end %>
 
         <% if current_user.pilot && !current_user.not_applied?(@request) %>
           <p><%= link_to 'Show my proposals', proposals_path %></p>
+          <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
         <% end %>
 
 
