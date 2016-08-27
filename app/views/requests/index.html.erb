@@ -14,6 +14,7 @@
     <thead>
       <tr>
         <th>Request ID</th>
+        <th>Name</th>
         <th>Location</th>
         <th>Category</th>
         <th>Due Date</th>
@@ -28,6 +29,7 @@
       <% @requests.each do |request| %>
         <tr>
           <td><%= request.id %></td>
+          <td><%= request.user.first_name %> <%= request.user.last_name %></td>
           <td><%= request.location %></td>
           <td><%= request.category %></td>
           <td><%= request.due_date %></td>
