@@ -4,21 +4,21 @@
     background-color: transparent;
     .dropdown {
       .dropdown-toggle{
-        color:#02b2d2;
+        color: $gray;
       }
     }
   }
 
   .otherlinks{
-    color:#02b2d2;
+    color: $gray;
   }
 
   .navbar-link, .navbar-brand {
-    color: #02b2d2;
+    color: $gray;
 
   }
   .navbar-link{
-    border: 2px #02b2d2 solid;
+    border: 2px $gray solid;
     border-radius: 5px;
     margin-left: 4px;
   }
@@ -68,6 +68,8 @@
   background-repeat: no-repeat;
   position: relative;
   top: -81px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 #as-a-pilot{
@@ -76,9 +78,6 @@
   background-repeat: no-repeat;
   position: relative;
   top: -81px;
-}
-
-.col-lg-3{
   padding-top: 150px;
   padding-bottom: 150px;
 }
@@ -146,8 +145,6 @@
   padding-bottom: 200px;
 
 }
-
-
 
 
 .pilot{

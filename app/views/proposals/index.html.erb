@@ -1,7 +1,7 @@
 <div class="container">
-
-  <h1>These are your proposals</h1>
-  <p>Manage your proposals here</p>
+    <div class="proposal-summary">
+      <h1>These are your proposals</h1>
+      <p>Manage your proposals here</p>
 
   <table class= "table table-hover">
     <thead>
@@ -17,21 +17,21 @@
     <tbody>
       <% @proposals.each do |proposal| %>
         <tr>
-          <td><%= proposal.request.location %></td>
-          <td><%= proposal.date %></td>
-          <td><%= proposal.price %></td>
-          <td><%= proposal.status %></td>
-          <td><%= link_to 'Show', proposal_path(proposal) %> </td>
+          <td><p><%= proposal.request.location %></p></td>
+          <td><p><%= proposal.date %></p></td>
+          <td><p><%= proposal.price %></p></td>
+          <td><p><%= proposal.status %></p></td>
+          <td><div class="proposal-links"><%= link_to 'Show', proposal_path(proposal) %></div> </td>
         <% unless !current_user.pilot? %>
-          <td><%= link_to 'Cancel', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+          <td><div class="proposal-links red"><%= link_to 'Cancel', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %> </td></div>
         <% end %>
         <% unless current_user.pilot? %>
-          <td><%= link_to 'Add review', new_proposal_review_path(request) %> </td>
+          <td><div class="proposal-links"><%= link_to 'Add review', new_proposal_review_path(request) %></div> </td>
         <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <td><%= link_to 'Back to requets', requests_path %> </td>
-
+  <td><div class="proposal-links"><%= link_to 'Back to requets', requests_path %> </div></td>
+  </div>
 </div>

@@ -1,4 +1,41 @@
 .proposal-list {
   color: $gray;
+  font-size: 25px;
+  font-weight: 300;
 }
+
+.proposal-links a {
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.red a {
+  background-color: $red;
+  color: $gray-darker;
+}
+
+.proposal-links a:hover {
+  opacity: 1;
+}
+
+
+.proposal-summary h1 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.proposal-summary p {
+  font-weight: 300;
+}
+
 

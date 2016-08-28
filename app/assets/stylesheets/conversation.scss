@@ -1,3 +1,27 @@
 // Place all the styles related to the Conversation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mailbox h1 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.mailbox p {
+  font-weight: 300;
+}
+
+.mailbox-links a {
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+

@@ -1,42 +1,42 @@
 <div class='container'>
-
-  <h1 class="inline">Profile</h1>
-  <%= link_to "Edit profile", edit_user_registration_path, class: "inline btn btn-sm btn-warning" %>
-  <hr>
-  <table class='table table-hover'>
-      <tr>
-        <td>
-          <strong>First Name</strong>
-        </td>
-        <td>
-          <%= @user.first_name %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Last Name</strong>
-        </td>
-        <td>
-          <%= @user.last_name %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Email address</strong>
-        </td>
-        <td>
-          <%= @user.email %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Address</strong>
-        </td>
-        <td>
-          <%= @user.address %>
-        </td>
-      </tr>
-  </table>
+  <div class="signup">
+    <h1 class="inline">Profile </h1>
+    <%= link_to "Edit profile", edit_user_registration_path, class: 'btn-su-edit-small' %>
+    <table class='table table-hover'>
+        <tr>
+          <td>
+            <p><strong>First Name</strong></p>
+          </td>
+          <td>
+            <p><%= @user.first_name %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+           <p> <strong>Last Name</strong></p>
+          </td>
+          <td>
+            <p><%= @user.last_name %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><strong>Email address</strong></p>
+          </td>
+          <td>
+           <p> <%= @user.email %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><strong>Address</strong></p>
+          </td>
+          <td>
+            <p><%= @user.address %></p>
+          </td>
+        </tr>
+    </table>
+  </div>
 </div>
 
 

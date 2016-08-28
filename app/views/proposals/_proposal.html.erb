@@ -1,9 +1,7 @@
 <!-- List of all Proposals-->
 
-<div class="container">
-<div class="proposal-list">
-  <h2>List of all Proposals</h2>
-</div>
+  <div class="proposals">
+  <h2 class="proposal-list text-center">List of all Proposals</h2>
   <% if @request.proposals.empty? %>
   <p> You have no proposals yet </p>
   <% else %>
@@ -13,7 +11,11 @@
     <div class="col-md-3 col-xs-6">
       <figure class="proposal-box">
         <%= link_to proposal_path(proposal) do %>
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+        <% if !proposal.user.operator_profile.images.first.nil? %>
+          <%= cl_image_tag proposal.user.operator_profile.images.first.image %>
+        <% else %>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+        <% end %>
       <figcaption>
       <% if !proposal.user.avatar.url.nil? %>
         <%= cl_image_tag proposal.user.avatar.url(:standard), class:"profile" %>
@@ -36,5 +38,6 @@
 
     <% end %>
   <% end %>
-</div>
+ </div>
+
 
