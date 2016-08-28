@@ -1,46 +1,49 @@
 <div class="container">
   <div class="row">
-      <div class='col-xs-12 col-md-4'>
+    <div class='col-xs-12 col-md-4'>
       <figure class="oprofile-box">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
       <figcaption>
-         <% if !@profile.user.avatar.url.nil? %>
-            <%= cl_image_tag @profile.user.avatar.url(:standard), class:"profile" %>
-          <% end %>
-          <h2><span><%= @profile.company_name %></span></h2>
-          <h3>Skills</h3>
+        <% if !@profile.user.avatar.url.nil? %>
+          <%= cl_image_tag @profile.user.avatar.url(:standard), class:"profile" %>
+        <% end %>
+        <h2><span><%= @profile.company_name %></span></h2>
+        <h3>Skills</h3>
         <% @profile.skills.each do |s| %>
-          <ul>
-            <li><p><%= s.name %></p></li>
-          </ul>
+        <ul>
+          <li><p><%= s.name %></p></li>
+        </ul>
         <% end %>
         <% if policy(@profile).update? %>
           <%= link_to 'Edit Profile', edit_operator_profile_path %></p>
         <% end %>
-          <p><a href="javascript:history.back()">Go Back</a></p>
+        <p><a href="javascript:history.back()">Go Back</a></p>
       </figcaption>
       </figure>
-      </div>
+    </div>
 
     <div class='col-xs-12 col-md-8'>
-      <% if @profile.videos.first %>
-        <div class="embed-container">
-          <p><%= embed(@profile.videos.first.url) %></p>
-        </div>
-      <% end %>
-      <div class="description-box">
-       <p><%= @profile.description %></p>
+    <% if @profile.videos.first %>
+      <div class="embed-container">
+       <p><%= embed(@profile.videos.first.url) %></p>
       </div>
-      <% @profile.images.each do |p| %>
-      <div class="image-container">
-      <% if @profile.images %>
-        <%= cl_image_tag p.image.url(:standard) %>
-      <% end %>
-       </div>
-      <% end %>
+    <% end %>
+    <div class="description-box">
+      <p><%= @profile.description %></p>
+    </div>
+    <% @profile.images.each do |p| %>
+    <div class="image-container">
+    <% if @profile.images %>
+      <%= cl_image_tag p.image.url(:standard) %>
+    <% end %>
+    </div>
+    <% end %>
     </div>
   </div>
 </div>
+
+
+<!-- javascript -->
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
@@ -50,7 +53,7 @@ $(document).scroll(function() {
 });
 function checkOffset() {
     if($('.oprofile-box').offset().top + $('.oprofile-box').height()
-                                           >= $('#footer').offset().top - 5)
+                                           >= $('#footer').offset().top -10)
         $('.oprofile-box').css('position', 'absolute');
     if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
         $('.oprofile-box').css('position', 'fixed'); // restore when you scroll up

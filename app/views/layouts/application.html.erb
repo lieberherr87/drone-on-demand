@@ -13,6 +13,7 @@
   </head>
 
   <body class='<%= "#{controller_name} #{action_name}" %>'>
+  <div id="wrapper">
     <%= render 'shared/flashes' %>
     <%= render "shared/navbar" %>
     <%= yield %>
@@ -23,6 +24,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
      <%= yield(:after_js) %>
 
-
+  </div>
   </body>
 </html>

@@ -2,10 +2,15 @@
 
   <div class="row">
       <div class='col-xs-12 col-md-6 col-md-offset-3'>
+       <div class="proposal-summary">
       <h1>Proposal Summary</h1>
         <p>Find the Proposal Details here:</p>
       <figure class="proposal-box">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+      <% if !@proposal.user.operator_profile.images.first.nil? %>
+          <%= cl_image_tag @proposal.user.operator_profile.images.first.image %>
+        <% else %>
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+        <% end %>
       <figcaption>
       <% if !@proposal.user.avatar.url.nil? %>
         <%= cl_image_tag @proposal.user.avatar.url(:standard), class:"profile" %>
@@ -37,7 +42,8 @@
 
     <% if !current_user.pilot? && @proposal.accepted? %>
       <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %>
-      <a href="#" class="message">Message</a></p>
+      <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
+</p>
     <% end %>
     <% if !current_user.pilot? %>
       <p><a href="javascript:history.back()">Go Back</a></p>
@@ -47,6 +53,7 @@
     <% end %>
      </figcaption>
       </figure>
+ </div>
  </div>
   </div>
 </div>

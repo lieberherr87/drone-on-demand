@@ -6,7 +6,6 @@
     <%= f.input :description, as: :text, input_html: { :class => 'op-input', rows: 4}, label_html: { :class => 'op-label' } %>
     <%= f.association :skills, as: :check_boxes, collection: Skill.all, input_html: { :class => 'op-input' }, label_html: { :class => 'op-label' } %>
 
-
     <div id="images">
       <%= f.simple_fields_for :images do |image| %>
         <%= render 'image_fields', f: image %>
@@ -16,7 +15,7 @@
       </div>
     </div>
 
-    <div class="o-label"><h3>Videos</h3></div>
+    <div class="op-label"><h3>Videos</h3></div>
     <div id="videos">
       <%= f.simple_fields_for :videos do |url| %>
         <%= render 'video_fields', f: url %>
@@ -28,7 +27,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn-op-edit'%>
   </div>
 <% end %>
 

@@ -1,22 +1,31 @@
-// Place all the styles related to the Conversation controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.signup h1 {
+  font-size: 32px;
+  font-weight: 300;
+}
 
+.signup h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
 
-.msg-label {
+.signup h3 {
+   font-size: 28px;
+  font-weight: 300;
+}
+.su-label {
   margin: 0 0 5px;
   font-weight: 300;
   font-size: 22px;
 }
 
-.msg-input {
+.su-input {
   margin: 0 0 10px;
   font-size: 0.8em;
   letter-spacing: 1px;
   opacity: 0.8;
 }
 
-.btn-msg-send {
+.btn-su-edit {
   padding: 10px;
   border: 1px solid #F2F2F2;
   color: black;
@@ -32,26 +41,25 @@
   letter-spacing: 1px;
   border-radius: 0px;
 }
+.signup p {
+  margin: 0 0 10px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
 
-.btn-msg-back {
-  padding: 5px;
+.btn-su-edit-small {
+  padding: 10px;
   border: 1px solid #F2F2F2;
-  color: $gray;
-  font-size: 0.7em;
-  text-transform: uppercase;
+  color: black;
+  background-color: $red;
+  font-size: 0.9em;
   margin: 10px 0;
   display: inline-block;
   opacity: 0.65;
-  width: 47%;
   text-align: center;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 1px;
+  border-radius: 0px;
 }
-
-.ui .content {
-  background-color: black !important;
-}
-// Place all the styles related to the Message controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/

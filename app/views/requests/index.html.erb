@@ -1,58 +1,57 @@
 <!-- List of all Requests the current user made -->
 
 <div class="container">
+  <div class="requests">
+    <%if !current_user.pilot %>
+      <h1>These are your requests</h1>
+      <p>Manage your requests here</p>
+    <% else %>
+      <h1>These are all requests</h1>
+      <p>Make a proposal here</p>
+    <% end %>
 
-<%if !current_user.pilot %>
-  <h1>These are your requests</h1>
-  <p>Manage your requests here</p>
-<% else %>
-  <h1>These are all requests</h1>
-  <p>Make a proposal here</p>
-<% end %>
-
-  <table class= "table table-hover">
-    <thead>
-      <tr>
-        <th>Request ID</th>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Category</th>
-        <th>Due Date</th>
-      <%if current_user.pilot %>
-        <th>Proposal sent</th>
-      <% end %>
-        <th colspan="6"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @requests.each do |request| %>
+    <table class= "table table-hover">
+      <thead>
         <tr>
-          <td><%= request.id %></td>
-          <td><%= request.user.first_name %> <%= request.user.last_name %></td>
-          <td><%= request.location %></td>
-          <td><%= request.category %></td>
-          <td><%= request.due_date %></td>
-
-          <% if !current_user.not_applied?(request) %>
-            <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
-            <% else %>
-            <td></td>
-          <% end %>
-          <td><%= link_to 'Show', request_path(request) %> </td>
-          <% unless current_user.pilot %>
-            <% if policy(request).update? %>
-              <td><%= link_to 'Edit', edit_request_path(request) %> </td>
-            <% end %>
-            <% if policy(request).destroy? %>
-              <td><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
-            <% end %>
-          <% end %>
+          <th><p><b>Request ID</b></p></th>
+          <th><p><b>Location</b></p></th>
+          <th><p><b>Category</b></p></th>
+          <th><p><b>Due Date<b></p></th>
+        <%if current_user.pilot %>
+          <th><p><b>Proposal sent</b></p></th>
+        <% end %>
+          <th colspan="6"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'Add Request', new_request_path %>
+      </thead>
+
+      <tbody>
+        <% @requests.each do |request| %>
+          <tr>
+            <td><p><%= request.id %></p></td>
+            <td><p><%= request.location %></p></td>
+            <td><p><%= request.category %></p></td>
+            <td><p><%= request.due_date %></p></td>
+
+            <% if !current_user.not_applied?(request) %>
+              <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
+              <% else %>
+              <td></td>
+            <% end %>
+            <td><div class="request-links"><%= link_to 'Show', request_path(request) %></div> </td>
+            <% unless current_user.pilot %>
+              <% if policy(request).update? %>
+                <td><div class="request-links"><%= link_to 'Edit', edit_request_path(request) %></div> </td>
+              <% end %>
+              <% if policy(request).destroy? %>
+                <td><div class="request-links red"><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %></div> </td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+    <div class="request-links-index red"><%= link_to 'Add Request', new_request_path %></div>
 
 </div>
 
