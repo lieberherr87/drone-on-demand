@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :pending_proposals, through: :requests, source: :proposals #All proposals on user's requests
   has_many :proposals, dependent: :destroy #Created by this user
+  has_many :messages, through: :conversations
+
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
@@ -23,9 +26,7 @@ class User < ApplicationRecord
   #is there a proposal from the current_user for a specific request
   end
 
-  after_create :send_welcome_email
-  after_create :create_op_profile, if: "self.pilot?"
-
+  after_create :send_welcome_email, :create_op_profile, if: "self.pilot?"
 
   def create_op_profile
     self.create_operator_profile
@@ -34,7 +35,11 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    if !self.pilot?
+      UserMailer.welcome_client(self).deliver_now
+    else
+      UserMailer.welcome_pilot(self).deliver_now
+    end
   end
 
 end

@@ -5,10 +5,18 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome(user)
+  def welcome_client(user)
     @user = user
     @greeting = "Hi"
 
     mail(to: @user.email, subject: "Welcome to Droneit. Get started now!")
   end
+
+  def welcome_pilot(user)
+    @user = user
+    @greeting = "Hi"
+
+    mail(to: @user.email, subject: "Welcome to Droneit. Get started now!")
+  end
+
 end
