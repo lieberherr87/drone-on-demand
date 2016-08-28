@@ -9,4 +9,12 @@ class Request < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
+
+  after_create :send_request_created_email
+
+  private
+
+  def send_request_created_email
+    RequestMailer.request_created(self).deliver_now
+  end
 end

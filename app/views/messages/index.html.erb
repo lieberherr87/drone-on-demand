@@ -27,8 +27,8 @@
 
 
   <%= simple_form_for [@conversation, @message] do |f| %>
-    <%= f.input :body, autofocus: true, label: "Message", input_html: {rows: 3}, input_html: { :class => 'msg-input' }, label_html: { :class => 'msg-label' } %>
-    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id }, input_html: { :class => 'msg-input' }, label_html: { :class => 'msg-label' } %>
+    <%= f.input :body, autofocus: true, label: "Message", input_html: {rows: 3, :class => 'msg-input'}, label_html: { :class => 'msg-label' } %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id, :class => 'msg-input' }, label_html: { :class => 'msg-label' } %>
     <%= f.button :submit, "Send", class: 'btn-msg-send'%>
   <% end %>
     <%= link_to "Back to Mailbox", conversations_path, class: 'btn-msg-back' %>

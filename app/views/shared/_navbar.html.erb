@@ -51,7 +51,7 @@
         <% end %>
         <% if user_signed_in? %>
           <li> <%= link_to "Requests", requests_path, class: 'otherlinks' %></li>
-          <li> <%= link_to "Messages", conversations_path, class: 'otherlinks' %></li>
+          <li> <%= link_to conversations_path do %><i class="fa fa-envelope-o"></i> Messages<% end %></li>
         <% elsif user_signed_in? && current_user.pilot? %>
           <li> <%= link_to "Proposals", proposals_path, class: 'otherlinks' %> </li>
         <% end %>
