@@ -44,3 +44,63 @@
 .map-box {
   margin-top: 15px;
 }
+
+.request-links a {
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  width: 45%;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.request-links-index a {
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  width: 15%;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.red a {
+  background-color: $red;
+  color: $gray-darker;
+}
+
+.request-links a:hover {
+  opacity: 1;
+}
+
+
+.request-summary h1 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.request-summary p {
+  font-weight: 300;
+}
+
+.requests h1 {
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.requests p {
+  font-weight: 300;
+}

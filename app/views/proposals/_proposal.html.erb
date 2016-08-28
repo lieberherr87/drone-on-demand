@@ -1,9 +1,7 @@
 <!-- List of all Proposals-->
 
-<div class="container">
-<div class="proposal-list">
-  <h2>List of all Proposals</h2>
-</div>
+  <div class="proposals">
+  <h2 class="proposal-list text-center">List of all Proposals</h2>
   <% if @request.proposals.empty? %>
   <p> You have no proposals yet </p>
   <% else %>
@@ -40,5 +38,6 @@
 
     <% end %>
   <% end %>
-</div>
+ </div>
+
 
