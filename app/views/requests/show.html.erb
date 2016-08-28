@@ -1,28 +1,28 @@
 <div class="container">
   <div class="request-show">
-    <div class="col-md-6 col-xs-6">
-      <div class="request-summary-box">
-        <div class="request-summary">
-          <h1>Request Summary</h1>
-          <p>Find the Request Details here:</p>
+  <div class="col-md-6 col-xs-6">
+    <div class="request-summary-box">
+      <div class="request-summary">
+        <h1>Request Summary</h1>
+        <p>Find the Request Details here:</p>
+        <p><b>Name:</b> <b><%= @request.user.first_name %> <%= @request.user.last_name %></b></p>
+        <p><b>Due Date: </b><%= @request.due_date %></p>
+        <p><b>Location:</b> <%= @request.location %></p>
+        <p><b>Details:</b> <%= @request.details %></p>
+        <p><b>Category:</b> <%= @request.category %></p>
 
-          <p><b>Due Date:</b> <b><%= @request.due_date %></b></p>
-          <p><b>Location:</b> <%= @request.location %></p>
-          <p><b>Details:</b> <%= @request.details %></p>
-          <p><b>Category:</b> <%= @request.category %></p>
+        <div class="request-links">
+        <% if current_user.pilot && current_user.not_applied?(@request) %>
+          <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %>
+          <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
+          <p><a href="javascript:history.back()">Go Back</a></p>
+        <% end %>
 
-          <div class="request-links">
-            <% if current_user.pilot && current_user.not_applied?(@request) %>
-              <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %>
-              <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
-              <p><a href="javascript:history.back()">Go Back</a></p>
-            <% end %>
-
-            <% if current_user.pilot && !current_user.not_applied?(@request) %>
-              <p><%= link_to 'Show my proposals', proposals_path %></p>
-              <p><a href="javascript:history.back()">Go Back</a></p>
-            <% end %>
-
+        <% if current_user.pilot && !current_user.not_applied?(@request) %>
+          <p><%= link_to 'Show my proposals', proposals_path %>
+          <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
+          <p><a href="javascript:history.back()">Go Back</a></p>
+        <% end %>
 
             <% if policy(@request).update? %>
               <p><%= link_to 'Edit my request', edit_request_path %>
