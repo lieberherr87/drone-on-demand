@@ -2,13 +2,6 @@ class RequestsController < ApplicationController
   before_action :set_request
 
   def index
-    @requests = Request.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@requests) do |request, marker|
-      marker.lat request.latitude
-      marker.lng request.longitude
-      # marker.infowindow render_to_string(partial: "/requests/map_box", locals: { request: request })
-    end
     if user_signed_in? && current_user.pilot
       @requests = Request.all
     elsif user_signed_in? && !current_user.pilot
@@ -21,6 +14,14 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find(params[:id])
     @request_coordinates = { lat: @request.latitude, lng: @request.longitude }
+
+    @requests = Request.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@requests) do |request, marker|
+      marker.lat request.latitude
+      marker.lng request.longitude
+      # marker.infowindow render_to_string(partial: "/requests/map_box", locals: { request: request })
+    end
   end
 
   def new

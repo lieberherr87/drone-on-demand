@@ -1,6 +1,6 @@
 <!-- List of all Requests the current user made -->
 
-<div class="container">
+<div class="footer-container">
   <div class="requests">
     <%if !current_user.pilot %>
       <h1>These are your requests</h1>
@@ -43,7 +43,7 @@
                 <td><div class="request-links"><%= link_to 'Edit', edit_request_path(request) %></div> </td>
               <% end %>
               <% if policy(request).destroy? %>
-                <td><div class="request-links red"><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %></div> </td>
+                <td><div class="request-links"><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %></div> </td>
               <% end %>
             <% end %>
           </tr>
@@ -51,8 +51,9 @@
       </tbody>
     </table>
   </div>
-    <div class="request-links-index red"><%= link_to 'Add Request', new_request_path %></div>
-
+  <% unless current_user.pilot %>
+    <div class="request-links-index green"><%= link_to 'Add Request', new_request_path %></div>
+  <% end %>
 </div>
 
 
