@@ -16,7 +16,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# config.action_mailer.default_url_options = { host: 'localhost:3000' } #set default host for mailer views
+config.action_mailer.default_url_options = { host: 'localhost:3000' } #set default host for mailer views
 
 module DroneOnDemand
   class Application < Rails::Application
