@@ -1,6 +1,6 @@
-class ProposalMailer < ApplicationMailer
+class ProposalMailerPreview < ActionMailer::Preview
   def proposal_submitted
     @proposal = Proposal.first
-    UserMailer.proposal_submitted(@proposal)
+    ProposalMailer.proposal_submitted(@proposal)
   end
 end

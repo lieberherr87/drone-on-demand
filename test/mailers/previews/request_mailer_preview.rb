@@ -1,6 +1,6 @@
-class RequestMailer < ApplicationMailer
+class RequestMailerPreview < ActionMailer::Preview
   def request_created
     request = Request.first
-    UserMailer.request_created(request)
+    RequestMailer.request_created(request)
   end
 end

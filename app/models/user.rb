@@ -21,12 +21,13 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  after_create :send_welcome_email
+  after_create :create_op_profile, if: "self.pilot?"
+
   def not_applied?(request)
     self.proposals.find_by(request_id: request.id).nil?
   #is there a proposal from the current_user for a specific request
   end
-
-  after_create :send_welcome_email, :create_op_profile, if: "self.pilot?"
 
   def create_op_profile
     self.create_operator_profile
