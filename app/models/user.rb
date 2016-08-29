@@ -39,10 +39,10 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    if !self.pilot?
-      UserMailer.welcome_client(self).deliver_now
-    else
+    if self.pilot?
       UserMailer.welcome_pilot(self).deliver_now
+    else
+      UserMailer.welcome_client(self).deliver_now
     end
   end
 
