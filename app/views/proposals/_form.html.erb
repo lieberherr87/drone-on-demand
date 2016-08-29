@@ -1,8 +1,9 @@
 <%= simple_form_for [@request, @proposal] do |f| %>
   <div class="form-inputs">
-    <%= f.input :date, required: true, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%#= f.input :date, required: true, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+     <%= f.input :date, as: :hidden, input_html: { :value => @request.due_date, :class => 'form-input' }, label_html: { :class => 'form-label' } %>
     <%= f.input :price, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
-    <%= f.input :content, as: :text, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :content, as: :text, label: "Message", input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
     <%= f.input :request_id, as: :hidden, input_html: {value: params[:request_id]}, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
   </div>
 
