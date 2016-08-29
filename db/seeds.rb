@@ -32,7 +32,7 @@ end
                                                      )
     puts "Create operator_profile for #{user.email}"
     3.times do
-      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=mDeSIO2G0y0&feature=youtu.be')
+      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=mDeSIO2G0y0')
       operator_profile.images.create!(image: open(File.join(Rails.root, "db/images/oprofile/#{images.sample}.jpg")))
       operator_profile.operator_skills.create(skill: Skill.all.sample)
     end
