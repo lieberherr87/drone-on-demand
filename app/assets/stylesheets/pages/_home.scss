@@ -52,8 +52,12 @@
 
 .bg-transparent { background-color: transparent }
 .bg-white { background-color: white; }
+.bg-offwhite { background-color: #f2f3f4; }
 .black { color: black!important; }
 .white { color: white!important; }
+.yellow { color: #f4d03f; }
+
+
 
 
 .black:hover{
@@ -63,7 +67,9 @@
 
 
 #as-a-customer{
-  background-image: url("drone1.jpg");
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0.3, 0) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('People-Top-View.jpg') no-repeat;
+
+  // background-image: url("People-Top-View.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -73,13 +79,19 @@
 }
 
 #as-a-pilot{
-  background-image: url("pilots.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('pilotone.jpg') no-repeat;
+
+  // background-image: url("pilots.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   top: -81px;
+}
+
+.divisions{
+
   padding-top: 150px;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
 }
 
 
@@ -91,7 +103,8 @@
 
 .banner2title{
   text-align:left;
-  margin-left: 80px;
+  margin-left: 89px;
+  margin-top: 0px;
 }
 
 .banner3title{
@@ -126,6 +139,12 @@
   }
 }
 
+
+.userlink{
+  margin-top: -60px;
+  padding-bottom: 40px;
+}
+
 .userlink:hover{
   text-decoration: underline;
 }
@@ -142,11 +161,9 @@
 }
 
 .thelisting{
-  padding-bottom: 200px;
+  padding-bottom: 100px;
 
 }
-
-
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
@@ -183,25 +200,51 @@
 }
 
 .jumbotron{
-  background-image: url('one.jpg');
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 59%, rgba(0, 0, 0, 0.3) 100%), image-url('one.jpg') no-repeat;
+  // background-image: url('one.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 400px;
-  max-height: 400px;
+  min-height: 250px;
+  max-height: 250px;
+
+  p{
+  font-weight: 400;
+  font-size: 20px;
+  position: relative;
+  right: 53px;
+  }
+
+  .name{
+    font-size:25px;
+    margin-bottom:0px;
+  }
 }
 
 .jumbotron:hover{
   opacity: 0.8;
 }
 
-.jumbotron-description {
-  margin-left:-3px;
-  margin-bottom: 80px;
-}
 
 .img-circle {
   height:80px;
   width:80px;
+  position:relative;
+  left:250px;
+  top:110px;
 }
 
 
+// style for About Droneit
+
+.About{
+  font-size:25px;
+}
+
+.About-pic{
+  width: 550px;
+  height: 530px;
+}
+
+.aboutcontainer{
+  margin-bottom: 30px;
+}

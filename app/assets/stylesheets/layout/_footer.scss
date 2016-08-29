@@ -17,8 +17,8 @@ body {
 }
 
 #footer {
-  color: $gray;
-  background-color: #F6F6F6;
+  color: #F6F6F6;
+  background-color: $gray;
   font-family: 'Roboto', Arial, sans-serif;
   position:absolute;
   bottom: 0;
@@ -45,7 +45,7 @@ body {
 }
 
 #footer a {
-  color: $gray !important;
+  color: #F6F6F6 !important;
   text-decoration: none;
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 300;
@@ -58,7 +58,7 @@ body {
 
 #footer .fa {
   font-size: 30px;
-  color: $gray !important;
+  color: #F6F6F6 !important;
   padding: 15px 10px;
   margin: 15px;
 }
