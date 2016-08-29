@@ -1,12 +1,12 @@
   <div class="nested-fields">
     <% if f.object.persisted? %>
       <%= cl_image_tag f.object.image.url, :width=>150, :height=>150, :crop=>"thumb" %>
-      <div class="links op-links-sm">
+      <div class="links-sm">
         <%= link_to_remove_association "remove image", f %>
       </div>
     <% else %>
-      <%= f.input :image %>
-      <div class="links op-links-sm">
+      <%= f.input :image, input_html: { :class => 'form-input'}, label_html: { :class => 'form-label' } %>
+      <div class="links-sm">
         <%= link_to_remove_association "remove uploader", f %>
       </div>
     <% end %>

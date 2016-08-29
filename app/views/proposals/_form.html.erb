@@ -1,12 +1,12 @@
 <%= simple_form_for [@request, @proposal] do |f| %>
   <div class="form-inputs">
-    <%= f.input :date, required: true, autofocus: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :price, required: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :content, as: :text, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :request_id, as: :hidden, input_html: {value: params[:request_id]}, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+    <%= f.input :date, required: true, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :price, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :content, as: :text, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :request_id, as: :hidden, input_html: {value: params[:request_id]}, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn-su-edit'  %>
+    <%= f.button :submit, class: 'form-btn' %>
   </div>
 <% end %>
