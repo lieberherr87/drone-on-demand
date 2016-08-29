@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   get '/profile' => 'pages#profile'
+  get '/about' => 'about#profile'
 
   resources :operator_profiles do
     resources :images, only: [:new, :create]
