@@ -19,18 +19,19 @@
 
 
 <!-- How does it work? Customer -->
+
 <span id="customer"></span>
 <div class="banner2 container-fluid" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
       <div class='col-xs-12'>
-        <h2 class="banner2title orbitron red">How it works</h2>
-        <h3 class="banner2title orbitron red"> As a customer </h3>
+        <h2 class="banner2title orbitron black">How it works</h2>
+        <h3 class="banner2title orbitron black"> As a drone pilot </h3>
         <div class="container inline1" style="position: relative; top: -30px;">
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'sign.png', class:'howtoimg' %>
             <h4 class="black"><strong>Sign in</strong></h4>
-            <p class="black"> Use your own account, make your drone experience better</p>
+            <p class="black"> Use your own account, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'drone.png', class:'howtoimg' %>
@@ -43,8 +44,8 @@
             <p class="black"> Choose a pilot's offer, and book!</p>
           </div>
         </div>
-        <div class="col-xs-12 white userlink">
-            <%= link_to new_user_registration_path, class:"black" do %>
+         <div class="col-xs-12 white userlink">
+            <%= link_to new_user_registration_path(as:"client"), class:"black" do %>
             <h4><strong> Not a user?</strong> Sign up! </h4>
           <% end %>
       </div>
@@ -80,7 +81,7 @@
           </div>
         </div>
         <div class="col-xs-12 white userlink">
-            <%= link_to new_user_registration_path, class:"white" do %>
+            <%= link_to new_user_registration_path(as:"pilot"), class:"white" do %>
             <h4> Not a user? Sign up! </h4>
           <% end %>
       </div>
@@ -101,7 +102,8 @@
   <% @top_pilots.each do |pilot| %>
     <%= link_to operator_profile_path(pilot.operator_profile) do %>
       <div class="col-xs-12 col-sm-4">
-        <div class="jumbotron">
+        <% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
+        <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
         <%= image_tag pilot.avatar, class: 'img-circle' %>
         <div class="jumbotron-description white desc">
           <p class="name"><strong><%= pilot.first_name%></strong></p>
@@ -139,17 +141,43 @@
   </div>
   <div class="row bg-offwhite About">
       <p class="text-center"> Looking for a quick job as a drone pilot? Looking for a aerial pictures and video feed?</p>
-      <p class="text-center"> Our platform connects you to the people who can help! </p>
+      <p class="text-center"> Our platform connects you to the people you needswipebox
+      ! </p>
       <div class="col-xs-6">
-      <h2 class="text-center"> Why a drone? </h2>
-      <p> Something about how its easier to take aerial pics with drones instead of old cameras hung with rope blablabla...  </p>
       <h2 class="text-center"> How can I find what and who i need? </h2>
       <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
       <p class="text-center"> The choice is yours! </p>
       </div>
       <div class="col-xs-6">
-        <%= image_tag 'drones', class:'About-pic'%>
+
+        <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
+          <%= image_tag 'smallre.jpeg' %>
+        </a>
+        <a rel="gallery-1" href="<%= asset_path('largeevent.jpg') %>" class="swipebox" title="My Caption">
+        <%= image_tag 'smallevent.jpeg' %>
+        </a>
+        <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
+        <%= image_tag 'smallsport.jpeg' %>
+        </a>
+        <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
+        <%= image_tag 'smallwed.jpeg' %>
+        </a>
       </div>
   </div>
 </div>
 </div>
+
+<script src="src/js/jquery.swipebox.js"></script>
+
+<!-- javascript -->
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+
+(function( $ ) {
+
+  $( '.swipebox' ).swipebox();
+
+} )( jQuery );
+
+  <% end %>
+<% end %>
