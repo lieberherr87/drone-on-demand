@@ -82,6 +82,11 @@
   color: $gray-darker;
 }
 
+.green a {
+  background-color: $green;
+  color: $gray-darker;
+}
+
 .request-links a:hover {
   opacity: 1;
 }
