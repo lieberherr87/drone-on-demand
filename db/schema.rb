@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(version: 20160825141457) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "request_id"
-    t.float    "latitude"
-    t.float    "longitude"
     t.index ["request_id"], name: "index_proposals_on_request_id", using: :btree
     t.index ["user_id"], name: "index_proposals_on_user_id", using: :btree
   end
