@@ -1,4 +1,5 @@
 <div class="container">
+  <div class='col-xs-12 col-md-10 col-md-offset-1'>
   <div class="mailbox">
     <h1>Mailbox <small id="count">(0)</small></h1>
     <p>Manage all your messages</p>
@@ -7,15 +8,16 @@
           <% @conversations.each do |conversation| %>
             <tr>
               <div class="row message unread">
-              <td> <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %></td>
-              <td><p><%= chat_partner(current_user, conversation) %></p> </td>
-              <td><p><%= truncate(conversation.messages.last.try(:body), :length => 150)%></p></td>
+              <td style="vertical-align:middle"> <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %></td>
+              <td style="vertical-align:middle"><p><%= chat_partner(current_user, conversation) %></p> </td>
+              <td style="vertical-align:middle"><p><%= truncate(conversation.messages.last.try(:body), :length => 75)%></p></td>
               <td><div class="mailbox-links"><%= link_to 'Show', conversation_messages_path(conversation) %></div></td>
               </div>
             </tr>
              <% end %>
         </tbody>
     </table>
+  </div>
   </div>
 </div>
 
