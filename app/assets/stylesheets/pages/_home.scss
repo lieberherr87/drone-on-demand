@@ -4,21 +4,21 @@
     background-color: transparent;
     .dropdown {
       .dropdown-toggle{
-        color:#02b2d2;
+        color: $gray;
       }
     }
   }
 
   .otherlinks{
-    color:#02b2d2;
+    color: $gray;
   }
 
   .navbar-link, .navbar-brand {
-    color: #02b2d2;
+    color: $gray;
 
   }
   .navbar-link{
-    border: 2px #02b2d2 solid;
+    border: 2px $gray solid;
     border-radius: 5px;
     margin-left: 4px;
   }
@@ -74,6 +74,8 @@
   background-repeat: no-repeat;
   position: relative;
   top: -81px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 #as-a-pilot{
@@ -87,6 +89,7 @@
 }
 
 .divisions{
+
   padding-top: 150px;
   padding-bottom: 100px;
 }
@@ -161,7 +164,6 @@
   padding-bottom: 100px;
 
 }
-
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;

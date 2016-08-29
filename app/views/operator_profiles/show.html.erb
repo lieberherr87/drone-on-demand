@@ -19,23 +19,27 @@
           <% end %>
             <p><a href="javascript:history.back()">Go Back</a></p>
         </figcaption>
+
       </figure>
     </div>
 
     <div class='col-xs-12 col-md-8'>
-      <% if @profile.videos.first %>
-        <div class="embed-container">
-          <p><%= embed(@profile.videos.first.url) %></p>
-        </div>
-      <% end %>
-      <div class="description-box">
-       <p><%= @profile.description %></p>
+    <% if @profile.videos.first %>
+      <div class="embed-container">
+       <p><%= embed(@profile.videos.first.url) %></p>
       </div>
-      <% @profile.images.each do |p| %>
-        <div class="image-container">
-          <%= c_image_tag p.image.url(:standard) %>
-        </div>
-      <% end %>
+
+    <% end %>
+    <div class="description-box">
+      <p><%= @profile.description %></p>
+    </div>
+    <% @profile.images.each do |p| %>
+    <div class="image-container">
+    <% if @profile.images %>
+      <%= cl_image_tag p.image.url(:standard) %>
+    <% end %>
+    </div>
+    <% end %>
     </div>
   </div>
 </div>
@@ -56,6 +60,8 @@
 <script src="src/js/jquery.swipebox.js"></script>
 <script src="app.js"></script>
 
+
+<!-- javascript -->
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
 
@@ -64,7 +70,7 @@ $(document).scroll(function() {
 });
 function checkOffset() {
     if($('.oprofile-box').offset().top + $('.oprofile-box').height()
-                                           >= $('#footer').offset().top - 5)
+                                           >= $('#footer').offset().top -10)
         $('.oprofile-box').css('position', 'absolute');
     if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top)
         $('.oprofile-box').css('position', 'fixed'); // restore when you scroll up

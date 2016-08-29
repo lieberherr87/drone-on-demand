@@ -14,6 +14,7 @@
   </head>
 
   <body class='<%= "#{controller_name} #{action_name}" %>'>
+  <div id="wrapper">
     <%= render 'shared/flashes' %>
     <%= render "shared/navbar" %>
     <%= yield %>
@@ -25,6 +26,6 @@
     <script src="src/js/jquery.swipebox.js"></script>
      <%= yield(:after_js) %>
 
-
+  </div>
   </body>
 </html>
