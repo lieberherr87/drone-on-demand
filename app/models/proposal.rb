@@ -9,6 +9,12 @@ class Proposal < ApplicationRecord
   #?
   #!
   #
+  after_create :send_proposal_submitted_email
+
+  private
+    def send_proposal_submitted_email
+      ProposalMailer.proposal_submitted(self).deliver_now
+    end
 end
 
 
