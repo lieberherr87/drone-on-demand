@@ -1,7 +1,7 @@
 <!-- List of all Requests the current user made -->
 
-<div class="footer-container">
-  <div class="requests">
+<div class="container">
+  <div class="requests footer-container">
     <%if !current_user.pilot %>
       <h1>These are your requests</h1>
       <p>Manage your requests here</p>
@@ -50,10 +50,11 @@
         <% end %>
       </tbody>
     </table>
-  </div>
+
   <% unless current_user.pilot %>
     <div class="request-links-index green"><%= link_to 'Add Request', new_request_path %></div>
   <% end %>
+   </div>
 </div>
 
 

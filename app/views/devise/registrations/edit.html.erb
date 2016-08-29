@@ -1,29 +1,29 @@
 <div class="container">
   <div class='col-xs-12 col-md-6 col-md-offset-3 footer-container'>
-    <div class="signup">
+    <div class="form">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+        <%= f.input :email, required: true, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
 
-        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-        <%= f.input :password_confirmation, required: false, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+        <%= f.input :password_confirmation, required: false, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
         <%= cl_image_tag @user.avatar, class:"avatar avatar-large" %>
-        <%= f.input :avatar, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+        <%= f.input :avatar, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
         <%= f.input :avatar_cache, as: :hidden %>
-        <%= f.input :pilot, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+        <%= f.input :pilot, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update", class: 'btn-su-edit' %>
+        <%= f.button :submit, "Update", class: 'form-btn' %>
       </div>
     <% end %>
 
