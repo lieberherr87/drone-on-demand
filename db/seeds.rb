@@ -40,7 +40,7 @@ end
 end
 
 User.where(pilot: true).each do |user|
-  user.proposals.create(price: rand(100..200),
+  user.proposals.create(price_cents: rand(10000..20000),
                         content: Faker::Lorem.sentence(3),
                         request: Request.all.sample
                         )
