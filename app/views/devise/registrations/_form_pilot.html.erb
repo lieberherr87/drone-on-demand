@@ -4,18 +4,18 @@
   <%= f.error_notification %>
 
     <div class="form-inputs">
-    <%= f.input :first_name, autofocus: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :last_name, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :email, required: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :address, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :avatar, label: "Logo", input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+    <%= f.input :first_name, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :last_name, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :email, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :address, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :avatar, label: "Logo", input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
     <%= f.input :avatar_cache, as: :hidden %>
-    <%= f.input :pilot, as: :hidden, input_html: { :value => "1", :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
-    <%= f.input :password_confirmation, required: true, input_html: { :class => 'su-input' }, label_html: { :class => 'su-label' } %>
+    <%= f.input :pilot, as: :hidden, input_html: { :value => "1", :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :password_confirmation, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
     </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: 'btn-su-edit' %>
+    <%= f.button :submit, "Sign up", class: 'form-btn' %>
   </div>
 <% end %>
