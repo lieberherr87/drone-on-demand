@@ -1,5 +1,4 @@
 <h1>A new request has been created: Your chance to submit a proposal!</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/request_mailer/request_created.html.erb
-</p>
+
+<p>Click here to view the request <%= link_to request_url(@request) %>.</p>
