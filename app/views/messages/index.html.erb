@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container footer-container">
   <div class='col-xs-12 col-md-6 col-md-offset-3'>
   <div class="mailbox">
   <h1>Messages</h1>
@@ -27,6 +27,8 @@
 
 
   <%= simple_form_for [@conversation, @message] do |f| %>
+    <%= f.error_notification %>
+
     <%= f.input :body, autofocus: true, label: "Message", input_html: {rows: 3, :class => 'msg-input'}, label_html: { :class => 'msg-label' } %>
     <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id, :class => 'msg-input' }, label_html: { :class => 'msg-label' } %>
     <%= f.button :submit, "Send", class: 'btn-msg-send'%>
