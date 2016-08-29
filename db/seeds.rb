@@ -5,6 +5,7 @@ puts 'Clean users'
 
 avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
 skills = ["video editing","piloting", "color correction"]
+images = %w(op_image_1 op_image_2 op_image_3 op_image_4 op_image_5 op_image_6 op_image_7)
 
 skills.each do |skill|
   Skill.create(name: skill)
@@ -31,10 +32,11 @@ end
                                                      )
     puts "Create operator_profile for #{user.email}"
     3.times do
-      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=XQu8TTBmGhA')
-      # operator_profile.images.create!(image: 'http://lorempixel.com/400/200/city')
+      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=mDeSIO2G0y0&feature=youtu.be')
+      operator_profile.images.create!(image: open(File.join(Rails.root, "db/images/oprofile/#{images.sample}.jpg")))
       operator_profile.operator_skills.create(skill: Skill.all.sample)
     end
+
     puts 'Add photos and videos'
   end
 end
