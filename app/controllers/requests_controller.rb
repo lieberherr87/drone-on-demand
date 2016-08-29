@@ -15,9 +15,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request_coordinates = { lat: @request.latitude, lng: @request.longitude }
 
-    @requests = Request.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@requests) do |request, marker|
+    @hash = Gmaps4rails.build_markers(@request) do |request, marker|
       marker.lat request.latitude
       marker.lng request.longitude
       # marker.infowindow render_to_string(partial: "/requests/map_box", locals: { request: request })
