@@ -16,7 +16,6 @@ class User < ApplicationRecord
   has_many :proposals, dependent: :destroy #Created by this user
   has_many :messages, through: :conversations
 
-
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
