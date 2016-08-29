@@ -1,0 +1,149 @@
+.form h1 {
+  padding: 10px;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.form p {
+  margin: 0 0 10px;
+  font-size: 1em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+
+.form h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.form h3 {
+   font-size: 28px;
+  font-weight: 300;
+}
+.form-label {
+  margin: 0 0 5px;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+
+.form-label h3 {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0 0 5px;
+  font-weight: 500;
+  font-size: 22px;
+  color: $gray;
+}
+
+
+.form-input {
+  margin: 0 0 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.form-btn {
+  padding: 10px !important;
+  border: 1px solid #F2F2F2;
+  color: black;
+  background-color: $green;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin: 20px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0px !important;
+}
+
+.form-btn-small {
+  padding: 10px;
+  border: 1px solid #F2F2F2;
+  color: black;
+  background-color: $green;
+  font-size: 0.9em;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0px;
+}
+
+
+
+.links a {
+  padding: 5px !important;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+// .links {
+//   padding: 5px !important;
+//   border: 1px solid #F2F2F2;
+//   color: $gray;
+//   font-size: 0.9em;
+//   text-transform: uppercase;
+//   margin: 10px 0;
+//   display: inline-block;
+//   opacity: 0.65;
+//   text-align: center;
+//   text-decoration: none;
+//   font-weight: 600;
+//   letter-spacing: 1px;
+// }
+
+.links-sm a {
+  padding: 5px;
+  border: 1px solid #F2F2F2;
+  color: $gray;
+  font-size: 0.7em;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 30%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+// .links-sm {
+//   padding: 5px;
+//   border: 1px solid #F2F2F2;
+//   color: $gray;
+//   font-size: 0.7em;
+//   margin: 10px 0;
+//   display: inline-block;
+//   opacity: 0.65;
+//   width: 30%;
+//   text-align: center;
+//   text-decoration: none;
+//   font-weight: 600;
+//   letter-spacing: 1px;
+// }
+
+.links-sm a:hover {
+  opacity: 1;
+}
+
+.links a:hover {
+  opacity: 1;
+}
+

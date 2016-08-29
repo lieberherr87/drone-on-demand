@@ -1,19 +1,19 @@
 <div class="form_container">
 <%= simple_form_for @request do |f| %>
-  <div class="form-inputs">
+  <div class="form">
     <p> Until when do you need your drone images? </p>
-    <%= f.input :due_date, required: true, autofocus: true %>
-    <%= f.input :location, required: true %>
+    <%= f.input :due_date, required: true, autofocus: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  %>
+    <%= f.input :location, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  %>
     <p> Do you have any special requests? </p>
-    <%= f.input :details, as: :text %>
+    <%= f.input :details, as: :text, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  %>
     <p> What do you need the images for? </p>
-    <%= f.input :category do %>
+    <%= f.input :category, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  do %>
       <%= f.select :category, collection: Request::CATEGORIES %>
     <% end %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn-su-edit' %>
+    <%= f.button :submit, class: 'form-btn' %>
   </div>
 <% end %>
 </div>
