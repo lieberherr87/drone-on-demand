@@ -8,7 +8,7 @@
     <%= f.input :details, as: :text, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  %>
     <p> What do you need the aerial images or videos for? </p>
     <%= f.input :category, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' }  do %>
-      <%= f.select :category, collection: Request::CATEGORIES %>
+      <%= f.select :category, Request::CATEGORIES %>
     <%= f.input :status, as: :hidden, input_html: { :value => '0' } %>
     <% end %>
   </div>
