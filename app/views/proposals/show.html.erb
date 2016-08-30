@@ -30,27 +30,29 @@
                 <%= link_to 'Decline!', decline_proposal_path(@proposal), class: 'btn btn-danger', method: :post, data: { confirm: 'Are you sure?' } %>
               <% end %>
 
-              <% if @proposal.accepted? %>
+              <% if @proposal.accepted? && !current_user.pilot? %>
+                  <p>Pay your booking now</p>
+                  <%= link_to "Pay", new_proposal_payment_path(@proposal), class: 'btn btn-success' %>
+                  <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
+              <% elsif @proposal.accepted? %>
                 <div class="accepted">
-                  <p><b>This proposal has been accepted!</b></p>
-                </div>
-                <div>
-                  <p>Pay your booking now</p> <%= link_to "Pay", new_proposal_payment_path(@proposal), class: 'btn btn-success' %>
+                  <p class="green"><b>This proposal has been accepted!</b></p>
                 </div>
               <% elsif @proposal.rejected? %>
                 <div class="declined">
                   <p class="red"><b>This proposal has been declined!</b></p>
                 </div>
-                <% elsif @proposal.paid? %>
+              <% elsif @proposal.paid? && !current_user.pilot? %>
                 <div class="accepted">
                   <p><b>This proposal has been paid!</b></p>
                   <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
                 </div>
+              <% elsif @proposal.paid? && current_user.pilot? %>
+                <div class="accepted">
+                  <p class="green"><b>This proposal has been paid!</b></p>
+                </div>
               <% end %>
 
-              <% if !current_user.pilot? && @proposal.accepted? %>
-                <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
-              <% end %>
               <% if !current_user.pilot? %>
                 <p><a href="javascript:history.back()">Go Back</a></p>
               <% end %>
@@ -64,14 +66,6 @@
   </div>
 </div>
 
-<!-- <div id="reviews">
-  <% if @proposal.review.blank? %>
-    <p>Be the first to leave a review for <%= @proposal.user.first_name %> </p>
-  <% else %>
-      <%= render 'reviews/show', review: @proposal.review %>
-  <% end %>
-</div>
- -->
 
 
 
