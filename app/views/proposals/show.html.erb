@@ -6,9 +6,13 @@
         <p>Find the Proposal Details here:</p>
           <figure class="proposal-box">
             <% if !@proposal.user.operator_profile.images.first.nil? %>
-              <%= cl_image_tag @proposal.user.operator_profile.images.first.image %>
+              <%= link_to operator_profile_path(@proposal.user.operator_profile) do %>
+                <%= cl_image_tag @proposal.user.operator_profile.images.first.image %>
+              <% end %>
             <% else %>
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+              <%= link_to operator_profile_path(@proposal.user.operator_profile) do %>
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample87" />
+              <% end %>
             <% end %>
             <figcaption>
               <% if !@proposal.user.avatar.url.nil? %>
