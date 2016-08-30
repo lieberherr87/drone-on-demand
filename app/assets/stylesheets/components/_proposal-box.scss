@@ -55,18 +55,19 @@
 .proposal-box figcaption a {
   padding: 5px;
   border: 1px solid #F2F2F2;
-  color: $gray;
+  color: $gray-darker;
   font-size: 0.7em;
   text-transform: uppercase;
   margin: 10px 0;
   display: inline-block;
-  opacity: 0.65;
+  opacity: 0.75;
   width: 47%;
   text-align: center;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 1px;
 }
+
 
 .proposal-box figcaption a:hover {
   opacity: 1;

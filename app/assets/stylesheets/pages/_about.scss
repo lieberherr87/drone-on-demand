@@ -1,0 +1,98 @@
+// .pages.about{
+//   // background-image: image-url("image.png");
+//   // background-size: cover;
+//   position: relative;
+//   &:before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     background-image: linear-gradient(to top,black,black,black);
+//     opacity: .8;
+//   }
+// }
+
+.text{
+  position: relative;
+  top: 63px;
+}
+
+.rowstuff{
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-section{
+  text-align: left;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: solid 1px black;
+}
+
+.h50 {
+  font-size: 40px;
+}
+
+.large-p40 {
+    font-size: 20px;
+}
+
+.readable-content{
+  max-width: 980px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  .image-on-right {
+    padding-right: 30px;
+  }
+}
+
+.columns.large-6:last-child {
+  margin-right: 0;
+}
+
+.columns.large-6 {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 48.821174201%;
+}
+
+.pic{
+  height: 400px;
+}
+
+.wedpic{
+  width:600px;
+}
+
+.teampic{
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+.p20{
+  font-size: 25px;
+}
+
+.navigationbtn{
+  border: 2px #515a5a solid;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-right:15px;
+  padding:15px;
+
+}
+
+.blue{ color: #3498db;}
+.grayy{color: #515a5a ;}
+
+.names{
+  font-size: 37px;
+}
