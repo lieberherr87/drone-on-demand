@@ -15,7 +15,7 @@
                 <%= cl_image_tag @proposal.user.avatar.url(:standard), class:"profile" %>
               <% end %>
                 <h2><%= @proposal.user.operator_profile.company_name %></h2>
-                <p><b>Total Price: </b><%= @proposal.price %> USD</p>
+                <p><b>Total Price: </b><%= @proposal.price %></p>
                 <p><b>Additional Info: </b><%= @proposal.content %></p>
                 <p><%= link_to 'See Profile', operator_profile_path(@proposal.user.operator_profile) %></p>
               <% if current_user.pilot? && @proposal.pending? %>

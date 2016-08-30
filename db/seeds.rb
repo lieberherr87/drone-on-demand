@@ -11,7 +11,7 @@ skills.each do |skill|
   Skill.create(name: skill)
 end
 
-20.times do
+5.times do
   user = User.create!(email: Faker::Internet.email,
                       address: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.zip} #{Faker::Address.country}",
                       last_name: Faker::Name.last_name,
