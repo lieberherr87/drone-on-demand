@@ -8,7 +8,14 @@
           <% @conversations.each do |conversation| %>
             <tr>
               <div class="row message unread">
-                <td style="vertical-align:middle"> <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %></td>
+                <td style="vertical-align:middle">
+                 <% if chat_partner_object(current_user, conversation).avatar_url %>
+                    <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %>
+                  <% elsif !chat_partner_object(current_user, conversation).avatar_url %>
+                    <%= image_tag "/assets/avatar_default.jpg",  class:"avatar-bordered" %>
+                  <% end %>
+                <td style="vertical-align:middle"><p><%= conversation.messages.last.created_at.strftime("%d %b %H:%M") %></p></td>
+                </td>
                 <td style="vertical-align:middle"><p><%= chat_partner(current_user, conversation) %></p> </td>
                 <td style="vertical-align:middle"><p><%= truncate(conversation.messages.last.try(:body), :length => 75)%></p></td>
                 <td><div class="mailbox-links"><%= link_to 'Show', conversation_messages_path(conversation) %></div></td>
