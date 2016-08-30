@@ -30,23 +30,23 @@
         <div class="container inline1" style="position: relative; top: -30px;">
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'sign.png', class:'howtoimg' %>
-            <h4 class="black"><strong>Sign in</strong></h4>
-            <p class="black"> Use your own account, make your drone experience better.</p>
+            <h3 class="black"><strong>Sign in</strong></h3>
+            <p class="black psub"> Use your own account, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'drone.png', class:'howtoimg' %>
-            <h4 class="black"><strong>Make a request</strong></h4>
-            <p class="black">State the date and location of the job</p>
+            <h3 class="black"><strong>Make a request</strong></h3>
+            <p class="black psub">State the date and location of the job</p>
           </div>
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'check.png', class:'howtoimg' %>
-            <h4 class="black"><strong>Choose best offer</strong></h4>
-            <p class="black"> Choose a pilot's offer, and book!</p>
+            <h3 class="black"><strong>Choose best offer</strong></h3>
+            <p class="black psub"> Choose a pilot's offer, and book!</p>
           </div>
         </div>
          <div class="col-xs-12 white userlink">
             <%= link_to new_user_registration_path(as:"client"), class:"black" do %>
-            <h4><strong> Not a user?</strong> Sign up! </h4>
+            <h3><strong> Not a user?</strong> Sign up! </h3>
           <% end %>
       </div>
       </div>
@@ -66,23 +66,23 @@
         <div class="container inline1" style="position: relative; top: -30px;">
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'sign.png', class:'howtoimg' %>
-            <h4 class="white">Sign in</h4>
-            <p class="white"> Update your profile, make your drone experience better.</p>
+            <h3 class="white"><strong>Sign in</strong></h3>
+            <p class="psub white"> Update your profile, make your drone experience better.</p>
           </div>
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'drone.png', class:'howtoimg' %>
-            <h4 class="white">Get a request</h4>
-            <p class="white"> Get a date and a location, accept or deny the job.</p>
+            <h3 class="white"><strong>Get a request</strong></h3>
+            <p class="psub white"> Get a date and a location, accept or deny the job.</p>
           </div>
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'mon.png', class:'howtoimg' %>
-            <h4 class="white">Make an offer</h4>
-            <p class="white"> Answer a request, offer your price.</p>
+            <h3 class="white"><strong>Make an offer</strong></h3>
+            <p class="psub white"> Answer a request, offer your price.</p>
           </div>
         </div>
         <div class="col-xs-12 white userlink">
             <%= link_to new_user_registration_path(as:"pilot"), class:"white" do %>
-            <h4> Not a user? Sign up! </h4>
+            <h3><strong> Not a user?</strong> Sign up! </h3>
           <% end %>
       </div>
       </div>
@@ -149,30 +149,30 @@
       <p class="text-center"> The choice is yours! </p>
       </div>
       <div class="col-xs-6">
+        <div class="col-xs-6 col-md-3" style="margin-right:120px">
 
-        <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
-          <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
-        </a>
+          <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
+            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
+          </a>
 
-        <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
-        <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
-        </a>
+          <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
+            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
+        <div class="col-xs-6 col-md-3" style="margin-right:120px">
 
-        <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
-        <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
-        </a>
+          <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
+            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
+          </a>
 
-         <a rel="gallery-1" href="<%= asset_path('largeevent.jpg') %>" class="swipebox" title="My Caption">
-        <%= image_tag 'smallevent.jpeg', class:'gallerypictures' %>
-        </a>
-
-
+          <a rel="gallery-1" href="<%= asset_path('largeevent.jpg') %>" class="swipebox" title="Concert">
+            <%= image_tag 'smallevent.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
       </div>
   </div>
 </div>
 </div>
-
-<script src="src/js/jquery.swipebox.js"></script>
 
 <!-- javascript -->
 <% content_for(:after_js) do %>

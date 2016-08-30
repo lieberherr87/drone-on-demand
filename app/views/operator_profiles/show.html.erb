@@ -34,33 +34,57 @@
     <div class="description-box">
       <p><%= @profile.description %></p>
     </div>
-    <% @profile.images.each do |p| %>
+    <%# @profile.images.each do |p| %>
     <div class="image-container">
-    <% if @profile.images %>
-      <%= cl_image_tag p.image.url(:standard) %>
-    <% end %>
+    <%# if @profile.images %>
+      <div class="row">
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
+            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
+            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
+            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
+            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
+            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
+          </a>
+        </div>
+        <div class="col-xs-8 col-md-4 gallerycont">
+          <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
+            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
+          </a>
+          </div>
+        </div>
+      </div>
+
+    <%# end %>
     </div>
-    <% end %>
+    <%# end %>
     </div>
   </div>
 </div>
 </div>
 
-      <%# if @profile.images %>
-        <%#= cl_image_tag p.image.url(:standard) %>
-
-      <%# end %>
-
-<!--
-      <a rel="gallery-1" href="http://lorempixel.com/600/400/abstract/1" class="swipebox" title="My Caption">
-      <img src="http://lorempixel.com/300/200/abstract/1" alt="image">
-      </a> -->
-
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="src/js/jquery.swipebox.js"></script>
-<script src="app.js"></script>
 
 
 <!-- javascript -->
