@@ -41,12 +41,17 @@ end
   end
 end
 
+skip_callback :create, :after, :send_proposal_submitted_email
+
 User.where(pilot: true).each do |user|
   user.proposals.create(price_cents: rand(10000..20000),
                         content: Faker::Lorem.sentence(3),
                         request: Request.all.sample
                         )
 end
+
+set_callback :create, :after, :send_proposal_submitted_email
+
 
 
 puts 'Create proposals'
