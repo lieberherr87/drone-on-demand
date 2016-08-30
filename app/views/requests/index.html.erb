@@ -6,7 +6,7 @@
       <h1>These are your requests</h1>
       <p>Manage your requests here</p>
     <% else %>
-      <h1>These are all requests</h1>
+      <h1>These are all open requests</h1>
       <p>Make a proposal here</p>
     <% end %>
 
@@ -17,6 +17,9 @@
           <th><p><b>Location</b></p></th>
           <th><p><b>Category</b></p></th>
           <th><p><b>Due Date<b></p></th>
+        <% if !current_user.pilot %>
+          <th><b><p data-toggle="tooltip" data-placement="top" title="Status Info">Status</b></p></th>
+        <% end %>
         <%if current_user.pilot %>
           <th><p><b>Proposal sent</b></p></th>
         <% end %>
@@ -31,7 +34,9 @@
             <td><p><%= request.location %></p></td>
             <td><p><%= request.category %></p></td>
             <td><p><%= request.due_date %></p></td>
-
+            <% if !current_user.pilot %>
+            <td><p><%= request.status %></p></td>
+            <% end %>
             <% if !current_user.not_applied?(request) %>
               <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
               <% else %>
