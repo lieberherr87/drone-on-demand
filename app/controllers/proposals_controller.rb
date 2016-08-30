@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal
+  before_action :set_proposal, except: [:accept]
+  before_action :set_request, only: [:new, :create]
 
   def index
     if user_signed_in? && current_user.pilot
@@ -14,19 +15,14 @@ class ProposalsController < ApplicationController
   end
 
   def new
-    @request = Request.find(params[:request_id])
     @proposal = current_user.proposals.new()
   end
 
   def create
-    @request = Request.find(params[:request_id])
     @proposal = @request.proposals.build(proposal_params)
     @proposal.user = current_user
     @proposal.save
     redirect_to proposal_path(@proposal)
-  end
-
-  def edit
   end
 
   def update
@@ -40,21 +36,27 @@ class ProposalsController < ApplicationController
   end
 
   def accept
-    @proposal = Proposal.find(params[:id])
-    @proposal.accepted!
-    redirect_to proposal_path(@proposal)
+    proposal = Proposal.find_by(id:params[:id])
+    if proposal && proposal.request.user_id == current_user.id
+      proposal.accept
+      redirect_to proposal_path(proposal)
+    else
+      redirect_to root_path
+    end
   end
 
   def decline
-    @proposal = Proposal.find(params[:id])
     @proposal.rejected!
     redirect_to proposal_path(@proposal)
   end
 
 private
 
+  def set_request
+    @request = Request.find(params[:request_id])
+  end
+
   def set_proposal
-  # Use callbacks to share common setup or constraints between actions.
     if current_user
       @proposal = current_user.proposals.find_by(id: params[:id])
     else

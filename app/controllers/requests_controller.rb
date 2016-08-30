@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
 
   def index
     if user_signed_in? && current_user.pilot
-      @requests = Request.all
+      @requests = Request.open
     elsif user_signed_in? && !current_user.pilot
       @requests = current_user.requests
     else
