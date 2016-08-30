@@ -12,6 +12,11 @@ class Proposal < ApplicationRecord
   #
   #after_create :send_proposal_submitted_email
 
+    def accept
+      self.accepted!
+      self.request.close
+    end
+
   private
 
     def send_proposal_submitted_email

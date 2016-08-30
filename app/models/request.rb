@@ -12,6 +12,13 @@ class Request < ApplicationRecord
 
   #after_create :send_request_created_email
 
+  def close
+    self.closed!
+    self.proposals.pending.each do |proposal|
+      proposal.rejected!
+    end
+  end
+
   private
 
   def send_request_created_email
