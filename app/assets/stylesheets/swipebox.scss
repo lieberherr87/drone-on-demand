@@ -89,7 +89,7 @@ html.swipebox-html.swipebox-touch {
   left: 0;
 }
 #swipebox-slider .slide-loading {
-  background: url(../img/loader.gif) no-repeat center center;
+  background-image: image-url('loader.gif') no-repeat center center;
 }
 
 #swipebox-bottom-bar,
@@ -128,7 +128,7 @@ html.swipebox-html.swipebox-touch {
 #swipebox-prev,
 #swipebox-next,
 #swipebox-close {
-  background-image: url(../img/icons.png);
+  background-image: image-url('icons.svg');
   background-repeat: no-repeat;
   border: none !important;
   text-decoration: none !important;
@@ -274,7 +274,7 @@ html.swipebox-html.swipebox-touch {
     max-width: 800px;
   }
 }
-/* Skin 
+/* Skin
 --------------------------*/
 #swipebox-overlay {
   background: #0d0d0d;

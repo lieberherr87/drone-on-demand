@@ -10,7 +10,7 @@ class Proposal < ApplicationRecord
   #?
   #!
   #
-  after_create :send_proposal_submitted_email
+  #after_create :send_proposal_submitted_email
 
   private
 

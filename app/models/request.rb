@@ -8,7 +8,7 @@ class Request < ApplicationRecord
   validates :category, inclusion: {in: CATEGORIES}
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
-  after_create :send_request_created_email
+  #after_create :send_request_created_email
 
   enum status: [:open, :closed]
 
