@@ -13,6 +13,11 @@
     color: $gray;
   }
 
+
+.messages{
+  color: $gray;
+}
+
   .navbar-link, .navbar-brand {
     color: $gray;
 
@@ -74,7 +79,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  top: -81px;
+  top: -87px;
   // padding-top: 150px;
   // padding-bottom: 150px;
   .psub{
@@ -89,7 +94,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  top: -81px;
+  top: -87px;
   .psub{
     font-size:18px;
   }
