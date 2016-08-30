@@ -1,9 +1,9 @@
 class RequestMailer < ApplicationMailer
 
   # default bcc: User.where(pilot:true).pluck(:email)
-  pilots = User.where(pilot:true)
 
   def request_created(request)
+    pilots = User.where(pilot:true)
     @request = request
     @greeting = "Hi"
     pilots.each do |pilot|
