@@ -44,12 +44,12 @@
                 <% elsif @proposal.paid? %>
                 <div class="accepted">
                   <p><b>This proposal has been paid!</b></p>
+                  <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
                 </div>
               <% end %>
 
               <% if !current_user.pilot? && @proposal.accepted? %>
-                <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %>
-                <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
+                <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
               <% end %>
               <% if !current_user.pilot? %>
                 <p><a href="javascript:history.back()">Go Back</a></p>
