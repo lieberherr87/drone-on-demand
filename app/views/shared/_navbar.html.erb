@@ -69,7 +69,7 @@
                 <% if current_user.operator_profile(current_user.id) %>
                   <li> <%= link_to "Operator Profile", operator_profile_path(current_user.operator_profile) %> </li>
                 <% else %>
-                  <li> <%= link_to "Operator Profile", new_operator_profile %> </li>
+                  <li> <%= link_to "Operator Profile", new_operator_profile_path %> </li>
                 <% end %>
               <% end %>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
