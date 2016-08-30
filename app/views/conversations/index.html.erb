@@ -9,9 +9,9 @@
             <tr>
               <div class="row message unread">
                 <td style="vertical-align:middle">
-                 <% if user_signed_in? &&  chat_partner_object(current_user, conversation).avatar_url %>
+                 <% if chat_partner_object(current_user, conversation).avatar_url %>
                     <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %>
-                  <% elsif user_signed_in? && !chat_partner_object(current_user, conversation).avatar_url %>
+                  <% elsif !chat_partner_object(current_user, conversation).avatar_url %>
                     <%= image_tag "/assets/avatar_default.jpg",  class:"avatar-bordered" %>
                   <% end %>
                 <td style="vertical-align:middle"><p><%= conversation.messages.last.created_at.strftime("%d %b %H:%M") %></p></td>
