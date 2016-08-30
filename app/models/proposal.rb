@@ -5,6 +5,7 @@ class Proposal < ApplicationRecord
 
   validates :price, presence: true
   validates :content, presence: true
+  monetize :price_cents
   enum status: [:pending, :rejected, :accepted]
   #?
   #!

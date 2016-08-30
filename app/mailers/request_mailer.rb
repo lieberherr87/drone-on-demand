@@ -1,6 +1,6 @@
 class RequestMailer < ApplicationMailer
 
-  default bbc: User.where(pilot:true).pluck(:email)
+  default bcc: User.where(pilot:true).pluck(:email)
 
   def request_created(request)
     @request = request

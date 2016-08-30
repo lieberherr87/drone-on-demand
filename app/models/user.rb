@@ -9,18 +9,22 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
+
+
   has_one :operator_profile, dependent: :destroy
 
   has_many :requests, dependent: :destroy
   has_many :pending_proposals, through: :requests, source: :proposals #All proposals on user's requests
   has_many :proposals, dependent: :destroy #Created by this user
-  has_many :messages, through: :conversations
+  # has_many :messages, through: :conversations, dependent: :destroy
+  has_many :created_conversations, dependent: :destroy, foreign_key: :sender_id, class_name: 'Conversation'
+  has_many :joined_conversations, dependent: :destroy, foreign_key: :recipient_id, class_name: 'Conversation'
 
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
   after_create :create_op_profile, if: "self.pilot?"
 
   def not_applied?(request)
@@ -35,10 +39,10 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    if !self.pilot?
-      UserMailer.welcome_client(self).deliver_now
-    else
+    if self.pilot?
       UserMailer.welcome_pilot(self).deliver_now
+    else
+      UserMailer.welcome_client(self).deliver_now
     end
   end
 

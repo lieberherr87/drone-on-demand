@@ -42,7 +42,8 @@
       </form> -->
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? == false %>
-          <li><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %></li>
+          <li><%= link_to "Sign up as a Client", new_user_registration_path(as:"client"), class: 'navbar-link' %></li>
+          <li><%= link_to "Sign up as a Pilot", new_user_registration_path(as:"pilot"), class: 'navbar-link' %></li>
           <li><%= link_to "Log in", new_user_session_path, class: 'navbar-link' %></li>
         <% end %>
 
