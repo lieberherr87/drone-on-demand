@@ -6,7 +6,7 @@
       <h1>These are your requests</h1>
       <p>Manage your requests here</p>
     <% else %>
-      <h1>These are all requests</h1>
+      <h1>These are all open requests</h1>
       <p>Make a proposal here</p>
     <% end %>
 
@@ -25,7 +25,7 @@
       </thead>
 
       <tbody>
-        <% @requests.each do |request| %>
+        <% @requests.open.each do |request| %>
           <tr>
             <td><p><%= request.id %></p></td>
             <td><p><%= request.location %></p></td>
