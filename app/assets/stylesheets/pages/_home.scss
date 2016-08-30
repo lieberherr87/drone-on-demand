@@ -13,6 +13,11 @@
     color: $gray;
   }
 
+
+.messages{
+  color: $gray;
+}
+
   .navbar-link, .navbar-brand {
     color: $gray;
 
@@ -56,6 +61,7 @@
 .black { color: black!important; }
 .white { color: white!important; }
 .yellow { color: #f4d03f; }
+.darkblue{ color:#ee2020 ; }
 
 
 
@@ -67,25 +73,31 @@
 
 
 #as-a-customer{
-  background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0.3, 0) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('People-Top-View.jpg') no-repeat;
-
-  // background-image: url("People-Top-View.jpg");
+  // background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('People-Top-View.jpg') no-repeat;
+  // filter: blur(1.5px);
+  background-image: url("people2.gif");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  top: -81px;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  top: -87px;
+  // padding-top: 150px;
+  // padding-bottom: 150px;
+  .psub{
+    font-size:18px;
+  }
 }
 
 #as-a-pilot{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('pilotone.jpg') no-repeat;
+  // background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('pilotone.jpg') no-repeat;
 
-  // background-image: url("pilots.jpg");
+  background-image: url("street2.gif");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  top: -81px;
+  top: -87px;
+  .psub{
+    font-size:18px;
+  }
 }
 
 .divisions{
@@ -200,7 +212,7 @@
 }
 
 .jumbotron{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 59%, rgba(0, 0, 0, 0.3) 100%), image-url('one.jpg') no-repeat;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 59%, rgba(0, 0, 0, 0.3) 100%);
   // background-image: url('one.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -224,7 +236,6 @@
   opacity: 0.8;
 }
 
-
 .img-circle {
   height:80px;
   width:80px;
@@ -247,4 +258,10 @@
 
 .aboutcontainer{
   margin-bottom: 30px;
+}
+
+.gallerypictures{
+  height: 192px;
+  width:258px;
+  display: block
 }
