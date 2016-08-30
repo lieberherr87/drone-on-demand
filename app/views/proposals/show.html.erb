@@ -19,7 +19,7 @@
                 <%= cl_image_tag @proposal.user.avatar.url(:standard), class:"profile" %>
               <% end %>
                 <h2><%= @proposal.user.operator_profile.company_name %></h2>
-                <p><b>Total Price: </b><%= @proposal.price %></p>
+                <p><b>Total Price: </b><%= humanized_money_with_symbol(@proposal.price) %></p>
                 <p><b>Additional Info: </b><%= @proposal.content %></p>
                 <p><%= link_to 'See Profile', operator_profile_path(@proposal.user.operator_profile) %></p>
               <% if current_user.pilot? && @proposal.pending? %>
@@ -34,9 +34,16 @@
                 <div class="accepted">
                   <p><b>This proposal has been accepted!</b></p>
                 </div>
+                <div>
+                  <p>Pay your booking now</p> <%= link_to "Pay", new_proposal_payment_path(@proposal), class: 'btn btn-success' %>
+                </div>
               <% elsif @proposal.rejected? %>
                 <div class="declined">
                   <p class="red"><b>This proposal has been declined!</b></p>
+                </div>
+                <% elsif @proposal.paid? %>
+                <div class="accepted">
+                  <p><b>This proposal has been paid!</b></p>
                 </div>
               <% end %>
 

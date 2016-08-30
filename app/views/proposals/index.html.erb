@@ -19,7 +19,7 @@
         <tr>
           <td><p><%= proposal.request.location %></p></td>
           <td><p><%= proposal.date %></p></td>
-          <td><p><%= proposal.price %></p></td>
+          <td><p><%= humanized_money_with_symbol(proposal.price) %></p></td>
           <td><p><%= proposal.status %></p></td>
           <td><div class="proposal-links"><%= link_to 'Show', proposal_path(proposal) %></div> </td>
         <% if current_user.pilot? && proposal.pending? %>

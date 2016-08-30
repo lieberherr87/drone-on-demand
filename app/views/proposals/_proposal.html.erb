@@ -21,7 +21,7 @@
         <%= cl_image_tag proposal.user.avatar.url(:standard), class:"profile" %>
       <% end %>
         <h2><%= proposal.user.operator_profile.company_name %></h2>
-        <p><b><%= proposal.price %> USD</b></p>
+        <p><%= humanized_money_with_symbol(proposal.price) %></p>
         <div class="proposal-box-status">
           <% if proposal.accepted? %>
             <p><i class="fa fa-check" aria-hidden="true"></i> Accepted!</p>
@@ -29,6 +29,8 @@
             <p><i class="fa fa-question" aria-hidden="true"></i> Pending</p>
           <% elsif proposal.rejected? %>
            <p><i class="fa fa-times" aria-hidden="true"></i> Declined!</p>
+          <% elsif proposal.paid? %>
+           <p><i class="fa fa-check" aria-hidden="true"></i> Paid!</p>
           <% end %>
         </div>
       </figcaption>
