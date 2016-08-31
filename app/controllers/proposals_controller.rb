@@ -23,7 +23,8 @@ class ProposalsController < ApplicationController
     @proposal = @request.proposals.build(proposal_params)
     @proposal.user = current_user
     @proposal.save
-    redirect_to proposal_path(@proposal)
+    flash[:notice] = "Your proposal has been created"
+    redirect_to request_proposal_path(@request, @proposal)
   end
 
   def update
@@ -47,6 +48,7 @@ class ProposalsController < ApplicationController
   end
 
   def decline
+    @proposal = Proposal.pending.find_by(id:params[:id])
     @proposal.rejected!
     redirect_to proposal_path(@proposal)
   end

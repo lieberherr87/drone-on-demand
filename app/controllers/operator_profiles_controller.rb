@@ -66,7 +66,10 @@ class OperatorProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = OperatorProfile.find(params[:id])
+    @profile = OperatorProfile.find_by(id:params[:id])
+    if !current_user.operator_profile.eql?(@profile) && !current_user.pending_proposals.pluck(:user_id).include?(@profile.user_id)
+      redirect_to root_path
+    end
   end
 
   def profile_params
