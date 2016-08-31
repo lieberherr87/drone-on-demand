@@ -32,7 +32,22 @@
 
               <% if @proposal.accepted? && !current_user.pilot? %>
                   <p>Pay your booking now</p>
-                  <%= link_to "Pay", new_proposal_payment_path(@proposal), class: 'btn btn-success' %>
+                    <%= form_tag proposal_payments_path(@proposal) do %>
+                      <article>
+                        <label class="amount">
+                          <span>Amount: <%= humanized_money_with_symbol(@proposal.price) %></span>
+                        </label>
+                      </article>
+
+                      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-email="<%= current_user.email %>"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-name="Drone Job"
+                        data-description="Proposal by  <%= @proposal.user.operator_profile.company_name %>"
+                        data-amount="<%= @proposal.price_cents %>"
+                        data-currency="usd">
+                      </script>
+                    <% end %>
                   <p><%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
               <% elsif @proposal.accepted? %>
                 <div class="accepted">
@@ -45,7 +60,8 @@
               <% elsif @proposal.paid? && !current_user.pilot? %>
                 <div class="accepted">
                   <p><b>This proposal has been paid!</b></p>
-                  <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %></p>
+                  <p><%= link_to 'Add review', new_proposal_review_path(@proposal) %>
+                  <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @proposal.user.id), method: 'post' %></p>
                 </div>
               <% elsif @proposal.paid? && current_user.pilot? %>
                 <div class="accepted">
