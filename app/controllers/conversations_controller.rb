@@ -15,9 +15,6 @@ class ConversationsController < ApplicationController
     redirect_to conversation_messages_path(@conversation)
   end
 
-  # def destroy
-  # end
-
   private
 
   def conversation_params

@@ -19,7 +19,6 @@ class Request < ApplicationRecord
     end
   end
 
-
   def created_by(user)
     user_id == user.id
   end
