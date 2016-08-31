@@ -19,20 +19,16 @@ class MessagesController < ApplicationController
       @messages = @conversation.messages
       render :index
     end
-    # if @message.body == ""
-    #   flash.now[:notice] = "The message should not be empty".html_safe
-    # elsif @message.save
-    #   redirect_to conversation_messages_path(@conversation)
-    # end
-  end
-
-  def destroy
   end
 
   private
 
   def set_conversation
-   @conversation = Conversation.find(params[:conversation_id])
+  @conversation = Conversation.find(params[:conversation_id])
+  unless @conversation.belongs_to(current_user)
+    redirect_to root_path
+  end
+
   end
 
   def message_params

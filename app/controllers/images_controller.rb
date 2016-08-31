@@ -5,15 +5,9 @@ class ImagesController < ApplicationController
     @images = Image.all
   end
 
-  def show
-  end
-
   def new
     @operator_profile = OperatorProfile.find(params[:operator_profile_id])
     @image = Image.new
-  end
-
-  def edit
   end
 
   def create

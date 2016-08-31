@@ -17,11 +17,18 @@ class Proposal < ApplicationRecord
       self.request.close
     end
 
+    def created_by(user)
+      user_id == user.id
+    end
+
+
   private
 
     def send_proposal_submitted_email
       ProposalMailer.proposal_submitted(self).deliver_now
     end
+
+
 end
 
 

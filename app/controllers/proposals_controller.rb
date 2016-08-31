@@ -1,17 +1,18 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, except: [:accept]
+  before_action :set_proposal, except: [:accept, :show]
   before_action :set_request, only: [:new, :create]
 
   def index
-    if user_signed_in? && current_user.pilot
+    if current_user.pilot
       @proposals = current_user.proposals
     else
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 
   def show
     @proposal = Proposal.find(params[:id])
+    redirect_to root_path if !@proposal.created_by(current_user) && !@proposal.request.created_by(current_user)
   end
 
   def new
