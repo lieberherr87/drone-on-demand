@@ -69,20 +69,8 @@ class OperatorProfilesController < ApplicationController
   def set_profile
     if current_user.pilot
       @profile = current_user.operator_profile
-    else
-
-      raise
-        # id of the user who created the OP = OperatorProfile.find(params[:id]).user.id
-
-        # all user ids of proposals sent to request
-        current_user.requests.find_by(id: params[:id]).proposals.pluck(user.id)
-   (sender_id == user.id) || (recipient_id == user.id)
 
     end
-
-      @request = current_user.requests.find_by(id: params[:id])
-
-      @proposal = current_user.proposals.find_by(id: params[:id])
 
 
     if @profile.nil?
