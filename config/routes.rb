@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'payments/new'
+
   resources :conversations do
     resources :messages
   end
 
   get '/profile' => 'pages#profile'
-  get '/about' => 'about#profile'
+  get '/about' => 'pages#about'
 
   resources :operator_profiles do
     resources :images, only: [:new, :create]
@@ -17,12 +19,13 @@ Rails.application.routes.draw do
     resources :proposals, only: [:create, :new]
   end
 
-  resources :proposals, except: [:create, :new] do
+  resources :proposals, except: [:new] do
       resources :reviews
       member do
         post 'accept', to: "proposals#accept"
         post 'decline', to: "proposals#decline"
       end
+      resources :payments, only: [:new, :create]
   end
 
   devise_for :users, controllers: { registrations: "registrations" }

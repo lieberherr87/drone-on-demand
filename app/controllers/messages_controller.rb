@@ -12,10 +12,18 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-
     if @message.save
       redirect_to conversation_messages_path(@conversation)
+    else
+      @conversation = Conversation.find(params[:conversation_id])
+      @messages = @conversation.messages
+      render :index
     end
+    # if @message.body == ""
+    #   flash.now[:notice] = "The message should not be empty".html_safe
+    # elsif @message.save
+    #   redirect_to conversation_messages_path(@conversation)
+    # end
   end
 
   def destroy

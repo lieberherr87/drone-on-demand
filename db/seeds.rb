@@ -5,12 +5,14 @@ puts 'Clean users'
 
 avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
 skills = ["video editing","piloting", "color correction"]
+images = %w(op_image_1 op_image_2 op_image_3 op_image_4 op_image_5 op_image_6 op_image_7)
+
 
 skills.each do |skill|
   Skill.create(name: skill)
 end
 
-20.times do
+5.times do
   user = User.create!(email: Faker::Internet.email,
                       address: "#{Faker::Address.street_address} #{Faker::Address.city} #{Faker::Address.zip} #{Faker::Address.country}",
                       last_name: Faker::Name.last_name,
@@ -31,21 +33,23 @@ end
                                                      )
     puts "Create operator_profile for #{user.email}"
     3.times do
-      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=XQu8TTBmGhA')
-      # operator_profile.images.create!(image: 'http://lorempixel.com/400/200/city')
+      operator_profile.videos.create!(url: 'https://www.youtube.com/watch?v=mDeSIO2G0y0')
+      operator_profile.images.create!(image: open(File.join(Rails.root, "db/images/oprofile/#{images.sample}.jpg")))
       operator_profile.operator_skills.create(skill: Skill.all.sample)
     end
+
     puts 'Add photos and videos'
   end
 end
 
 User.where(pilot: true).each do |user|
-  user.proposals.create(price: rand(100..200),
+  request = Request.all.sample,
+  user.proposals.create(price_cents: rand(10000..20000),
                         content: Faker::Lorem.sentence(3),
-                        request: Request.all.sample
+                        request: request,
+                        date: Request.all.sample.due_date
                         )
 end
-
 
 puts 'Create proposals'
 

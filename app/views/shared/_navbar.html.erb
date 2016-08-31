@@ -9,8 +9,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <div class="float-left">
-        <%= image_tag "logo", width: '60px' %>
+      <div class="float-left logo">
+        <%= image_tag "/assets/logo.png", width: '60px' %>
       </div>
       <div class="float-left">
         <%= link_to "Droneit", root_path, class: "navbar-brand orbitron logoblue" %>
@@ -41,13 +41,16 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? == false %>
-          <li><%= link_to "Sign up", new_user_registration_path, class: 'navbar-link' %></li>
+        <% unless user_signed_in? %>
+          <li><%= link_to "Sign up as a Client", new_user_registration_path(as:"client"), class: 'navbar-link' %></li>
+          <li><%= link_to "Sign up as a Pilot", new_user_registration_path(as:"pilot"), class: 'navbar-link' %></li>
           <li><%= link_to "Log in", new_user_session_path, class: 'navbar-link' %></li>
         <% end %>
 
-        <% if user_signed_in? && current_user.avatar %>
+        <% if user_signed_in? && current_user.avatar_url %>
           <%= image_tag current_user.avatar, height: 54, width: 55 %>
+        <% elsif user_signed_in? && !current_user.avatar_url %>
+          <%= image_tag "/assets/avatar_default.jpg", height: 54, width: 55 %>
         <% end %>
 
         <% if user_signed_in? && current_user.pilot? %>
@@ -68,7 +71,7 @@
                 <% if current_user.operator_profile(current_user.id) %>
                   <li> <%= link_to "Operator Profile", operator_profile_path(current_user.operator_profile) %> </li>
                 <% else %>
-                  <li> <%= link_to "Operator Profile", new_operator_profile %> </li>
+                  <li> <%= link_to "Operator Profile", new_operator_profile_path %> </li>
                 <% end %>
               <% end %>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>

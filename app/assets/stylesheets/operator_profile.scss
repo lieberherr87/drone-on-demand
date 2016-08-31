@@ -85,7 +85,7 @@
 
 .oprofile-box p {
   margin: 0 0 10px;
-  font-size: 0.8em;
+  font-size: 12px;
   letter-spacing: 1px;
   opacity: 0.8;
 }
@@ -117,6 +117,20 @@
   height: 100%;
 }
 
+.description-box {
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: $gray-lighter;
+  margin: 50px 0;
+  padding: 25px;
+  border-radius: 1px;
+}
+
+.description-box h3 {
+  margin: 0 0 5px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
 .description-box p {
   margin: 0 0 5px;
   font-weight: 300;
@@ -130,7 +144,10 @@
   margin-bottom: 10px;
 }
 
-
-
+.gallerypictures{
+  height: 160px;
+  width:100%;
+  display: block;
+}
 
 
