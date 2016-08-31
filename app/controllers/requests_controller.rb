@@ -60,10 +60,6 @@ class RequestsController < ApplicationController
       end
     end
 
-    def created_by(user)
-     user_id == user.id
-    end
-
     # Only allow a trusted parameter "white list" through.
     def request_params
       params.require(:request).permit(:due_date, :location, :details, :category)
