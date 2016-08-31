@@ -7,6 +7,7 @@ avatars = %w(119 120 121 122 123 124 125 126 127 128 129)
 skills = ["video editing","piloting", "color correction"]
 images = %w(op_image_1 op_image_2 op_image_3 op_image_4 op_image_5 op_image_6 op_image_7)
 
+
 skills.each do |skill|
   Skill.create(name: skill)
 end
@@ -42,12 +43,13 @@ end
 end
 
 User.where(pilot: true).each do |user|
+  request = Request.all.sample,
   user.proposals.create(price_cents: rand(10000..20000),
                         content: Faker::Lorem.sentence(3),
-                        request: Request.all.sample
+                        request: request,
+                        date: Request.all.sample.due_date
                         )
 end
-
 
 puts 'Create proposals'
 

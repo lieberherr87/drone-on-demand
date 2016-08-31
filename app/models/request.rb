@@ -6,11 +6,18 @@ class Request < ApplicationRecord
   validates :location, presence: true
   validates :due_date, presence: true
   validates :category, inclusion: {in: CATEGORIES}
-
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
+  enum status: [:open, :closed]
 
-  after_create :send_request_created_email
+  #after_create :send_request_created_email
+
+  def close
+    self.closed!
+    self.proposals.pending.each do |proposal|
+      proposal.rejected!
+    end
+  end
 
   private
 
