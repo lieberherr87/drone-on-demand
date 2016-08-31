@@ -104,7 +104,9 @@
       <div class="col-xs-12 col-sm-4">
         <% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
         <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
+        <% if pilot.avatar_url %>
         <%= image_tag pilot.avatar, class: 'img-circle' %>
+        <% end %>
         <div class="jumbotron-description white desc">
           <p class="name"><strong><%= pilot.first_name%></strong></p>
 
@@ -136,21 +138,22 @@
 <div class="footer-container">
 
 <div class="container aboutcontainer">
+  <div class='col-xs-12 col-md-10 col-md-offset-1 bg-offwhite'>
   <div class="text-center">
-    <h2 class="orbitron">About Droneit</h2>
+  <h2 class="orbitron">About Droneit</h2>
+    <div class="row">
+      <p> Looking for a quick job as a drone pilot? Looking for a aerial pictures and video feed?</p>
+      <p> Our platform connects you to the people you need! </p>
+        <h2> How can I find what and who i need? </h2>
+        <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
+      <p> The choice is yours! </p>
+      <%= link_to 'Learn more!', about_path, class:'form-btn' %>
+    </div>
   </div>
-  <div class="row bg-offwhite About">
-      <p class="text-center"> Looking for a quick job as a drone pilot? Looking for a aerial pictures and video feed?</p>
-      <p class="text-center"> Our platform connects you to the people you need! </p>
-      <div class="col-xs-6">
-      <h2 class="text-center"> How can I find what and who i need? </h2>
-      <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
-      <div class="text-center">
-        <p> The choice is yours! </p>
-        <%= link_to 'Learn more!', about_path, class:'btn btn-info' %>
-      </div>
-      </div>
-      <div class="col-xs-6">
+</div>
+</div>
+
+<!--       <div class="col-xs-6">
         <div class="col-xs-6 col-md-3" style="margin-right:120px">
 
           <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
@@ -171,10 +174,8 @@
             <%= image_tag 'smallevent.jpeg', class:'gallerypictures' %>
           </a>
         </div>
-      </div>
-  </div>
-</div>
-</div>
+      </div> -->
+
 
 <!-- javascript -->
 <% content_for(:after_js) do %>

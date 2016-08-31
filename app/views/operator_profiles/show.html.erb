@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
     <div class='col-xs-12 col-md-4'>
-      <figure class="oprofile-box">
+      <figure class="oprofile-box ">
         <% if !@profile.images.first.nil? %>
           <%= cl_image_tag @profile.images.first.image %>
         <% else %>

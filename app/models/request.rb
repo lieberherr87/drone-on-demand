@@ -19,6 +19,11 @@ class Request < ApplicationRecord
     end
   end
 
+
+  def created_by(user)
+    user_id == user.id
+  end
+
   private
 
   def send_request_created_email

@@ -10,27 +10,27 @@
         <p><b>Location:</b> <%= @request.location %></p>
         <p><b>Details:</b> <%= @request.details %></p>
         <p><b>Category:</b> <%= @request.category %></p>
+        <p><b>Status:</b> <%= @request.status %></p>
 
         <div class="request-links">
         <% if current_user.pilot && current_user.not_applied?(@request) %>
           <p><%= link_to 'Make a proposal', new_request_proposal_path(@request) %>
           <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
-          <p><a href="javascript:history.back()">Go Back</a></p>
         <% end %>
 
         <% if current_user.pilot && !current_user.not_applied?(@request) %>
           <p><%= link_to 'Show my proposals', proposals_path %>
           <%= link_to "Message user", conversations_path(sender_id: current_user.id, recipient_id: @request.user.id), method: 'post' %></p>
-          <p><a href="javascript:history.back()">Go Back</a></p>
         <% end %>
-
+          <% unless @request.closed? %>
             <% if policy(@request).update? %>
               <p><%= link_to 'Edit my request', edit_request_path %>
             <% end %>
             <% if policy(@request).destroy? %>
               <%= link_to 'Cancel my request', request_path(@request), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-              <p><a href="javascript:history.back()">Go Back</a></p>
             <% end %>
+          <% end %>
+        <p><a href="javascript:history.back()">Go Back</a></p>
           </div>
         </div>
       </div>
@@ -73,6 +73,5 @@
     });
   <% end %>
 <% end %>
-
 
 

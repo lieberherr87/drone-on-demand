@@ -16,13 +16,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <!--<link rel="stylesheet" href="src/css/swipebox.css"> -->
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag 'src/js/jquery.swipebox.js' %>
   </head>
 
   <body class='<%= "#{controller_name} #{action_name}" %>'>
@@ -31,6 +24,14 @@
       <%= render "shared/navbar" %>
       <%= yield %>
       <%= render 'shared/footer' %>
+
+      <!--<link rel="stylesheet" href="src/css/swipebox.css"> -->
+      <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
+      <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+      <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%#= javascript_include_tag 'src/js/jquery.swipebox.js' %>
+
       <%= yield(:after_js) %>
     </div>
   </body>
