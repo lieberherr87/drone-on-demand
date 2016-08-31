@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
       </button>
       <div class="float-left logo">
-        <%= image_tag "/assets/logo.png", width: '60px' %>
+        <%= image_tag "logo", width: '60px' %>
       </div>
       <div class="float-left">
         <%= link_to "Droneit", root_path, class: "navbar-brand orbitron logoblue" %>
@@ -50,7 +50,7 @@
         <% if user_signed_in? && current_user.avatar_url %>
           <%= image_tag current_user.avatar, height: 54, width: 55 %>
         <% elsif user_signed_in? && !current_user.avatar_url %>
-          <%= image_tag "/assets/avatar_default.jpg", height: 54, width: 55 %>
+          <%= image_tag "avatar_default", height: 54, width: 55 %>
         <% end %>
 
         <% if user_signed_in? && current_user.pilot? %>

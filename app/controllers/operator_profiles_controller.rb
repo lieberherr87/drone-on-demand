@@ -20,16 +20,16 @@ class OperatorProfilesController < ApplicationController
   end
 
   def create
-    # @profile = OperatorProfile.new(profile_params)
-      @profile = current_user.operator_profile
-    if @profile.update(profile_params)
-      #works
-      flash[:notice] = "Successfully updated"
-      redirect_to operator_profile_path(@profile)
-    else
-      render 'edit'
-      #dont
-    end
+    # # @profile = OperatorProfile.new(profile_params)
+    #   @profile = current_user.operator_profile
+    # if @profile.update(profile_params)
+    #   #works
+    #   flash[:notice] = "Successfully updated"
+    #   redirect_to operator_profile_path(@profile)
+    # else
+    #   render 'edit'
+    #   #dont
+    # end
 
     # @profile = current_user.create_operator_profile(profile_params)
     # @profile.videos.first.operator_profile = @profile
@@ -50,13 +50,14 @@ class OperatorProfilesController < ApplicationController
   def update
     @profile = current_user.operator_profile
     @profile.update(profile_params)
-    if params.has_key? :images
-      params[:images]['image'].each do |a|
-        @image = @profile.images.create!(:image => a)
-      end
-    end
-    redirect_to operator_profile_path(@profile)
+    # if params.has_key? :images
+    #   params[:images]['image'].each do |a|
+    #     @image = @profile.images.create!(:image => a)
+    #   end
+    # end
     authorize @profile
+    flash[:notice] = "Your profile has been successfully updated"
+    redirect_to operator_profile_path(@profile)
   end
 
   def destroy

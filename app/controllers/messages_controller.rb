@@ -25,10 +25,9 @@ class MessagesController < ApplicationController
 
   def set_conversation
   @conversation = Conversation.find(params[:conversation_id])
-  unless @conversation.belongs_to(current_user)
-    redirect_to root_path
-  end
-
+    unless @conversation.belongs_to(current_user)
+      redirect_to root_path
+    end
   end
 
   def message_params

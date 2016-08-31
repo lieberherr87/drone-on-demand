@@ -24,7 +24,7 @@ class ProposalsController < ApplicationController
     @proposal.user = current_user
     @proposal.save
     flash[:notice] = "Your proposal has been created"
-    redirect_to request_proposal_path(@request, @proposal)
+    redirect_to proposal_path(@proposal)
   end
 
   def update

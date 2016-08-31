@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
       currency:     'usd'
     )
 
-    @proposal.update(payment: charge.to_json, status: 3)
+    @proposal.update(payment: charge.to_json, status: Proposal.statuses[:paid])
     redirect_to proposal_path(@proposal)
 
   rescue Stripe::CardError => e
@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_proposal
-    @proposal =  Proposal.where(status:2).find(params[:proposal_id])
+    @proposal =  Proposal.where(status: Proposal.statuses[:accepted]).find(params[:proposal_id])
   end
 
   def set_request
