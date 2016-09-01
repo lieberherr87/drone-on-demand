@@ -1,3 +1,5 @@
+
+
 .form h1 {
   padding: 10px;
   font-size: 32px;
@@ -56,6 +58,24 @@
   opacity: 0.65;
   text-align: center;
   text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 0px !important;
+}
+
+
+.form-btn a {
+  padding: 10px !important;
+  border: 1px solid #F2F2F2;
+  color: $gray !important;
+  background-color: white;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  margin: 20px 0;
+  display: inline-block;
+  opacity: 0.65;
+  text-align: center;
+  text-decoration: none !important;
   font-weight: 600;
   letter-spacing: 1px;
   border-radius: 0px !important;
