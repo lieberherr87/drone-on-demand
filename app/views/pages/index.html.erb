@@ -1,21 +1,20 @@
 <!-- Homepage Banner Video -->
 
-<div class="banner" style="height: 740px">
+<!-- <div class="banner" style="height: 740px"> -->
 
-<%= video_tag "hp_video_for_web.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, poster: "poster.jpg", class: "video" %>
-
-  <div class="banner-content ">
+<div class="video-wrapper">
+  <%= video_tag "hp_video_for_web.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, poster: "poster.jpg", class: "bgvideo"%>
+  <div id="video-overlay">
     <h1>Welcome to Droneit!</h1>
-    <p>Hire a drone pilot!</p>
+    <p>Hire a drone pilot, fast and easy!</p>
       <a data-scroll href="#customer" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
       <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
   </div>
-</div>
 
-<div class="fixed">
-  <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
+  <div class="fixed">
+    <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
+  </div>
 </div>
-
 
 
 <!-- How does it work? Customer -->
@@ -46,7 +45,7 @@
         </div>
          <div class="col-xs-12 white userlink">
           <% if !user_signed_in? %>
-            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"hi-su hi-black" %>
+            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"btn form-btn" %>
           <% end %>
         </div>
       </div>
@@ -82,7 +81,7 @@
         </div>
         <div class="col-xs-12 white userlink">
           <% if !user_signed_in? %>
-           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"hi-su white" %>
+           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"btn form-btn" %>
           <% end %>
         </div>
       </div>
@@ -92,14 +91,52 @@
 
 
 <!-- top pilots html -->
+<div class="wrapper-grey">
+  <div class="container">
+   <h2 class="orbitron text-center">Top Rated Drone Companies</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+          <div class="card" id="drone-inc">
+            <div class="card-description">
+              <%= image_tag "dronelogo3.png", class: 'img-circle' %>
+              <h3>Drone Inc.</h3>
+              <p>We are specialized in Event Images and have specialist all over the world.</p>
+            </div>
+          </div>
+      </div>
 
-<div class="container-fluid">
+      <div class="col-xs-12 col-sm-4">
+          <div class="card" id="fly-high">
+            <div class="card-description">
+              <%= image_tag "dronelogo2.jpeg", class: 'img-circle' %>
+              <h3>Fly High AG</h3>
+              <p>We have 10 years expierence and over 50 drone pilots in the middle east.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+          <div class="card" id="drone-pilots">
+            <div class="card-description">
+              <%= image_tag "dronelogo1.jpg", class: 'img-circle' %>
+              <h3>Drone Pilots GmbH</h3>
+              <p>We are specialized in video editing and color correction.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="container-fluid">
     <h2 class="orbitron text-center">Top Rated Drone Companies</h2>
   <div class="row">
   <% @top_pilots.each do |pilot| %>
       <div class="col-xs-12 col-md-4">
-        <% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
-        <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
+<% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
+ <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
         <% if pilot.avatar_url %>
         <%= image_tag pilot.avatar, class: 'img-circle' %>
         <% end %>
@@ -128,8 +165,12 @@
       </div>
   <% end %>
   </div>
-</div>
+</div> -->
 
+
+
+
+<!-- About Text-->
 <div class="footer-container">
 
 <div class="container aboutcontainer">
@@ -142,34 +183,12 @@
         <h2> How can I find what and who i need? </h2>
         <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
       <p> The choice is yours! </p>
-      <%= link_to 'Learn more!', about_path, class:'form-btn' %>
+      <%= link_to 'Learn more!', about_path, class:'btn form-btn' %>
     </div>
   </div>
 </div>
 </div>
 
-<!--       <div class="col-xs-6">
-        <div class="col-xs-6 col-md-3" style="margin-right:120px">
-
-          <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
-            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
-          </a>
-
-          <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
-            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
-          </a>
-        </div>
-        <div class="col-xs-6 col-md-3" style="margin-right:120px">
-
-          <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
-            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
-          </a>
-
-          <a rel="gallery-1" href="<%= asset_path('largeevent.jpg') %>" class="swipebox" title="Concert">
-            <%= image_tag 'smallevent.jpeg', class:'gallerypictures' %>
-          </a>
-        </div>
-      </div> -->
 
 
 <!-- javascript -->

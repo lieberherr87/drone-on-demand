@@ -23,7 +23,6 @@
 
   }
   .navbar-link{
-    border: 2px $gray solid;
     border-radius: 5px;
     margin-left: 4px;
   }
@@ -42,6 +41,7 @@
   border-radius: 10px;
   padding: 15px;
   text-align: center;
+  text-decoration: none;
 }
 
 .banner{
@@ -53,8 +53,6 @@
   }
 }
 
-.orbitron { font-family: 'Orbitron', sans-serif; }
-
 .bg-transparent { background-color: transparent }
 .bg-white { background-color: white; }
 .bg-offwhite { background-color: #f2f3f4; }
@@ -63,15 +61,15 @@
 .yellow { color: #f4d03f; }
 .darkblue{ color:#ee2020 ; }
 
-
-
-
 .black:hover{
   color: #1c2833;
   text-decoration: none;
 }
 
-
+.navbar-home {
+  position: absolute;
+  width: 100%;
+}
 #as-a-customer{
   // background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('People-Top-View.jpg') no-repeat;
   // filter: blur(1.5px);
@@ -79,7 +77,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  top: -87px;
+  // top: -87px;
   // padding-top: 150px;
   // padding-bottom: 150px;
   .psub{
@@ -105,12 +103,10 @@
   padding-bottom: 100px;
 }
 
-
 .howtoimg{
   height:100px;
   width: 100px;
 }
-
 
 .banner2title{
   text-align:left;
@@ -133,7 +129,6 @@
   background-color: $green;
 }
 
-
 .hi{
   border: 2px white solid;
   border-radius: 5px;
@@ -149,9 +144,7 @@
   padding:15px;
   color: black;
   text-decoration: none;
-
 }
-
 
 .hi-black :hover {
   text-decoration: none;
@@ -178,7 +171,6 @@
   }
 }
 
-
 .userlink{
   margin-top: -60px;
   padding-bottom: 40px;
@@ -188,10 +180,7 @@
   text-decoration: underline;
 }
 
-
-
 // Style for the top rated pilots
-
 
 .pilotname{
   color:white;
@@ -199,15 +188,12 @@
   margin-bottom: 25px;
 }
 
-
-
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
   background-color: white;
   margin-left: 15px;
 }
-
 
 .topdescription{
   p{
@@ -237,12 +223,13 @@
 }
 
 .jumbotron{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 59%, rgba(0, 0, 0, 0.3) 100%);
+  background: linear-gradient(-225deg, rgba(50,0,200,0.5) 0%, rgba(36,0,30,0.5) 50%);
   // background-image: url('one.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 250px;
   max-height: 250px;
+
 
   p{
   font-weight: 400;
@@ -261,13 +248,6 @@
   opacity: 0.8;
 }
 
-.img-circle {
-  height:80px;
-  width:80px;
-  position:relative;
-  left:250px;
-  top:110px;
-}
 
 
 // style for About Droneit
@@ -280,7 +260,6 @@
 .aboutcontainer{
   padding: 50px;
 }
-
 
 .aboutcontainer h2 {
   font-size: 20px;
@@ -298,3 +277,49 @@
   width:258px;
   display: block
 }
+
+
+.orbitron { font-family: 'Orbitron', sans-serif; }
+
+// style for top companies
+
+
+#drone-inc { background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), image-url('picture1.jpg'); }
+#fly-high { background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), image-url('placeholder.jpg'); }
+#drone-pilots { background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), image-url("one.jpg"); }
+
+.card {
+ height: 230px;
+ background-size: cover;
+ color: white;
+}
+
+.card h3 {
+  font-size: 28px;
+  font-family: Raleway;
+  position: relative;
+  left: 10px;
+  top: 30px;
+}
+
+.card p {
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 300;
+  position: relative;
+  left: 10px;
+  top: 30px;
+}
+
+.img-circle {
+  height:80px;
+  width:80px;
+  position:relative;
+  left:275px;
+  top: 10px;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
