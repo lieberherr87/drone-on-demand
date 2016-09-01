@@ -39,16 +39,20 @@
             <% end %>
             <% if !current_user.not_applied?(request) %>
               <td class="text-center"><i class="fa fa-check" aria-hidden="true"></i></td>
-              <% else %>
-              <td></td>
+            <% else %>
+              <td><p></p></td>
             <% end %>
             <td><div class="request-links"><%= link_to 'Show', request_path(request) %></div> </td>
             <% unless current_user.pilot || request.closed? %>
               <% if policy(request).update? %>
                 <td><div class="request-links"><%= link_to 'Edit', edit_request_path(request) %></div> </td>
+              <% else %>
+                <td><p></p></td>
               <% end %>
               <% if policy(request).destroy? %>
                 <td><div class="request-links"><%= link_to 'Cancel', request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %></div> </td>
+              <% else %>
+                <td><p></p></td>
               <% end %>
             <% end %>
           </tr>

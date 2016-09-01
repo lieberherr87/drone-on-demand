@@ -3,7 +3,7 @@
       <h1>These are your proposals</h1>
       <p>Manage your proposals here</p>
 
-  <table class= "table table-hover">
+  <table class= "table table-hover ">
     <thead>
       <tr>
         <th>Location</th>
@@ -24,9 +24,12 @@
           <td><div class="proposal-links"><%= link_to 'Show', proposal_path(proposal) %></div> </td>
         <% if current_user.pilot? && proposal.pending? %>
           <td><div class="proposal-links"><%= link_to 'Cancel', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %> </td></div>
+        <% else %>
+          <td><p></p></td>
         <% end %>
         <% unless current_user.pilot? %>
-          <td><div class="proposal-links"><%= link_to 'Add review', new_proposal_review_path(request) %></div> </td>
+          <td><div class="proposal-links"><%= link_to 'Add review', new_proposal_review_path(request) %></div>
+          </td>
         <% end %>
         </tr>
       <% end %>

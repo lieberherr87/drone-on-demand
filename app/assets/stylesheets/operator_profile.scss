@@ -69,10 +69,9 @@
 .oprofile-box .profile {
   border-radius: 50%;
   position: absolute;
-  bottom: 405px;
-  left: 215px;
+  bottom: 105%;
   z-index: 1;
-  max-width: 90px;
+  max-width: 75px;
   opacity: 1;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
@@ -148,6 +147,7 @@
   height: 160px;
   width:100%;
   display: block;
+  margin: 15px;
 }
 
 
