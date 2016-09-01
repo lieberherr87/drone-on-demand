@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request
+  before_action :set_request, only: [:edit, :update, :destroy]
 
   def index
     if current_user.pilot
@@ -11,7 +11,6 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find_by(id: params[:id])
-    redirect_to root_path if @request.blank?
     @request_coordinates = { lat: @request.latitude, lng: @request.longitude }
 
     @hash = Gmaps4rails.build_markers(@request) do |request, marker|
@@ -19,7 +18,6 @@ class RequestsController < ApplicationController
       marker.lng request.longitude
       # marker.infowindow render_to_string(partial: "/requests/map_box", locals: { request: request })
     end
-    redirect_to root_path if !@request.created_by(current_user) && !current_user.pilot
   end
 
   def new

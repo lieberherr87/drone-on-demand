@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+
   get 'payments/new'
 
   resources :conversations do
@@ -9,9 +12,9 @@ Rails.application.routes.draw do
   get '/profile' => 'pages#profile'
   get '/about' => 'pages#about'
 
-  resources :operator_profiles do
-    resources :images, only: [:new, :create]
-  end
+
+  resource :operator_profiles, only: [:edit, :update, :show]
+  resources :operator_profiles, only: [:show]
 
   resources :images, only: :destroy
 
