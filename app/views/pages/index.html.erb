@@ -26,7 +26,7 @@
     <div class="row">
       <div class='col-xs-12'>
         <h2 class="banner2title orbitron black">How it works</h2>
-        <h3 class="banner2title orbitron black"> As a drone pilot </h3>
+        <h3 class="banner2title orbitron black"> As a customer </h3>
         <div class="container inline1" style="position: relative; top: -30px;">
           <div class="col-xs-12 col-md-4 divisions">
             <%= image_tag 'sign.png', class:'howtoimg' %>
@@ -45,10 +45,10 @@
           </div>
         </div>
          <div class="col-xs-12 white userlink">
-            <%= link_to new_user_registration_path(as:"client"), class:"black" do %>
-            <h3><strong> Not a user?</strong> Sign up! </h3>
+          <% if !user_signed_in? %>
+            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"hi-su hi-black" %>
           <% end %>
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -81,10 +81,10 @@
           </div>
         </div>
         <div class="col-xs-12 white userlink">
-            <%= link_to new_user_registration_path(as:"pilot"), class:"white" do %>
-            <h3><strong> Not a user?</strong> Sign up! </h3>
+          <% if !user_signed_in? %>
+           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"hi-su white" %>
           <% end %>
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -93,25 +93,21 @@
 
 <!-- top pilots html -->
 
-
-<div class="container-fluid thelisting">
-  <div class="text-center">
-    <h2 class="orbitron">Top Rated Pilots</h2>
-  </div>
+<div class="container-fluid">
+    <h2 class="orbitron text-center">Top Rated Drone Companies</h2>
   <div class="row">
   <% @top_pilots.each do |pilot| %>
-    <%= link_to operator_profile_path(pilot.operator_profile) do %>
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-md-4">
         <% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
         <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
         <% if pilot.avatar_url %>
         <%= image_tag pilot.avatar, class: 'img-circle' %>
         <% end %>
         <div class="jumbotron-description white desc">
-          <p class="name"><strong><%= pilot.first_name%></strong></p>
+          <p class="name"><strong><%= pilot.operator_profile.company_name %></strong></p>
 
           <% if pilot.operator_profile.skills.count != 0  %>
-            <em><p> I'm good at
+            <em><p> We're specialized in
             <% pilot.operator_profile.skills.each_with_index do |skill, i| %>
               <% if pilot.operator_profile.skills.count == 1 %>
                 <%=skill.name%>
@@ -130,7 +126,6 @@
         </div>
         </div>
       </div>
-    <% end %>
   <% end %>
   </div>
 </div>
