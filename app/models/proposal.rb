@@ -1,7 +1,7 @@
 class Proposal < ApplicationRecord
   belongs_to :user
   belongs_to :request
-  has_one :review
+  has_one :review, dependent: :destroy
 
   validates :price, presence: true
   validates :content, presence: true
