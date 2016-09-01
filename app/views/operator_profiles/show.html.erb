@@ -49,19 +49,27 @@
           <% end %>
         <% end %>
       </div>
-    </div>
-</div>
+
+      <div class="review">
+        <h3>Reviews</h3>
+          <% @proposals.each do |proposal| %>
+            <% unless proposal.review == nil %>
+              <ul>Review by <%= User.find_by(id:proposal.request.user_id).first_name %> <%= User.find_by(id:proposal.request.user_id).last_name %>, created <%= proposal.review.created_at.strftime("%A %B %d or %a %e/%m") %>
+              <li><%= proposal.review.content %></li>
+              <li><%= proposal.review.rating %></li>
+              </ul>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+  </div>
 </div>
 
-<div class="container">
 
-  <% @proposals.each do |proposal| %>
-    <%= proposal.reviews.content %>
-    <%= proposal.reviews.rating %>
-  <% end %>
 
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --> -->
 
 
 <!-- javascript -->
