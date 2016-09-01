@@ -14,12 +14,6 @@ class OperatorProfilesController < ApplicationController
   def update
     @profile = current_user.operator_profile
     @profile.update(profile_params)
-    # if params.has_key? :images
-    #   params[:images]['image'].each do |a|
-    #     @image = @profile.images.create!(:image => a)
-    #   end
-    # end
-    authorize @profile
     flash[:notice] = "Your profile has been successfully updated"
     redirect_to operator_profile_path(@profile)
   end
