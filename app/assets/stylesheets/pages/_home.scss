@@ -46,7 +46,7 @@
 
 .banner{
   position:relative;
-  top: -59px;
+  top: -50px;
   .form{
     position:relative;
     bottom:0px;
@@ -123,11 +123,23 @@
   margin-left: 80px;
 }
 
+.hi-su{
+  border: 2px white solid;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding:15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $green;
+}
+
+
 .hi{
   border: 2px white solid;
   border-radius: 5px;
   margin-left: 6px;
   padding:15px;
+  text-decoration: none;
 }
 
 .hi-black{
@@ -135,6 +147,15 @@
   border-radius: 5px;
   margin-left: 6px;
   padding:15px;
+  color: black;
+  text-decoration: none;
+
+}
+
+
+.hi-black :hover {
+  text-decoration: none;
+  color: black;
 }
 
 .hi:hover{
@@ -178,10 +199,8 @@
   margin-bottom: 25px;
 }
 
-.thelisting{
-  padding-bottom: 100px;
 
-}
+
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
