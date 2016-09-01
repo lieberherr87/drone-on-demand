@@ -10,7 +10,7 @@ class Request < ApplicationRecord
   after_validation :geocode, if: :location_changed?
   enum status: [:open, :closed]
 
-  #after_create :send_request_created_email
+  after_create :send_request_created_email
 
   def close
     self.closed!
