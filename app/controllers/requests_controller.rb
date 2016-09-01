@@ -18,6 +18,7 @@ class RequestsController < ApplicationController
       marker.lng request.longitude
       # marker.infowindow render_to_string(partial: "/requests/map_box", locals: { request: request })
     end
+    redirect_to root_path if !@request.created_by(current_user) && !current_user.pilot?
   end
 
   def new
@@ -29,6 +30,7 @@ class RequestsController < ApplicationController
       redirect_to root_path
     else
       @request = current_user.requests.create(request_params)
+      flash[:notice] = "Your request has been created"
       redirect_to requests_path
     end
   end

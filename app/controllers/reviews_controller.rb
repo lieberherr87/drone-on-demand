@@ -19,9 +19,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.proposal = @proposal
     if @review.save
+      flash[:notice] = "Your review has been created"
       redirect_to proposal_path(@proposal)
     else
-      render 'proposals'
+      flash[:alert] = "There has been an error"
+      redirect_to  new_proposal_review_path(@proposal)
     end
   end
 
