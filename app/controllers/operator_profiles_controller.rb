@@ -3,43 +3,7 @@ class OperatorProfilesController < ApplicationController
   before_action :set_profile, only: [:show]
   skip_before_action :authenticate_user!, only: [:show]
 
-
-  def index
-    redirect_to root_path
-    @profile = policy_scope(OperatorProfile)
-  end
-
   def show
-  end
-
-  def new
-    @profile = OperatorProfile.new
-    @profile.operator_skills.build
-    @profile.videos.build
-    @images = @profile.images.build
-  end
-
-  def create
-    # # @profile = OperatorProfile.new(profile_params)
-    #   @profile = current_user.operator_profile
-    # if @profile.update(profile_params)
-    #   #works
-    #   flash[:notice] = "Successfully updated"
-    #   redirect_to operator_profile_path(@profile)
-    # else
-    #   render 'edit'
-    #   #dont
-    # end
-
-    # @profile = current_user.create_operator_profile(profile_params)
-    # @profile.videos.first.operator_profile = @profile
-    # @profile.save
-    # if params.has_key? :images
-    #   params[:images]['image'].each do |a|
-    #     @image = @profile.images.create!(:image => a)
-    #   end
-    # end
-    # redirect_to operator_profile_path(@profile)
   end
 
   def edit
@@ -58,10 +22,6 @@ class OperatorProfilesController < ApplicationController
     authorize @profile
     flash[:notice] = "Your profile has been successfully updated"
     redirect_to operator_profile_path(@profile)
-  end
-
-  def destroy
-    authorize @profile
   end
 
   private
