@@ -19,7 +19,7 @@
         <%= cl_image_tag @user.avatar, class:"avatar avatar-large" %>
         <%= f.input :avatar, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
         <%= f.input :avatar_cache, as: :hidden %>
-        <%= f.input :pilot, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+        <%= f.input :pilot, as: :hidden, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
       </div>
 
       <div class="form-actions">
