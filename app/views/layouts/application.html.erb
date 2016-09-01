@@ -6,7 +6,7 @@
     <title>DroneIt</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%#= javascript_include_tag 'dist/js/smooth-scroll' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Orbitron:400,500'; %>
@@ -31,7 +31,7 @@
       <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV["GOOGLE_API_SERVER_KEY"]}" %>
       <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
       <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application' %>
       <%#= javascript_include_tag 'src/js/jquery.swipebox.js' %>
 
       <%= yield(:after_js) %>

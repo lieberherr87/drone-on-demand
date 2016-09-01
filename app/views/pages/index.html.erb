@@ -1,21 +1,20 @@
 <!-- Homepage Banner Video -->
 
-<div class="banner" style="height: 740px">
+<!-- <div class="banner" style="height: 740px"> -->
 
-<%= video_tag "hp_video_for_web.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, poster: "poster.jpg", class: "video" %>
-
-  <div class="banner-content ">
+<div class="video-wrapper">
+  <%= video_tag "hp_video_for_web.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, poster: "poster.jpg", class: "bgvideo"%>
+  <div id="video-overlay">
     <h1>Welcome to Droneit!</h1>
-    <p>Hire a drone pilot!</p>
+    <p>Hire a drone pilot, fast and easy!</p>
       <a data-scroll href="#customer" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
       <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
   </div>
-</div>
 
-<div class="fixed">
-  <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
+  <div class="fixed">
+    <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
+  </div>
 </div>
-
 
 
 <!-- How does it work? Customer -->
