@@ -49,68 +49,27 @@
           <% end %>
         <% end %>
       </div>
-    </div>
-</div>
-</div>
 
-
-      <!-- <%# @profile.images.each do |p| %>
-      <div class="image-container">
-        <%# if @profile.images %>
-        <div class="row">
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
-            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
-            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
-            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
+      <div class="review">
+        <h3>Reviews</h3>
+          <% @proposals.each do |proposal| %>
+            <% unless proposal.review == nil %>
+              <ul>Review by <%= User.find_by(id:proposal.request.user_id).first_name %> <%= User.find_by(id:proposal.request.user_id).last_name %>, created <%= proposal.review.created_at.strftime("%A %B %d or %a %e/%m") %>
+              <li><%= proposal.review.content %></li>
+              <li><%= proposal.review.rating %></li>
+              </ul>
+            <% end %>
+          <% end %>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largere.jpg') %>" class="swipebox" title="Real Estate">
-            <%= image_tag 'smallre.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largesport.jpg') %>" class="swipebox" title="Sports Event">
-            <%= image_tag 'smallsport.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
-          <div class="col-xs-12 col-md-4 gallerycont">
-            <a rel="gallery-1" href="<%= asset_path('largewed.jpg') %>" class="swipebox" title="Wedding">
-            <%= image_tag 'smallwed.jpeg', class:'gallerypictures' %>
-            </a>
-          </div>
-        </div>
-    </div> -->
-<%# end %>
-
-<%# end %>
-
-<!--  <div class="description-box">
-<p><%= @profile.description %></p>
+      </div>
+  </div>
 </div>
 
-<%# @profile.images.each do |p| %>
-<div class="image-container">
-<%# if @profile.images %>
-<%#= cl_image_tag p.image.url(:standard) %>
-<%# end %>
-</div>
-<% #end %>
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --> -->
 
 
 <!-- javascript -->

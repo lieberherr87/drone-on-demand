@@ -53,8 +53,6 @@
   }
 }
 
-.orbitron { font-family: 'Orbitron', sans-serif; }
-
 .bg-transparent { background-color: transparent }
 .bg-white { background-color: white; }
 .bg-offwhite { background-color: #f2f3f4; }
@@ -62,9 +60,6 @@
 .white { color: white!important; }
 .yellow { color: #f4d03f; }
 .darkblue{ color:#ee2020 ; }
-
-
-
 
 .black:hover{
   color: #1c2833;
@@ -108,12 +103,10 @@
   padding-bottom: 100px;
 }
 
-
 .howtoimg{
   height:100px;
   width: 100px;
 }
-
 
 .banner2title{
   text-align:left;
@@ -136,7 +129,6 @@
   background-color: $green;
 }
 
-
 .hi{
   border: 2px white solid;
   border-radius: 5px;
@@ -152,9 +144,7 @@
   padding:15px;
   color: black;
   text-decoration: none;
-
 }
-
 
 .hi-black :hover {
   text-decoration: none;
@@ -181,7 +171,6 @@
   }
 }
 
-
 .userlink{
   margin-top: -60px;
   padding-bottom: 40px;
@@ -191,10 +180,7 @@
   text-decoration: underline;
 }
 
-
-
 // Style for the top rated pilots
-
 
 .pilotname{
   color:white;
@@ -202,15 +188,12 @@
   margin-bottom: 25px;
 }
 
-
-
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
   background-color: white;
   margin-left: 15px;
 }
-
 
 .topdescription{
   p{
@@ -267,7 +250,6 @@
 
 
 
-
 // style for About Droneit
 
 .about-pic{
@@ -278,7 +260,6 @@
 .aboutcontainer{
   padding: 50px;
 }
-
 
 .aboutcontainer h2 {
   font-size: 20px;
@@ -291,6 +272,9 @@
   letter-spacing: 1px;
 }
 
+
+
+.orbitron { font-family: 'Orbitron', sans-serif; }
 
 // style for top companies
 
@@ -333,5 +317,4 @@
 .card:hover {
   opacity: 0.8;
 }
-
 
