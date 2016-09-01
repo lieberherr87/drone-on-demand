@@ -54,7 +54,7 @@
         <h3>Reviews</h3>
           <% @proposals.each do |proposal| %>
             <% unless proposal.review == nil %>
-              <ul>Review by <%= User.find_by(id:proposal.request.user_id).first_name %> <%= User.find_by(id:proposal.request.user_id).last_name %>, created <%= proposal.review.created_at.strftime("%A %B %d or %a %e/%m") %>
+              <ul>Review by <%= User.find_by(id:proposal.request.user_id).first_name %> <%= User.find_by(id:proposal.request.user_id).last_name %>, created <%= proposal.review.created_at.strftime("%A %B %d") %>
               <li><%= proposal.review.content %></li>
               <li><%= proposal.review.rating %></li>
               </ul>
