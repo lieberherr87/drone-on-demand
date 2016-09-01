@@ -9,7 +9,7 @@
   <% @request.proposals.each do |proposal| %>
 
     <div class="col-md-3 col-xs-6">
-      <figure class="proposal-box-small">
+      <figure class="proposal-box">
         <%= link_to proposal_path(proposal.id) do %>
         <% if !proposal.user.operator_profile.images.first.nil? %>
           <%= cl_image_tag proposal.user.operator_profile.images.first.image %>
