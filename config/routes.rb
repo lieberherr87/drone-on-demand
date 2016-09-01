@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
 
 
-  resource :operator_profiles, only: [:edit, :update]
+  resource :operator_profiles, only: [:edit, :update, :show]
   resources :operator_profiles, only: [:show]
 
   resources :images, only: :destroy
