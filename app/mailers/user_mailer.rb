@@ -6,6 +6,7 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.welcome.subject
   #
   def welcome_client(user)
+    logger.warn "UserMailer"
     @user = user
     @greeting = "Hi"
 

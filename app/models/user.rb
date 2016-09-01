@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
   after_create :create_op_profile, if: "self.pilot?"
 
   def not_applied?(request)
