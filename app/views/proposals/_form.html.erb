@@ -4,7 +4,7 @@
     <% if @proposal.new_record? %>
       <%= f.input :date, as: :hidden, input_html: { :value => @request.due_date, :class => 'form-input' }, label_html: { :class => 'form-label' } %>
      <% end %>
-    <%= f.input :price, required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
+    <%= f.input :price, label:"Price in USD", required: true, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
     <%= f.input :content, as: :text, label: "Message", input_html: { :class => 'form-input', rows: 4}, label_html: { :class => 'form-label' } %>
     <%= f.input :request_id, as: :hidden, input_html: {value: params[:request_id]}, input_html: { :class => 'form-input' }, label_html: { :class => 'form-label' } %>
   </div>
