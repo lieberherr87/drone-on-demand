@@ -1,18 +1,16 @@
 class RequestsController < ApplicationController
-  before_action :set_request
+  before_action :set_request, only: [:edit, :update, :destroy]
 
   def index
-    if user_signed_in? && current_user.pilot
+    if current_user.pilot
       @requests = Request.open
-    elsif user_signed_in? && !current_user.pilot
-      @requests = current_user.requests
     else
-      redirect_to new_user_session_path
+      @requests = current_user.requests
     end
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find_by(id: params[:id])
     @request_coordinates = { lat: @request.latitude, lng: @request.longitude }
 
     @hash = Gmaps4rails.build_markers(@request) do |request, marker|
@@ -27,11 +25,11 @@ class RequestsController < ApplicationController
   end
 
   def create
-    if user_signed_in? && !current_user.pilot
+    if current_user.pilot
+      redirect_to root_path
+    else
       @request = current_user.requests.create(request_params)
       redirect_to requests_path
-    else
-      redirect_to new_user_session_path
     end
   end
 
@@ -39,15 +37,15 @@ class RequestsController < ApplicationController
   end
 
   def update
+    authorize @request
     @request.update(request_params)
     redirect_to request_path(@request)
-    authorize @request
   end
 
   def destroy
+    authorize @request
     @request.destroy
     redirect_to requests_path
-    authorize @request
   end
 
   private
@@ -56,7 +54,7 @@ class RequestsController < ApplicationController
       if current_user
         @request = current_user.requests.find_by(id: params[:id])
       else
-        redirect_to new_user_session_path
+        redirect_to root_path
       end
     end
 

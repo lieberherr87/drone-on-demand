@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # has_many :messages, through: :conversations, dependent: :destroy
   has_many :created_conversations, dependent: :destroy, foreign_key: :sender_id, class_name: 'Conversation'
   has_many :joined_conversations, dependent: :destroy, foreign_key: :recipient_id, class_name: 'Conversation'
-
+  has_many :images, through: :operator_profiles
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true

@@ -43,7 +43,7 @@
               <td></td>
             <% end %>
             <td><div class="request-links"><%= link_to 'Show', request_path(request) %></div> </td>
-            <% unless current_user.pilot %>
+            <% unless current_user.pilot || request.closed? %>
               <% if policy(request).update? %>
                 <td><div class="request-links"><%= link_to 'Edit', edit_request_path(request) %></div> </td>
               <% end %>

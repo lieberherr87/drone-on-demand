@@ -1,17 +1,18 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, except: [:accept]
+  before_action :set_proposal, except: [:accept, :show]
   before_action :set_request, only: [:new, :create]
 
   def index
-    if user_signed_in? && current_user.pilot
+    if current_user.pilot
       @proposals = current_user.proposals
     else
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 
   def show
     @proposal = Proposal.find(params[:id])
+    redirect_to root_path if !@proposal.created_by(current_user) && !@proposal.request.created_by(current_user)
   end
 
   def new
@@ -22,6 +23,7 @@ class ProposalsController < ApplicationController
     @proposal = @request.proposals.build(proposal_params)
     @proposal.user = current_user
     @proposal.save
+    flash[:notice] = "Your proposal has been created"
     redirect_to proposal_path(@proposal)
   end
 
@@ -46,6 +48,7 @@ class ProposalsController < ApplicationController
   end
 
   def decline
+    @proposal = Proposal.pending.find_by(id:params[:id])
     @proposal.rejected!
     redirect_to proposal_path(@proposal)
   end

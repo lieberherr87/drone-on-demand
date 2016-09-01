@@ -12,7 +12,7 @@
                  <% if chat_partner_object(current_user, conversation).avatar_url %>
                     <%= cl_image_tag chat_partner_object(current_user, conversation).avatar.url(:standard), class:"avatar-bordered" %>
                   <% elsif !chat_partner_object(current_user, conversation).avatar_url %>
-                    <%= image_tag "/assets/avatar_default.jpg",  class:"avatar-bordered" %>
+                    <%= image_tag "avatar_default.jpg",  class:"avatar-bordered" %>
                   <% end %>
                   <% if conversation.messages.last %>
                     <td style="vertical-align:middle"><p><%= conversation.messages.last.created_at.strftime("%d %b %H:%M") %></p></td>

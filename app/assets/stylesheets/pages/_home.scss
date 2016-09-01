@@ -46,7 +46,7 @@
 
 .banner{
   position:relative;
-  top: -59px;
+  top: -50px;
   .form{
     position:relative;
     bottom:0px;
@@ -75,7 +75,7 @@
 #as-a-customer{
   // background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('People-Top-View.jpg') no-repeat;
   // filter: blur(1.5px);
-  background-image: url("people2.gif");
+  background-image: image-url("people2");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -89,8 +89,7 @@
 
 #as-a-pilot{
   // background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.5) 100%), image-url('pilotone.jpg') no-repeat;
-
-  background-image: url("street2.gif");
+  background-image: image-url("street2");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -124,11 +123,39 @@
   margin-left: 80px;
 }
 
+.hi-su{
+  border: 2px white solid;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding:15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $green;
+}
+
+
 .hi{
   border: 2px white solid;
   border-radius: 5px;
   margin-left: 6px;
   padding:15px;
+  text-decoration: none;
+}
+
+.hi-black{
+  border: 2px black solid;
+  border-radius: 5px;
+  margin-left: 6px;
+  padding:15px;
+  color: black;
+  text-decoration: none;
+
+}
+
+
+.hi-black :hover {
+  text-decoration: none;
+  color: black;
 }
 
 .hi:hover{
@@ -172,10 +199,8 @@
   margin-bottom: 25px;
 }
 
-.thelisting{
-  padding-bottom: 100px;
 
-}
+
 .pilot{
   margin-bottom: 10px;
   margin-top: -76px;
@@ -247,17 +272,25 @@
 
 // style for About Droneit
 
-.About{
-  font-size:25px;
-}
-
-.About-pic{
+.about-pic{
   width: 550px;
   height: 530px;
 }
 
 .aboutcontainer{
-  margin-bottom: 30px;
+  padding: 50px;
+}
+
+
+.aboutcontainer h2 {
+  font-size: 20px;
+}
+
+.aboutcontainer p {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
 }
 
 .gallerypictures{
