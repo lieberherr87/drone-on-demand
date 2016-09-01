@@ -5,7 +5,7 @@
         <% if !@profile.images.first.nil? %>
           <%= cl_image_tag @profile.images.first.image %>
         <% else %>
-          <%= image_tag "dronelogo3.png", class: 'img-circle' %>
+          <%= image_tag "placeholder.jpg" %>
         <% end %>
         <figcaption>
         <% if !@profile.user.avatar.url.nil? %>
