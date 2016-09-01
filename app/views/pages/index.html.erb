@@ -45,7 +45,7 @@
         </div>
          <div class="col-xs-12 white userlink">
           <% if !user_signed_in? %>
-            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"hi-su hi-black" %>
+            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"btn form-btn" %>
           <% end %>
         </div>
       </div>
@@ -81,7 +81,7 @@
         </div>
         <div class="col-xs-12 white userlink">
           <% if !user_signed_in? %>
-           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"hi-su white" %>
+           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"btn form-btn" %>
           <% end %>
         </div>
       </div>
@@ -183,7 +183,7 @@
         <h2> How can I find what and who i need? </h2>
         <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
       <p> The choice is yours! </p>
-      <%= link_to 'Learn more!', about_path, class:'form-btn' %>
+      <%= link_to 'Learn more!', about_path, class:'btn form-btn' %>
     </div>
   </div>
 </div>
