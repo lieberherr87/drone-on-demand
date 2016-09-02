@@ -59,10 +59,9 @@
           <li> <%= link_to conversations_path, class: 'otherlinks' do %><i class="fa fa-envelope-o"></i> Messages<% end %></li>
         <% elsif user_signed_in? %>
           <li> <%= link_to "Requests", requests_path, class: 'otherlinks' %></li>
-          <li> <%= link_to conversations_path, class: 'otherlinks' do %><i class="fa fa-envelope-o"></i> Messages<% end %></li>
-        <% end %>
-        # <% if !Message.where(read:false).pluck(:user_id).include?(current_user.id) %>
-            <p><%= link_to "Messages", conversations_path %></p>
+          <li> <%= link_to conversations_path, class: 'otherlinks' do %><i class="fa fa-envelope-o"></i> Messages <% if current_user.unread_messages? %>
+            <i class='fa fa-bell'></i> </li><% end %>
+          <% end %>
         <% end %>
 
         <% if user_signed_in? %>

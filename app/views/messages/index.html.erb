@@ -5,7 +5,7 @@
   <p>Send message to <%= chat_partner(current_user, @conversation) %></p>
 
   <div class=”ui segment”>
-    <% @messages2.each do |message| %>
+    <% @messages.each do |message| %>
       <% if message.body %>
         <% message.user %>
       <div class=”item”>

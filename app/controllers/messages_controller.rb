@@ -3,15 +3,9 @@ class MessagesController < ApplicationController
   # after_action :set_to_read, only: [:index]
 
   def index
-    # @messages = @conversation.messages
-    @messages2 =  Message.where(conversation_id:@conversation.id)
-    @message = @conversation.messages.new(conversation_id:params[:conversation_id], user_id:current_user.id)
-
-    @messages2.each do |message|
-      if message.user_id != current_user.id
-        message.set_to_read
-      end
-    end
+    @messages = @conversation.messages
+    @message = Message.new(user_id:current_user.id)
+    @conversation.messages_for(current_user).unread.update_all(read: true)
   end
 
   def new
