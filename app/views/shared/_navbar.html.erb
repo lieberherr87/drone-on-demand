@@ -61,6 +61,9 @@
           <li> <%= link_to "Requests", requests_path, class: 'otherlinks' %></li>
           <li> <%= link_to conversations_path, class: 'otherlinks' do %><i class="fa fa-envelope-o"></i> Messages<% end %></li>
         <% end %>
+        # <% if !Message.where(read:false).pluck(:user_id).include?(current_user.id) %>
+            <p><%= link_to "Messages", conversations_path %></p>
+        <% end %>
 
         <% if user_signed_in? %>
           <li class="dropdown">
