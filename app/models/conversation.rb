@@ -14,4 +14,7 @@ class Conversation < ApplicationRecord
     (sender_id == user.id) || (recipient_id == user.id)
   end
 
+  def messages_for(user)
+    messages.where.not(user_id: user.id)
+  end
 end

@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
   before_action :set_conversation
+  # after_action :set_to_read, only: [:index]
 
   def index
     @messages = @conversation.messages
-    @message = @conversation.messages.new
+    @message = Message.new(user_id:current_user.id)
+    @conversation.messages_for(current_user).unread.update_all(read: true)
   end
 
   def new

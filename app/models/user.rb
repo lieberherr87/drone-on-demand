@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :pending_proposals, through: :requests, source: :proposals #All proposals on user's requests
   has_many :proposals, dependent: :destroy #Created by this user
-  # has_many :messages, through: :conversations, dependent: :destroy
+  has_many :messages
   has_many :created_conversations, dependent: :destroy, foreign_key: :sender_id, class_name: 'Conversation'
   has_many :joined_conversations, dependent: :destroy, foreign_key: :recipient_id, class_name: 'Conversation'
   has_many :images, through: :operator_profiles
@@ -34,6 +34,10 @@ class User < ApplicationRecord
 
   def create_op_profile
     self.create_operator_profile
+  end
+
+  def unread_messages?
+    Message.unread.joins(:conversation).where("(conversations.sender_id = :id OR conversations.recipient_id = :id)", id: self.id).where.not(user_id: self.id).any?
   end
 
   private
