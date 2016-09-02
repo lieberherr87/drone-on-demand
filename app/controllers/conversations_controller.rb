@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   # before_action :authenticate_user
 
   def index
-    @conversations = Conversation.where("recipient_id=#{current_user.id} OR sender_id=#{current_user.id}").sort { |c| c.messages.last.try(:created_at)}
+    @conversations = Conversation.where("recipient_id=#{current_user.id} OR sender_id=#{current_user.id}").sort { |c| c.messages.last.try(:created_at) || c.updated_at }
   end
 
   def create
