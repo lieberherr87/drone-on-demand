@@ -1,20 +1,23 @@
 // Your footer style
 /* Footer design */
-// form {
-//   margin-top: 0em;
-// }
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
 
-html,
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-   margin:0;
-   padding:0;
-   height:100%;
+  /* Margin bottom by footer height */
+  margin-bottom: 150px;
 }
-#wrapper {
-   min-height:100%;
-   position:relative;
+
+.inline {
+  display: inline;
 }
+
+
 
 #footer {
   color: #F6F6F6;
@@ -37,11 +40,15 @@ body {
 }
 .footer-container {
    // padding: 0px 10px;
-   padding-bottom:200px !important;   /* Height of the footer */
+   padding-bottom: 200px !important;   /* Height of the footer */
 }
 
 .form_container {
-  padding-bottom:200px;   /* Height of the footer */
+  padding-bottom: 200px;   /* Height of the footer */
+}
+
+#footer h2 {
+  font-family: 'Orbitron', sans-serif;
 }
 
 #footer a {
@@ -50,6 +57,10 @@ body {
   font-family: 'Roboto', Arial, sans-serif;
   font-weight: 300;
   font-size: 15px;
+}
+
+#footer a:hover {
+  font-weight: 700;
 }
 
 #footer ul {
@@ -61,6 +72,10 @@ body {
   color: #F6F6F6 !important;
   padding: 15px 10px;
   margin: 15px;
+}
+
+#footer .fa:hover {
+  font-weight: 700;
 }
 
 #newsletter p {
