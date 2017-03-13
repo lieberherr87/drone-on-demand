@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row">
-    <div class='col-xs-12 col-md-4 footer-container'>
+    <div class='col-xs-12 col-md-4'>
       <figure class="oprofile-box ">
         <% if !@profile.images.first.nil? %>
           <%= cl_image_tag @profile.images.first.image %>
@@ -26,7 +26,7 @@
       </figure>
     </div>
 
-    <div class='col-xs-12 col-md-8 footer-container'>
+    <div class='col-xs-12 col-md-8'>
       <% if @profile.videos.first %>
         <div class="embed-container">
           <p><%= embed(@profile.videos.first.url) %></p>
@@ -38,7 +38,7 @@
         <p><%= @profile.description %></p>
       </div>
 
-      <div class="image-container footer-container">
+      <div class="image-container">
         <% @profile.images.each do |p| %>
           <% if @profile.images %>
             <div class="col-xs-12 col-md-4">
@@ -76,7 +76,7 @@
 
 
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> --> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 
 
 <!-- javascript -->

@@ -2,11 +2,18 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500);
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,700);
+@import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker);
 
-$base-font: "Roboto", "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+
+$base-font: "Roboto", "Open Sans", "Helvetica", sans-serif;
+$header-font: "Roboto", "Helvetica", sans-serif;
+$banner-font: 'Permanent Marker', sans-serif;
+
+
 
 // Local fonts (uncomment following lines)
 // @font-face {

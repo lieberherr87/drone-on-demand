@@ -1,101 +1,98 @@
 <!-- Homepage Banner Video -->
-
-<!-- <div class="banner" style="height: 740px"> -->
-
-<div class="video-wrapper">
-  <%= video_tag "hp_video_for_web.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, poster: "poster.jpg", class: "bgvideo"%>
-  <div id="video-overlay">
-    <h1>Welcome to Droneit!</h1>
-    <p>Hire a drone pilot, fast and easy!</p>
-      <a data-scroll href="#customer" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
-      <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
-  </div>
-
-  <div class="fixed">
-    <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed"><%= image_tag 'up.png' %></a>
-  </div>
-</div>
-
-
+  <div id="banner">
+    <div class="banner-content">
+      <h1>Welcome to Droneit!</h1>
+      <p>Hire a drone pilot, fast and easy!</p>
+        <div class="form-inline">
+          <button class="btn">
+            <a data-scroll href="#customer" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Customer</a>
+          </button>
+          <button class="btn">
+            <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
+          </button>
+        </div><!-- /form-inline -->
+      <div class="up">
+        <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed">
+          <%= image_tag 'up.png' %>
+        </a>
+      </div><!-- /up -->
+    </div><!-- /banner-content -->
+  </div><!--/banner -->
 <!-- How does it work? Customer -->
 
 <span id="customer"></span>
-<div class="banner2 container-fluid" id='as-a-customer'>
+
+<div class="banner2 lazy-child container-fluid" id='as-a-customer'>
   <div class="text-center padded features">
     <div class="row">
-      <div class='col-xs-12'>
-        <h2 class="banner2title orbitron black">How it works</h2>
-        <h3 class="banner2title orbitron black"> As a client</h3>
-        <div class="container inline1" style="position: relative; top: -30px;">
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'sign.png', class:'howtoimg' %>
-            <h3 class="black"><strong>Sign in</strong></h3>
-            <p class="black psub"> Use your own account, make your drone experience better.</p>
-          </div>
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'drone.png', class:'howtoimg' %>
-            <h3 class="black"><strong>Make a request</strong></h3>
-            <p class="black psub">State the date and location of the job</p>
-          </div>
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'check.png', class:'howtoimg' %>
-            <h3 class="black"><strong>Choose best offer</strong></h3>
-            <p class="black psub"> Choose a pilot's offer, and book!</p>
-          </div>
-        </div>
-         <div class="col-xs-12 white userlink">
-          <% if !user_signed_in? %>
-            <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"btn form-btn" %>
-          <% end %>
-        </div>
+        <h2 class="subtitle fancy"><span>How it works</span></h2>
+        <h3> As a client</h3>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'sign.png', class:'howtoimg' %>
+        <h4><strong>Sign in</strong></h4>
+        <p> Use your own account, make your drone experience better.</p>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'drone.png', class:'howtoimg' %>
+        <h4><strong>Make a request</strong></h4>
+        <p>State the date and location of the job</p>
+      </div>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'check.png', class:'howtoimg' %>
+        <h4><strong>Choose best offer</strong></h4>
+        <p> Choose a pilot's offer, and book!</p>
+      </div>
+    </div> <!-- /row -->
+    <div class="col-xs-12 white userlink">
+      <% if !user_signed_in? %>
+      <%= link_to 'Sign up as a client!', new_user_registration_path(as:"client"), class:"btn form-btn" %>
+      <% end %>
+    </div><!-- userlink -->
+  </div> <!-- /text-center padded features -->
+</div> <!-- /banner2 -->
 
 <!-- How does it work? Drone Pilot -->
 
 <span id="pilot"></span>
-<div class="banner3 container-fluid" id='as-a-pilot'>
+
+<div class="banner3 lazy-child container-fluid" id='as-a-pilot'>
   <div class="text-center padded features">
     <div class="row">
-      <div class='col-xs-12'>
-        <h2 class="banner3title orbitron yellow">How it works</h2>
-        <h3 class="banner3title orbitron yellow"> As a drone pilot </h3>
-        <div class="container inline1" style="position: relative; top: -30px;">
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'sign.png', class:'howtoimg' %>
-            <h3 class="white"><strong>Sign in</strong></h3>
-            <p class="psub white"> Update your profile, make your drone experience better.</p>
-          </div>
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'drone.png', class:'howtoimg' %>
-            <h3 class="white"><strong>Get a request</strong></h3>
-            <p class="psub white"> Get a date and a location, accept or deny the job.</p>
-          </div>
-          <div class="col-xs-12 col-md-4 divisions">
-            <%= image_tag 'mon.png', class:'howtoimg' %>
-            <h3 class="white"><strong>Make an offer</strong></h3>
-            <p class="psub white"> Answer a request, offer your price.</p>
-          </div>
-        </div>
-        <div class="col-xs-12 white userlink">
-          <% if !user_signed_in? %>
-           <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"btn form-btn" %>
-          <% end %>
-        </div>
+      <h2 class="subtitle fancy"><span>How it works</span></h2>
+      <h3> As a drone pilot </h3>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'sign.png', class:'howtoimg' %>
+        <h4><strong>Sign in</strong></h4>
+        <p>Update your profile, make your drone experience better.</p>
       </div>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'drone.png', class:'howtoimg' %>
+        <h4><strong>Get a request</strong></h4>
+        <p> Get a date and a location, accept or deny the job.</p>
+      </div>
+      <div class="col-xs-12 col-md-4 divisions">
+        <%= image_tag 'money.png', class:'howtoimg' %>
+        <h4><strong>Make an offer</strong></h4>
+        <p> Answer a request, offer your price.</p>
+      </div>
+    </div> <!-- /row -->
+    <div class="col-xs-12 white userlink">
+      <% if !user_signed_in? %>
+      <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"btn form-btn" %>
+      <% end %>
     </div>
-  </div>
-</div>
+  </div> <!-- /text-center padded features -->
+</div><!-- /banenr3 -->
 
 
 <!-- top pilots html -->
+
 <div class="wrapper-grey">
-  <div class="container">
-   <h2 class="orbitron text-center">Top Rated Drone Companies</h2>
+  <div class="container top-rated lazy-child">
+   <h2 class="text-center">Top Rated Drone Companies</h2>
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
+
+      <div class="col-xs-12 col-md-4">
           <div class="card" id="drone-inc">
             <div class="card-description">
               <%= image_tag "dronelogo3.png", class: 'img-circle' %>
@@ -105,7 +102,7 @@
           </div>
       </div>
 
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-md-4">
           <div class="card" id="fly-high">
             <div class="card-description">
               <%= image_tag "dronelogo2.jpg", class: 'img-circle' %>
@@ -115,7 +112,7 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-4">
+      <div class="col-xs-12 col-md-4">
           <div class="card" id="drone-pilots">
             <div class="card-description">
               <%= image_tag "dronelogo1.jpg", class: 'img-circle' %>
@@ -124,72 +121,28 @@
             </div>
           </div>
       </div>
+
     </div>
   </div>
 </div>
 
 
 
-<!-- <div class="container-fluid">
-    <h2 class="orbitron text-center">Top Rated Drone Companies</h2>
-  <div class="row">
-  <% @top_pilots.each do |pilot| %>
-      <div class="col-xs-12 col-md-4">
-<% background_url = !pilot.operator_profile.images.first.nil? ? pilot.operator_profile.images.first.image : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg'  %>
- <div class="jumbotron" style="background-image: url('<%= background_url %>'); background-size: cover;" >
-        <% if pilot.avatar_url %>
-        <%= image_tag pilot.avatar, class: 'img-circle' %>
-        <% end %>
-        <div class="jumbotron-description white desc">
-          <p class="name"><strong><%= pilot.operator_profile.company_name %></strong></p>
-
-          <% if pilot.operator_profile.skills.count != 0  %>
-            <em><p> We're specialized in
-            <% pilot.operator_profile.skills.each_with_index do |skill, i| %>
-              <% if pilot.operator_profile.skills.count == 1 %>
-                <%=skill.name%>
-              <% else %>
-                <%=skill.name%>
-                <% if i < pilot.operator_profile.skills.count - 2 %>
-                  ,
-                <% elsif i == pilot.operator_profile.skills.count - 2 %>
-                  and
-                <% end %>
-              <% end %>
-              <% end %>
-            !</p></em>
-          <% end %>
-
-        </div>
-        </div>
-      </div>
-  <% end %>
-  </div>
-</div> -->
 
 
 
-
-<!-- About Text-->
-<div class="footer-container">
-
-<div class="container aboutcontainer">
-  <div class='col-xs-12 col-md-10 col-md-offset-1 bg-offwhite'>
-  <div class="text-center">
-  <h2 class="orbitron">About Droneit</h2>
+<!-- About Text -->
+<div class="container aboutcontainer text-center lazy-child">
+  <h2>About Droneit</h2>
     <div class="row">
       <p> Looking for a quick job as a drone pilot? Looking for a aerial pictures and video feed?</p>
       <p> Our platform connects you to the people you need! </p>
-        <h2> How can I find what and who i need? </h2>
+        <h3> How can I find what and who i need? </h3>
         <p> Everyone has different needs and reasons for wanting aerial pictures (real estate, event, etc..). With that in mind, a cutomer's request includes a category, and a pilot's profile includes his skills and a few pictures or videos of previous jobs he or she has done. </p>
       <p> The choice is yours! </p>
       <%= link_to 'Learn more!', about_path, class:'btn form-btn' %>
     </div>
-  </div>
 </div>
-</div>
-
-
 
 <!-- javascript -->
 <% content_for(:after_js) do %>
@@ -199,13 +152,28 @@
 
   $( '.swipebox' ).swipebox();
 
-} )( jQuery );
+} )( $ );
 
 
 
     $(document).ready(function(){
       smoothScroll.init();
     });
+
+   $(window).scroll(function() {
+    var windowHeight = $(window).height();
+    var documentHeight = $(document).height();
+    var divs = $("div.lazy-child");
+    $(divs).each(function(index, item) {
+        if (((windowHeight + window.scrollY) - (item.offsetTop + 200)) > 0) {
+            $(item).addClass('animate');
+        }
+    });
+});
+
+
+
+
 
   <% end %>
 <% end %>
