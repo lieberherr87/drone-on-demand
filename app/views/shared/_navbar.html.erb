@@ -30,9 +30,9 @@
       <% end %>
 
       <% if user_signed_in? && current_user.avatar_url %>
-        <%= image_tag current_user.avatar, height: 54, width: 55 %>
+        <%= image_tag current_user.avatar, height: 50, width: 51 %>
       <% elsif user_signed_in? && !current_user.avatar_url %>
-        <%= image_tag "avatar_default.jpg", height: 54, width: 55 %>
+        <%= image_tag "avatar_default.jpg", height: 50, width: 51 %>
       <% end %>
 
       <% if user_signed_in? && current_user.pilot? %>
