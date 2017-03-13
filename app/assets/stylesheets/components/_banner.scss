@@ -20,7 +20,7 @@
 #banner {
 
   h1 {
-    font-size: 100px;
+    font-size: 60px;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.5);
     font-family: $banner-font;
   }
@@ -51,3 +51,16 @@
     opacity: 0.75;
   }
 }
+
+/*********************************************
+MEDIA QUERIES
+*********************************************/
+
+@media (min-width: 767px) {
+  #banner {
+    h1 {
+      font-size: 100px;
+    }
+  }
+}
+
