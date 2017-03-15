@@ -1,4 +1,4 @@
-<!-- Homepage Banner Video -->
+<!-- Homepage Banner  -->
   <div id="banner">
     <div class="banner-content">
       <h1>Welcome to Droneit!</h1>
@@ -11,15 +11,10 @@
             <a data-scroll href="#pilot" data-options='{ "easing": "easeInOutQuad" }' class="white inline hi">I'm a Pilot</a>
           </button>
         </div><!-- /form-inline -->
-      <!--<div class="up">
-        <a data-scroll href="#top" data-options='{ "easing": "easeInOutQuad" }' class="fixed">
-          <%= image_tag 'up.png' %>
-        </a>
-      </div> /up -->
     </div><!-- /banner-content -->
   </div><!--/banner -->
-<!-- How does it work? Customer -->
 
+<!-- How does it work? Customer -->
 <span id="customer"></span>
 
 <div class="banner2 lazy-child container-fluid" id='as-a-customer'>
@@ -52,7 +47,6 @@
 </div> <!-- /banner2 -->
 
 <!-- How does it work? Drone Pilot -->
-
 <span id="pilot"></span>
 
 <div class="banner3 lazy-child container-fluid" id='as-a-pilot'>
@@ -80,13 +74,12 @@
       <% if !user_signed_in? %>
       <%= link_to 'Sign up as a pilot!', new_user_registration_path(as:"pilot"), class:"btn form-btn" %>
       <% end %>
-    </div>
+    </div><!-- userlink -->
   </div> <!-- /text-center padded features -->
 </div><!-- /banenr3 -->
 
 
 <!-- top pilots html -->
-
 <div class="wrapper-grey">
   <div class="container top-rated lazy-child">
    <h2 class="text-center">Top Rated Drone Companies</h2>
@@ -127,10 +120,6 @@
 </div>
 
 
-
-
-
-
 <!-- About Text -->
 <div class="container aboutcontainer text-center lazy-child">
   <h2>About Droneit</h2>
@@ -154,8 +143,6 @@
 
 } )( $ );
 
-
-
     $(document).ready(function(){
       smoothScroll.init();
     });
@@ -176,4 +163,4 @@
 
 
   <% end %>
-<% end %>
+<% end %> -->
